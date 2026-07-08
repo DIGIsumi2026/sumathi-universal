@@ -1,0 +1,27 @@
+.about-page-sample {
+  min-height: 60vh;
+  padding: 90px 0 110px;
+  background: #fff;
+}
+.about-page-card {
+  width: min(770px, calc(100% - 60px));
+  margin-left: clamp(30px, 11.6vw, 140px);
+}
+.about-page-card h1 {
+  margin: 0 0 16px;
+  color: #2d2f35;
+  font-size: 39px;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  font-weight: 400;
+}
+.about-page-card p {
+  margin: 0;
+  max-width: 660px;
+  color: #738093;
+  font-size: 15.8px;
+  line-height: 1.75;
+  letter-spacing: .01em;
+  word-spacing: 7px;
+  font-weight: 300;
+}
