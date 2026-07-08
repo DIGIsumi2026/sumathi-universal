@@ -1,5 +1,10 @@
 import '../styles/pages/home.css';
 import Preloader from '../components/home/Preloader';
+import ServiceIslandHero from '../components/home/ServiceIslandHero';
+
+
+
+
 import Hero from '../components/home/Hero';
 import TrustStats from '../components/home/TrustStats';
 import AboutPreview from '../components/home/AboutPreview';
@@ -15,6 +20,14 @@ export default function Home() {
   return (
     <>
       <Preloader />
+
+      <ServiceIslandHero/>
+
+
+
+
+
+      
       <Hero />
       <TrustStats />
       <AboutPreview />

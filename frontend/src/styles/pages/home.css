@@ -606,3 +606,80 @@
   .purple-contact-bar b { margin: auto; width: 64px; height: 64px; }
   .brands-section { padding-top: 110px; }
 }
+
+
+/* ======================================================
+   HOME PAGE - SERVICE ISLAND HERO
+====================================================== */
+
+.service-island-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255, 207, 127, 0.28), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(44, 79, 180, 0.22), transparent 32%),
+    linear-gradient(180deg, #ddecff 0%, #f7fbff 45%, #d9e6f5 100%);
+}
+
+.service-island-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.service-island-canvas canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.service-island-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: linear-gradient(180deg, #eaf4ff 0%, #f9fcff 100%);
+  color: #030a8c;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.service-island-loader span {
+  width: 44px;
+  height: 44px;
+  border: 4px solid rgba(3, 10, 140, 0.15);
+  border-top-color: #030a8c;
+  border-radius: 50%;
+  animation: serviceIslandSpin 0.85s linear infinite;
+}
+
+.service-island-loader p {
+  margin: 0;
+}
+
+@keyframes serviceIslandSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 992px) {
+  .service-island-hero {
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 576px) {
+  .service-island-hero {
+    min-height: 540px;
+  }
+}
