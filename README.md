@@ -1,4 +1,4 @@
-# Sumathi Universal Home Clone
+# Sumathi Universal
 
 React + Vite + TypeScript frontend with a small Express backend.
 
