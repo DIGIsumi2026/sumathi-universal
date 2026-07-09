@@ -21,6 +21,12 @@ import engineeringTechnical from "../assets/images/home/engineering-technical-se
 import architectureDesign from "../assets/images/home/architecture-design.png";
 import tradingCommerce from "../assets/images/home/trading-commerce.png";
 
+//home service 
+import printingCard from "../assets/images/home/printing-card.png";
+import servicesCard from "../assets/images/home/services-card.png";
+import managementInvestmentCard from "../assets/images/home/management-investment-card.png";
+import csrCard from "../assets/images/home/csr-card.png";
+
 
 export const imageAssets = {
   brand: {
@@ -46,6 +52,12 @@ export const imageAssets = {
     engineeringTechnical,
     architectureDesign,
     tradingCommerce,
+  },
+   whatWeDo: {
+    printingCard,
+    servicesCard,
+    managementInvestmentCard,
+    csrCard,
   },
 },
 

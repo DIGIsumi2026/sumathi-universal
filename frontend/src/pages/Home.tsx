@@ -2,6 +2,7 @@ import '../styles/pages/home.css';
 import Preloader from '../components/home/Preloader';
 import ServicesGalleryCarousel from '../components/home/ServicesGalleryCarousel';
 import IntroLogoVideo from '../components/home/IntroLogoVideo';
+import WhatWeDoSection from '../components/home/WhatWeDoSection';
 
 
 
@@ -23,6 +24,7 @@ export default function Home() {
 
       <ServicesGalleryCarousel/>
       <IntroLogoVideo/>
+      <WhatWeDoSection/>
 
 
 

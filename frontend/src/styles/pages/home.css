@@ -1078,3 +1078,309 @@
     line-height: 1.7;
   }
 }
+
+/* ======================================================
+   WHAT WE DO SECTION
+====================================================== */
+
+.what-we-do-section {
+  position: relative;
+  width: 100%;
+  padding: 110px clamp(22px, 5vw, 82px);
+  background: #eef3f6;
+  color: #073673;
+  overflow: hidden;
+}
+
+.what-we-do-section::before {
+  content: '';
+  position: absolute;
+  top: -160px;
+  right: -160px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(7, 54, 115, 0.08);
+  filter: blur(8px);
+}
+
+.what-we-do-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 58px;
+}
+
+.what-we-do-header span {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #073673;
+}
+
+.what-we-do-header h2 {
+  margin: 0;
+  font-size: clamp(42px, 3vw, 72px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.0055em;
+  text-transform: uppercase;
+  color: #24272d;
+}
+
+.what-we-do-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.what-we-do-card {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 0 20px 55px rgba(7, 54, 115, 0.08);
+  isolation: isolate;
+  cursor: pointer;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.what-we-do-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 28px 80px rgba(7, 54, 115, 0.24);
+}
+
+.what-we-do-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.12);
+  transition:
+    opacity 0.65s ease,
+    transform 1.1s ease;
+}
+
+.what-we-do-card:hover .what-we-do-card-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.what-we-do-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 54, 115, 0.18) 0%,
+      rgba(7, 54, 115, 0.72) 100%
+    );
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+
+.what-we-do-card:hover .what-we-do-card-overlay {
+  opacity: 1;
+}
+
+.what-we-do-card-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.what-we-do-icon {
+  width: 78px;
+  height: 78px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background:
+    linear-gradient(145deg, rgba(7, 54, 115, 0.96), rgba(3, 10, 140, 0.82));
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 18px 35px rgba(7, 54, 115, 0.25);
+  transition:
+    background 0.45s ease,
+    color 0.45s ease,
+    transform 0.45s ease,
+    backdrop-filter 0.45s ease;
+}
+
+.what-we-do-card:hover .what-we-do-icon {
+  transform: scale(1.06) rotate(-4deg);
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ffffff;
+}
+
+.what-we-do-number {
+  position: absolute;
+  top: 34px;
+  right: 30px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: rgba(7, 54, 115, 0.28);
+  transition: color 0.45s ease;
+}
+
+.what-we-do-card:hover .what-we-do-number {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.what-we-do-card h3 {
+  margin: 0 0 22px;
+  font-size: clamp(25px, 2vw, 34px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: #24272d;
+  transition: color 0.45s ease;
+}
+
+.what-we-do-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #073673;
+  text-align: left;
+  transition: color 0.45s ease;
+}
+
+.what-we-do-card:hover h3,
+.what-we-do-card:hover p {
+  color: #ffffff;
+}
+
+@media (max-width: 1180px) {
+  .what-we-do-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .what-we-do-card {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 640px) {
+  .what-we-do-section {
+    padding: 78px 22px;
+  }
+
+  .what-we-do-header {
+    margin-bottom: 38px;
+  }
+
+  .what-we-do-header span {
+    font-size: 13px;
+    letter-spacing: 0.3em;
+  }
+
+  .what-we-do-header h2 {
+    font-size: 42px;
+  }
+
+  .what-we-do-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .what-we-do-card {
+    min-height: 390px;
+    border-radius: 24px;
+  }
+
+  .what-we-do-card-content {
+    padding: 30px 26px;
+  }
+
+  .what-we-do-icon {
+    width: 68px;
+    height: 68px;
+  }
+
+  .what-we-do-card h3 {
+    font-size: 29px;
+  }
+
+  .what-we-do-card p {
+    font-size: 14px;
+    line-height: 1.72;
+  }
+}
+
+
+/* ======================================================
+   WHAT WE DO THREE.JS ORBIT DECORATION
+====================================================== */
+
+.what-we-do-section {
+  isolation: isolate;
+}
+
+.what-we-do-orbit-canvas {
+  position: absolute;
+  top: -230px;
+  right: -220px;
+  z-index: 1;
+  width: 720px;
+  height: 720px;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.what-we-do-orbit-canvas canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.what-we-do-header,
+.what-we-do-grid {
+  position: relative;
+  z-index: 3;
+}
+
+.what-we-do-card {
+  position: relative;
+  z-index: 4;
+}
+
+@media (max-width: 1180px) {
+  .what-we-do-orbit-canvas {
+    top: -180px;
+    right: -240px;
+    width: 580px;
+    height: 580px;
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 640px) {
+  .what-we-do-orbit-canvas {
+    top: -130px;
+    right: -260px;
+    width: 470px;
+    height: 470px;
+    opacity: 0.55;
+  }
+}
