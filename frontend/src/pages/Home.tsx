@@ -3,6 +3,7 @@ import Preloader from '../components/home/Preloader';
 import ServicesGalleryCarousel from '../components/home/ServicesGalleryCarousel';
 import IntroLogoVideo from '../components/home/IntroLogoVideo';
 import WhatWeDoSection from '../components/home/WhatWeDoSection';
+import CompanyLogoBanner from '../components/home/CompanyLogoBanner';
 
 
 
@@ -25,6 +26,7 @@ export default function Home() {
       <ServicesGalleryCarousel/>
       <IntroLogoVideo/>
       <WhatWeDoSection/>
+      <CompanyLogoBanner/>
 
 
 
