@@ -1,7 +1,7 @@
 import '../styles/pages/home.css';
 import Preloader from '../components/home/Preloader';
 import ServiceIslandHero from '../components/home/ServiceIslandHero';
-
+import ServicesGalleryCarousel from '../components/home/ServicesGalleryCarousel';
 
 
 
@@ -21,7 +21,7 @@ export default function Home() {
     <>
       <Preloader />
 
-      <ServiceIslandHero/>
+      <ServicesGalleryCarousel/>
 
 
 
