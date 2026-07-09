@@ -1,7 +1,7 @@
 import '../styles/pages/home.css';
 import Preloader from '../components/home/Preloader';
-import ServiceIslandHero from '../components/home/ServiceIslandHero';
 import ServicesGalleryCarousel from '../components/home/ServicesGalleryCarousel';
+import IntroLogoVideo from '../components/home/IntroLogoVideo';
 
 
 
@@ -22,6 +22,7 @@ export default function Home() {
       <Preloader />
 
       <ServicesGalleryCarousel/>
+      <IntroLogoVideo/>
 
 
 
