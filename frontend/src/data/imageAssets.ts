@@ -45,6 +45,8 @@ import Logo14 from "../assets/images/home/company14.png";
 import Logo15 from "../assets/images/home/company15.png";
 import Logo16 from "../assets/images/home/company16.png";
 
+//contact cta
+import contactCtaBg from "../assets/images/home/contact-cta-bg.png";
 
 
 
@@ -53,6 +55,9 @@ export const imageAssets = {
     companyLogo
   },
   home: {
+    contactCtaBg,
+
+    
     heroProducts,
     aboutCollage,
     serviceFace,
@@ -99,6 +104,8 @@ companies: {
   Logo15,
   Logo16
 },
+
+
 
 };
 

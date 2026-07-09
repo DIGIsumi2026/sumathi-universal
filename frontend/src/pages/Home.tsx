@@ -4,8 +4,9 @@ import ServicesGalleryCarousel from '../components/home/ServicesGalleryCarousel'
 import IntroLogoVideo from '../components/home/IntroLogoVideo';
 import WhatWeDoSection from '../components/home/WhatWeDoSection';
 import CompanyLogoBanner from '../components/home/CompanyLogoBanner';
+import HomeContactCTA from '../components/home/HomeContactCTA';
 
-
+{/*
 
 import Hero from '../components/home/Hero';
 import TrustStats from '../components/home/TrustStats';
@@ -18,6 +19,8 @@ import BlogInsights from '../components/home/BlogInsights';
 import ContactCTA from '../components/home/ContactCTA';
 import ClientsStrip from '../components/home/ClientsStrip';
 
+*/}
+
 export default function Home() {
   return (
     <>
@@ -26,23 +29,9 @@ export default function Home() {
       <ServicesGalleryCarousel/>
       <IntroLogoVideo/>
       <WhatWeDoSection/>
+      <HomeContactCTA/>
       <CompanyLogoBanner/>
-
-
-
-
-
       
-      <Hero />
-      <TrustStats />
-      <AboutPreview />
-      <ServicesCarousel />
-      <ProcessSteps />
-      <Testimonials />
-      <CategoryShowcase />
-      <BlogInsights />
-      <ContactCTA />
-      <ClientsStrip />
     </>
   );
 }

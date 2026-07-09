@@ -58,8 +58,6 @@ export default function WhatWeDoSection() {
                   <Icon size={32} strokeWidth={1.8} />
                 </div>
 
-                <span className="what-we-do-number">{item.id}</span>
-
                 <h3>{item.title}</h3>
 
                 <p>{item.description}</p>
