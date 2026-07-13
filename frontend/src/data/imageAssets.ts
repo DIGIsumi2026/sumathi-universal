@@ -51,6 +51,8 @@ import contactCtaBg from "../assets/images/home/contact-cta-bg.png";
 
 //about us 
 import aboutHeroThumbnail from "../assets/images/about/about-hero-thumbnail.png";
+import  aboutTeamImage from "../assets/images/about/about-team.png";
+import  aboutTeamPeople from "../assets/images/about/about-team-people.png";
 
 
 
@@ -112,6 +114,8 @@ companies: {
 
 about:{
   thumbnail: aboutHeroThumbnail,
+  teamImage: aboutTeamImage,
+  teamPeople: aboutTeamPeople
 }
 
 
