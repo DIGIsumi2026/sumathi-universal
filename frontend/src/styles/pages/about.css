@@ -1,27 +1,107 @@
-.about-page-sample {
-  min-height: 60vh;
-  padding: 90px 0 110px;
-  background: #fff;
+/* ======================================================
+   ABOUT HERO VIDEO SECTION
+====================================================== */
+
+.about-hero-video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 760px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #020814;
+  color: #ffffff;
 }
-.about-page-card {
-  width: min(770px, calc(100% - 60px));
-  margin-left: clamp(30px, 11.6vw, 140px);
+
+.about-hero-video__media,
+.about-hero-video__thumbnail {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-.about-page-card h1 {
-  margin: 0 0 16px;
-  color: #2d2f35;
-  font-size: 39px;
-  line-height: 1.25;
-  letter-spacing: -.025em;
-  font-weight: 400;
+
+.about-hero-video__thumbnail {
+  z-index: -3;
+  pointer-events: none;
 }
-.about-page-card p {
+
+.about-hero-video__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 20, 0.92) 0%,
+      rgba(7, 54, 115, 0.72) 38%,
+      rgba(7, 54, 115, 0.28) 68%,
+      rgba(2, 8, 20, 0.38) 100%
+    ),
+    radial-gradient(circle at 22% 48%, rgba(7, 54, 115, 0.48), transparent 34%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.38));
+}
+
+.about-hero-video__content {
+  position: relative;
+  z-index: 4;
+  width: min(780px, 88%);
+  height: 100%;
+  margin-left: clamp(32px, 7vw, 110px);
+  padding-top: 86px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-hero-video__content span {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.about-hero-video__content h1 {
+  max-width: 780px;
   margin: 0;
-  max-width: 660px;
-  color: #738093;
-  font-size: 15.8px;
-  line-height: 1.75;
-  letter-spacing: .01em;
-  word-spacing: 7px;
-  font-weight: 300;
+  color: #ffffff;
+  font-size: clamp(48px, 4vw, 92px);
+  line-height: 0.94;
+  font-weight: 600;
+  letter-spacing: -0.065em;
+}
+
+.about-hero-video__content p {
+  max-width: 620px;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .about-hero-video {
+    min-height: 700px;
+  }
+
+  .about-hero-video__content {
+    width: calc(100% - 56px);
+    margin-left: 28px;
+    padding-top: 94px;
+  }
+
+  .about-hero-video__content h1 {
+    font-size: 46px;
+  }
+
+  .about-hero-video__content p {
+    font-size: 14px;
+    line-height: 1.72;
+  }
 }

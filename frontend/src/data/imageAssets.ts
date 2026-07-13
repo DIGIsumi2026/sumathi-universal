@@ -49,6 +49,11 @@ import Logo16 from "../assets/images/home/company16.png";
 import contactCtaBg from "../assets/images/home/contact-cta-bg.png";
 
 
+//about us 
+import aboutHeroThumbnail from "../assets/images/about/about-hero-thumbnail.png";
+
+
+
 
 export const imageAssets = {
   brand: {
@@ -104,6 +109,10 @@ companies: {
   Logo15,
   Logo16
 },
+
+about:{
+  thumbnail: aboutHeroThumbnail,
+}
 
 
 
