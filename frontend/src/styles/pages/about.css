@@ -531,3 +531,303 @@
     line-height: 1.38;
   }
 }
+
+/* ======================================================
+   VISION & MISSION SECTION
+====================================================== */
+
+.vision-mission-section {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.vision-mission-panel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 680px;
+  overflow: hidden;
+  isolation: isolate;
+  color: #ffffff;
+  background: #020814;
+}
+
+/* ================================
+   BACKGROUND IMAGE
+================================ */
+
+.vision-mission-image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.vision-mission-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* ================================
+   BLUE FADE OVERLAY
+================================ */
+
+.vision-mission-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.vision-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 20, 0.94) 0%,
+      rgba(7, 54, 115, 0.82) 34%,
+      rgba(7, 54, 115, 0.34) 62%,
+      rgba(2, 8, 20, 0.08) 100%
+    ),
+    radial-gradient(
+      circle at 18% 48%,
+      rgba(7, 54, 115, 0.48),
+      transparent 36%
+    );
+}
+
+.mission-overlay {
+  background:
+    linear-gradient(
+      270deg,
+      rgba(2, 8, 20, 0.94) 0%,
+      rgba(7, 54, 115, 0.82) 34%,
+      rgba(7, 54, 115, 0.34) 62%,
+      rgba(2, 8, 20, 0.08) 100%
+    ),
+    radial-gradient(
+      circle at 82% 48%,
+      rgba(7, 54, 115, 0.48),
+      transparent 36%
+    );
+}
+
+/* ================================
+   TEXT CONTENT
+================================ */
+
+.vision-mission-content {
+  position: relative;
+  z-index: 4;
+  width: min(620px, 86%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vision-content {
+  margin-left: clamp(28px, 6vw, 96px);
+  align-items: flex-start;
+  text-align: left;
+}
+
+.mission-content {
+  margin-left: auto;
+  margin-right: clamp(28px, 6vw, 96px);
+  align-items: flex-end;
+  text-align: right;
+}
+
+.vision-mission-title {
+  min-height: 0.9em;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(54px, 7vw, 118px);
+  line-height: 0.86;
+  font-weight: 950;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+  text-shadow:
+    0 18px 70px rgba(0, 0, 0, 0.28),
+    0 0 44px rgba(7, 54, 115, 0.42);
+}
+
+.vision-mission-cursor {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.76em;
+  margin-left: 0.08em;
+  background: #ffffff;
+  vertical-align: -0.04em;
+  animation: visionMissionCursorBlink 0.75s steps(2, start) infinite;
+}
+
+.vision-mission-content p {
+  max-width: 540px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(17px, 1.35vw, 23px);
+  line-height: 1.48;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+}
+
+.mission-content p {
+  margin-left: auto;
+}
+
+/* ================================
+   ANIMATION
+================================ */
+
+@keyframes visionMissionCursorBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) {
+  .vision-mission-panel {
+    height: 100vh;
+    min-height: 640px;
+  }
+
+  .vision-mission-image {
+    object-position: center;
+  }
+
+  .vision-overlay,
+  .mission-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2, 8, 20, 0.16) 0%,
+        rgba(7, 54, 115, 0.38) 40%,
+        rgba(2, 8, 20, 0.92) 100%
+      ),
+      radial-gradient(
+        circle at 50% 62%,
+        rgba(7, 54, 115, 0.5),
+        transparent 42%
+      );
+  }
+
+  .vision-mission-content,
+  .mission-content,
+  .vision-content {
+    width: calc(100% - 56px);
+    margin-left: 28px;
+    margin-right: 28px;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-end;
+
+    /* reduced bottom padding */
+    padding-bottom: 54px;
+  }
+
+  .mission-content p {
+    margin-left: 0;
+  }
+
+  .vision-mission-title {
+    font-size: clamp(52px, 12vw, 92px);
+  }
+
+  .vision-mission-content p {
+    max-width: 620px;
+    margin-top: 18px;
+    font-size: 19px;
+    line-height: 1.5;
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 576px) {
+  .vision-mission-panel {
+    height: 100vh;
+    min-height: 560px;
+  }
+
+  .vision-mission-image {
+    object-position: center;
+  }
+
+  .vision-overlay,
+  .mission-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2, 8, 20, 0.1) 0%,
+        rgba(7, 54, 115, 0.32) 36%,
+        rgba(2, 8, 20, 0.96) 100%
+      );
+  }
+
+  .vision-content,
+  .mission-content {
+    width: calc(100% - 36px);
+    margin-left: 18px;
+    margin-right: 18px;
+
+    /* reduced bottom padding */
+    padding-bottom: 42px;
+  }
+
+  .vision-mission-title {
+    font-size: 48px;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+  }
+
+  .vision-mission-content p {
+    max-width: 100%;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 390px) {
+  .vision-mission-panel {
+    min-height: 520px;
+  }
+
+  .vision-content,
+  .mission-content {
+    padding-bottom: 34px;
+  }
+
+  .vision-mission-title {
+    font-size: 42px;
+  }
+
+  .vision-mission-content p {
+    font-size: 15px;
+    line-height: 1.48;
+  }
+}

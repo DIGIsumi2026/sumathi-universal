@@ -54,6 +54,9 @@ import aboutHeroThumbnail from "../assets/images/about/about-hero-thumbnail.png"
 import  aboutTeamImage from "../assets/images/about/about-team.png";
 import  aboutTeamPeople from "../assets/images/about/about-team-people.png";
 
+import visionImage from "../assets/images/about/vision.png";
+import missionImage from "../assets/images/about/mission.png";
+
 
 
 
@@ -115,7 +118,9 @@ companies: {
 about:{
   thumbnail: aboutHeroThumbnail,
   teamImage: aboutTeamImage,
-  teamPeople: aboutTeamPeople
+  teamPeople: aboutTeamPeople,
+  vision: visionImage,
+  mission: missionImage
 }
 
 
