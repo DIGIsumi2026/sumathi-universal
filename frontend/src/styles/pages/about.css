@@ -624,7 +624,7 @@
 
 .vision-mission-content {
   position: relative;
-  z-index: 4;
+  z-index: 10;
   width: min(620px, 86%);
   height: 100%;
   display: flex;
@@ -646,6 +646,7 @@
 }
 
 .vision-mission-title {
+  display: block;
   min-height: 0.9em;
   margin: 0;
   color: #ffffff;
@@ -654,8 +655,10 @@
   font-weight: 950;
   letter-spacing: -0.07em;
   text-transform: uppercase;
+  opacity: 1;
+  visibility: visible;
   text-shadow:
-    0 18px 70px rgba(0, 0, 0, 0.28),
+    0 18px 70px rgba(0, 0, 0, 0.38),
     0 0 44px rgba(7, 54, 115, 0.42);
 }
 
@@ -670,13 +673,16 @@
 }
 
 .vision-mission-content p {
+  display: block;
   max-width: 540px;
-  margin: 22px 0 0;
-  color: rgba(255, 255, 255, 0.9);
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.92);
   font-size: clamp(17px, 1.35vw, 23px);
   line-height: 1.48;
   font-weight: 400;
   letter-spacing: -0.012em;
+  opacity: 1;
+  visibility: visible;
 }
 
 .mission-content p {
@@ -738,8 +744,6 @@
     align-items: flex-start;
     text-align: left;
     justify-content: flex-end;
-
-    /* reduced bottom padding */
     padding-bottom: 54px;
   }
 
@@ -749,6 +753,7 @@
 
   .vision-mission-title {
     font-size: clamp(52px, 12vw, 92px);
+    line-height: 0.9;
   }
 
   .vision-mission-content p {
@@ -789,8 +794,6 @@
     width: calc(100% - 36px);
     margin-left: 18px;
     margin-right: 18px;
-
-    /* reduced bottom padding */
     padding-bottom: 42px;
   }
 
