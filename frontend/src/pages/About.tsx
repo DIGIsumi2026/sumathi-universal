@@ -2,6 +2,7 @@ import '../styles/pages/about.css';
 import AboutHeroVideo from '../components/about/AboutHeroVideo';
 import AboutIntroSection from '../components/about/AboutIntroSection';
 import VisionMissionSection from '../components/about/VisionMissionSection';
+import GroupAtGlanceSection from "../components/about/GroupAtGlanceSection"
 
 
 
@@ -11,6 +12,7 @@ export default function About() {
       <AboutHeroVideo />
       <AboutIntroSection/>
       <VisionMissionSection/>
+      <GroupAtGlanceSection/>
     </>
   );
 }
