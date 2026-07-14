@@ -847,18 +847,22 @@
 
   background:
     radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.9) 0%, rgba(245, 250, 255, 0.72) 38%, transparent 70%),
-    radial-gradient(circle at 12% 30%, rgba(80, 161, 255, 0.18), transparent 36%),
-    radial-gradient(circle at 88% 40%, rgba(80, 161, 255, 0.16), transparent 34%),
-    radial-gradient(circle at 50% 100%, rgba(7, 54, 115, 0.09), transparent 44%),
+    radial-gradient(circle at 12% 30%, rgba(80, 161, 255, 0.16), transparent 36%),
+    radial-gradient(circle at 88% 40%, rgba(80, 161, 255, 0.14), transparent 34%),
+    radial-gradient(circle at 50% 100%, rgba(7, 54, 115, 0.07), transparent 44%),
     linear-gradient(180deg, #f7fbff 0%, #eaf4ff 100%);
 }
+
+/* ================================
+   THREE JS BACKGROUND
+================================ */
 
 .group-glance-particles {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 1;
+  opacity: 0.98;
   overflow: hidden;
 }
 
@@ -866,8 +870,8 @@
   display: block;
   width: 100% !important;
   height: 100% !important;
-  opacity: 1;
-  filter: saturate(1.25) contrast(1.1);
+  opacity: 0.98;
+  filter: saturate(1.05) contrast(1.02);
 }
 
 .group-glance-inner {
@@ -959,8 +963,8 @@
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(255, 255, 255, 0.74)
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.78)
     );
 
   border: 1px solid rgba(7, 54, 115, 0.14);
@@ -983,9 +987,9 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 18%, rgba(7, 54, 115, 0.16), transparent 34%),
-    radial-gradient(circle at 82% 84%, rgba(3, 10, 140, 0.12), transparent 34%),
-    linear-gradient(135deg, rgba(7, 54, 115, 0.07), transparent 58%);
+    radial-gradient(circle at 20% 18%, rgba(7, 54, 115, 0.14), transparent 34%),
+    radial-gradient(circle at 82% 84%, rgba(3, 10, 140, 0.1), transparent 34%),
+    linear-gradient(135deg, rgba(7, 54, 115, 0.06), transparent 58%);
   opacity: 0;
   transition: opacity 0.45s ease;
 }
@@ -997,10 +1001,10 @@
   bottom: -24px;
   width: 120px;
   height: 120px;
-  opacity: 0.22;
+  opacity: 0.18;
   border-radius: 999px;
   background:
-    radial-gradient(circle, rgba(7, 54, 115, 0.22) 1px, transparent 2px);
+    radial-gradient(circle, rgba(7, 54, 115, 0.2) 1px, transparent 2px);
   background-size: 9px 9px;
 }
 
@@ -1079,7 +1083,12 @@
   }
 
   .group-glance-particles {
-    opacity: 0.82;
+    opacity: 0.52;
+  }
+
+  .group-glance-particles canvas {
+    opacity: 0.74;
+    filter: saturate(1) contrast(1);
   }
 
   .group-glance-inner {
@@ -1136,7 +1145,11 @@
   }
 
   .group-glance-particles {
-    opacity: 0.62;
+    opacity: 0.42;
+  }
+
+  .group-glance-particles canvas {
+    opacity: 0.66;
   }
 
   .group-glance-inner {
@@ -1214,7 +1227,12 @@
   }
 
   .group-glance-particles {
-    opacity: 0.48;
+    opacity: 0.34;
+  }
+
+  .group-glance-particles canvas {
+    opacity: 0.58;
+    filter: saturate(0.95) contrast(0.98);
   }
 
   .group-glance-inner {
@@ -1299,6 +1317,14 @@
 @media (max-width: 390px) {
   .group-glance-section {
     padding: 38px 0 50px;
+  }
+
+  .group-glance-particles {
+    opacity: 0.28;
+  }
+
+  .group-glance-particles canvas {
+    opacity: 0.5;
   }
 
   .group-glance-inner {
