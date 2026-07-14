@@ -58,6 +58,10 @@ import visionImage from "../assets/images/about/vision.png";
 import missionImage from "../assets/images/about/mission.png";
 
 
+//company showcase
+import rabbitLogo  from "../assets/images/about/company showcase/rabbit-logo.png";
+import rabbitBg from "../assets/images/about/company showcase/rabbit-bg.png";
+
 
 
 export const imageAssets = {
@@ -121,7 +125,14 @@ about:{
   teamPeople: aboutTeamPeople,
   vision: visionImage,
   mission: missionImage
-}
+},
+
+companyTimeline: {
+  rabbitSolutions: {
+    logo: rabbitLogo,
+    background: rabbitBg,
+  },
+},
 
 
 
