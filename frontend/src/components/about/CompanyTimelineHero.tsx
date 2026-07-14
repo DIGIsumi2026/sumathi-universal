@@ -1,12 +1,13 @@
 import { useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
+  ArrowDown,
+  ArrowUp,
   ChevronLeft,
   ChevronRight,
   ExternalLink,
   Mail,
   Phone,
-  X,
 } from 'lucide-react';
 import {
   companyTimelineCategories,
@@ -30,7 +31,6 @@ export default function CompanyTimelineHero() {
   }, [activeCategory, activeCompanyIndex]);
 
   const rabbitFallback = companyTimelineCategories[0].companies[0];
-
   const displayCompany = activeCompany ?? rabbitFallback;
 
   const hasMultipleCompanies = activeCategory.companies.length > 1;
@@ -47,6 +47,7 @@ export default function CompanyTimelineHero() {
     setActiveCompanyIndex((current) =>
       current === activeCategory.companies.length - 1 ? 0 : current + 1
     );
+
     setIsExpanded(false);
   };
 
@@ -56,6 +57,7 @@ export default function CompanyTimelineHero() {
     setActiveCompanyIndex((current) =>
       current === 0 ? activeCategory.companies.length - 1 : current - 1
     );
+
     setIsExpanded(false);
   };
 
@@ -92,7 +94,11 @@ export default function CompanyTimelineHero() {
   };
 
   return (
-    <section className="company-timeline-hero">
+    <section
+      className={`company-timeline-hero ${
+        isExpanded ? 'timeline-expanded-mode' : ''
+      }`}
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={displayCompany.background}
@@ -140,7 +146,11 @@ export default function CompanyTimelineHero() {
           <div className="company-timeline-contact">
             <span>Contact Details</span>
 
-            <a href={`https://${displayCompany.contact.website}`} target="_blank">
+            <a
+              href={`https://${displayCompany.contact.website}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               <ExternalLink size={15} />
               {displayCompany.contact.website}
             </a>
@@ -155,19 +165,6 @@ export default function CompanyTimelineHero() {
               {displayCompany.contact.phone}
             </a>
           </div>
-
-          <div className="company-timeline-description">
-            <span>Short Description</span>
-            <p>{displayCompany.shortDescription}</p>
-          </div>
-
-          <button
-            type="button"
-            className="company-timeline-expand-btn"
-            onClick={() => setIsExpanded((current) => !current)}
-          >
-            {isExpanded ? 'Close Details' : 'Expand'}
-          </button>
         </motion.div>
 
         <motion.div
@@ -191,10 +188,28 @@ export default function CompanyTimelineHero() {
             </motion.h2>
           </AnimatePresence>
 
-          <p>
-            Background image, company logo, contact details and company
-            description change according to the selected category/company.
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`desc-${displayCompany.id}`}
+              className="company-timeline-short-copy"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span>Short Description</span>
+              <p>{displayCompany.shortDescription}</p>
+            </motion.div>
+          </AnimatePresence>
+
+          <button
+            type="button"
+            className="company-timeline-expand-btn"
+            onClick={() => setIsExpanded(true)}
+          >
+            Expand Details
+            <ArrowDown size={18} />
+          </button>
 
           {hasMultipleCompanies && (
             <div className="company-timeline-company-controls">
@@ -232,15 +247,6 @@ export default function CompanyTimelineHero() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="company-timeline-expanded-inner">
-              <button
-                type="button"
-                className="company-timeline-expanded-close"
-                onClick={() => setIsExpanded(false)}
-                aria-label="Close company details"
-              >
-                <X size={18} />
-              </button>
-
               <div>
                 <span>Company Details</span>
                 <h3>{displayCompany.name}</h3>
@@ -256,55 +262,95 @@ export default function CompanyTimelineHero() {
                 </ul>
               </div>
             </div>
+
+            <button
+              type="button"
+              className="company-timeline-collapse-btn"
+              onClick={() => setIsExpanded(false)}
+              aria-label="Collapse company details"
+            >
+              <ArrowUp size={20} />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="company-timeline-bottom">
-        <div
-          ref={timelineRef}
-          className="company-timeline-track-scroll"
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={stopDragging}
-          onPointerCancel={stopDragging}
-          onPointerLeave={(event) => {
-            if (isDragging.current) {
-              stopDragging(event);
-            }
-          }}
-        >
-          <div className="company-timeline-track">
-            <div className="company-timeline-line" />
+      <div
+        className={`company-timeline-bottom ${
+          isExpanded ? 'timeline-bottom-minimized' : ''
+        }`}
+      >
+        {isExpanded ? (
+          <button
+            type="button"
+            className="company-timeline-mini-category"
+            onClick={() => setIsExpanded(false)}
+          >
+            <span>Active Category</span>
+            {activeCategory.category}
+            <ArrowUp size={16} />
+          </button>
+        ) : (
+          <>
+            <div
+              ref={timelineRef}
+              className="company-timeline-track-scroll"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={stopDragging}
+              onPointerCancel={stopDragging}
+              onPointerLeave={(event) => {
+                if (isDragging.current) {
+                  stopDragging(event);
+                }
+              }}
+            >
+              <div className="company-timeline-track">
+                <div className="company-timeline-line" />
 
-            {companyTimelineCategories.map(
-              (item: CompanyTimelineCategory, index: number) => {
-                const isActive = index === activeCategoryIndex;
-                const isTop = index % 2 === 0;
+                {companyTimelineCategories.map(
+                  (item: CompanyTimelineCategory, index: number) => {
+                    const isActive = index === activeCategoryIndex;
+                    const isTop = index % 2 === 0;
 
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    className={`company-timeline-point ${
-                      isActive ? 'active' : ''
-                    } ${isTop ? 'point-top' : 'point-bottom'}`}
-                    onClick={() => handleCategorySelect(index)}
-                  >
-                    <span className="company-timeline-category-name">
-                      {item.category}
-                    </span>
-                    <span className="company-timeline-marker" />
-                  </button>
-                );
-              }
-            )}
-          </div>
-        </div>
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        className={`company-timeline-point ${
+                          isActive ? 'active' : ''
+                        } ${isTop ? 'point-top' : 'point-bottom'}`}
+                        onClick={() => handleCategorySelect(index)}
+                      >
+                        <span className="company-timeline-category-name">
+                          {item.category}
+                        </span>
+                        <span className="company-timeline-marker" />
+                      </button>
+                    );
+                  }
+                )}
+              </div>
+            </div>
 
-        <span className="company-timeline-drag-hint">
-          Click + drag timeline
-        </span>
+            <div className="company-timeline-mobile-pills">
+              {companyTimelineCategories.map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={index === activeCategoryIndex ? 'active' : ''}
+                  onClick={() => handleCategorySelect(index)}
+                >
+                  {item.category}
+                </button>
+              ))}
+            </div>
+
+            <span className="company-timeline-drag-hint">
+              Select category
+            </span>
+          </>
+        )}
       </div>
     </section>
   );
