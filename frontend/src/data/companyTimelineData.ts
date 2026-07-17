@@ -6,10 +6,11 @@ export type CompanyTimelineCompany = {
   logo: string;
   background: string;
   contact: {
-    website: string;
-    email: string;
-    phone: string;
-  };
+  website: string;
+  email: string;
+  phone: string;
+  address: string;
+};
   shortDescription: string;
   fullDescription: string;
   services: string[];
@@ -23,34 +24,42 @@ export type CompanyTimelineCategory = {
 
 export const companyTimelineCategories: CompanyTimelineCategory[] = [
   {
-    id: 'technology-it',
-    category: 'Technology & IT',
-    companies: [
-      {
-        id: 'rabbit-solutions',
-        name: 'Rabbit Solutions',
-        logo: imageAssets.companyTimeline.rabbitSolutions.logo,
-        background: imageAssets.companyTimeline.rabbitSolutions.background,
-        contact: {
-          website: 'www.rabbit.lk',
-          email: 'info@rabbit.lk',
-          phone: '+94 XX XXX XXXX',
-        },
-        shortDescription:
-          'Rabbit Solutions delivers technology-driven digital solutions for modern business transformation.',
-        fullDescription:
-          'Rabbit Solutions represents the Technology & IT arm of the group, focusing on digital transformation, software solutions, business systems, and technology services that support modern organizations with scalable and efficient digital infrastructure.',
-        services: [
-          'Software Development',
-          'ERP Solutions',
-          'Digital Transformation',
-          'Cloud-Based Systems',
-          'Business Automation',
-          'Technology Consulting',
-        ],
+  id: 'technology-it',
+  category: 'Technology & IT',
+  companies: [
+    {
+      id: 'rabbit-solutions',
+      name: 'Rabbit Solutions',
+      logo: imageAssets.companyTimeline.rabbitSolutions.logo,
+      background: imageAssets.companyTimeline.rabbitSolutions.background,
+
+      contact: {
+        website: 'www.rabbit.lk',
+        email: 'info@rabbit.lk',
+        phone: '+94 11 211 8130',
+        address:
+          '65, Ananda Rajakaruna Mawatha, Colombo 10, Sri Lanka.',
       },
-    ],
-  },
+
+      shortDescription:
+        'Rabbit Solutions provides innovative technology solutions, custom software, and scalable digital products that help businesses and start-ups grow.',
+
+      fullDescription:
+        'Formed to create a smart world through continuous innovation, Rabbit Solutions was established to provide intelligent technology solutions. Over the years, the company has helped many businesses and start-ups grow and gain strong momentum in their respective industries. Using deep industry expertise and the latest IT advancements, Rabbit Solutions delivers custom solutions and products that perfectly fit the needs and behaviour of users. The company also specialises in developing reliable and scalable software for any operating system, browser, and device.',
+
+      services: [
+        'Custom Software Development',
+        'Web Application Development',
+        'Mobile Application Development',
+        'ERP Solutions',
+        'Digital Transformation',
+        'Cloud-Based Systems',
+        'Business Automation',
+        'Technology Consulting',
+      ],
+    },
+  ],
+},
   {
     id: 'printing',
     category: 'Printing',

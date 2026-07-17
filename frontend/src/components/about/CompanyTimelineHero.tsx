@@ -7,6 +7,7 @@ import {
   ChevronRight,
   ExternalLink,
   Mail,
+  MapPin,
   Phone,
 } from 'lucide-react';
 import {
@@ -189,26 +190,27 @@ export default function CompanyTimelineHero() {
           </AnimatePresence>
 
           <AnimatePresence mode="wait">
-            <motion.div
-              key={`desc-${displayCompany.id}`}
-              className="company-timeline-short-copy"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -14 }}
-              transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <span>Short Description</span>
-              <p>{displayCompany.shortDescription}</p>
-            </motion.div>
+            {!isExpanded && (
+              <motion.div
+                key={`desc-${displayCompany.id}`}
+                className="company-timeline-short-copy"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <p>{displayCompany.shortDescription}</p>
+              </motion.div>
+            )}
           </AnimatePresence>
 
           <button
             type="button"
             className="company-timeline-expand-btn"
-            onClick={() => setIsExpanded(true)}
+            onClick={() => setIsExpanded((current) => !current)}
           >
-            Expand Details
-            <ArrowDown size={18} />
+            {isExpanded ? 'Collapse Details' : 'Expand Details'}
+            {isExpanded ? <ArrowUp size={18} /> : <ArrowDown size={18} />}
           </button>
 
           {hasMultipleCompanies && (
@@ -254,7 +256,15 @@ export default function CompanyTimelineHero() {
               </div>
 
               <div>
-                <span>Key Services</span>
+                <span>Address</span>
+                <div className="company-timeline-address">
+                  <MapPin size={18} />
+                  <p>{displayCompany.contact.address}</p>
+                </div>
+
+                <span className="company-timeline-services-title">
+                  Key Services
+                </span>
                 <ul>
                   {displayCompany.services.map((service) => (
                     <li key={service}>{service}</li>
@@ -345,10 +355,6 @@ export default function CompanyTimelineHero() {
                 </button>
               ))}
             </div>
-
-            <span className="company-timeline-drag-hint">
-              Select category
-            </span>
           </>
         )}
       </div>
