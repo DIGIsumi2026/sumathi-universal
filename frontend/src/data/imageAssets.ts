@@ -65,6 +65,8 @@ import printersLogo from "../assets/images/about/company showcase/printers-logo.
 import printersBg from "../assets/images/about/company showcase/printers-bg.png";
 import napcoLogo from "../assets/images/about/company showcase/napco-logo.png";
 import napcoBg from "../assets/images/about/company showcase/napco-bg.png";
+import octagonforceLogo from "../assets/images/about/company showcase/octagon-logo.png";
+import octagonforceBg from "../assets/images/about/company showcase/octagon-bg.png";
 
 
 export const imageAssets = {
@@ -141,8 +143,13 @@ companyTimeline: {
   },
   napco:{
     logo: napcoLogo,
-    background: napcoBg,
-  }
+    background: napcoBg
+  },
+  force:{
+    logo: octagonforceLogo,
+    background:octagonforceBg
+  },
+  
 },
 
 

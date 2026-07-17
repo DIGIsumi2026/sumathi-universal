@@ -95,7 +95,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.napco.lk',
           email: 'info@napco.lk',
-          phone: '+94 XX XXX XXXX',
+          phone: '+(94) 112 910 015',
           address: 'Sri Lanka.',
         },
         shortDescription:
@@ -119,13 +119,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'octagon-force',
         name: 'Octagon Force',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.force.logo,
+        background:imageAssets.companyTimeline.force.background,
         contact: {
           website: 'www.octagonforce.lk',
           email: 'info@octagonforce.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          phone: '+(94) 11 242 1294',
+          address: '445/1 Sirimavo Bandaranayaka Mawatha, Colombo 14.',
         },
         shortDescription:
           'Octagon Force provides security and operational support services for businesses and institutions.',
