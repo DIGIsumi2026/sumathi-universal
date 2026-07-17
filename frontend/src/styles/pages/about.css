@@ -1372,11 +1372,14 @@
   background: #020b18;
   color: #ffffff;
   padding: clamp(118px, 8vw, 142px) clamp(22px, 4vw, 86px) 160px;
+
+  --category-color: #0511f2;
+  --category-rgb: 5, 17, 242;
 }
 
 .company-timeline-hero.timeline-expanded-mode {
   min-height: 118vh;
-  padding-bottom: 132px;
+  padding-bottom: 130px;
 }
 
 .company-timeline-bg {
@@ -1407,8 +1410,8 @@
     ),
     linear-gradient(
       180deg,
-      rgba(2, 11, 24, 0.25) 0%,
-      rgba(2, 11, 24, 0.9) 100%
+      rgba(2, 11, 24, 0.24) 0%,
+      rgba(2, 11, 24, 0.92) 100%
     );
 }
 
@@ -1426,14 +1429,16 @@
 .company-timeline-glow-one {
   left: -120px;
   top: 18%;
-  background: rgba(0, 136, 255, 0.5);
+  background: rgba(var(--category-rgb), 0.42);
 }
 
 .company-timeline-glow-two {
   right: -160px;
   bottom: 14%;
-  background: rgba(7, 54, 115, 0.65);
+  background: rgba(var(--category-rgb), 0.52);
 }
+
+/* MAIN CONTENT */
 
 .company-timeline-content {
   position: relative;
@@ -1455,22 +1460,19 @@
 
 .company-timeline-active-card {
   position: relative;
-  min-height: 380px;
+  min-height: 390px;
   padding: 42px 34px;
   overflow: hidden;
-
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(190, 226, 255, 0.62);
-  border-radius: 0;
-
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.24);
-
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-
   transition:
     min-height 0.45s ease,
-    padding 0.45s ease;
+    padding 0.45s ease,
+    background 0.45s ease;
 }
 
 .company-timeline-active-card::before {
@@ -1540,11 +1542,29 @@
 }
 
 .company-timeline-contact a:hover {
-  color: #073673;
+  color: var(--category-color);
   transform: translateX(4px);
 }
 
-/* RIGHT COPY */
+.company-timeline-contact-address {
+  width: min(100%, 340px);
+  margin: 8px 0 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(6, 23, 48, 0.78);
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.company-timeline-contact-address svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--category-color);
+}
+
+/* RIGHT COMPANY COPY */
 
 .company-timeline-main-copy {
   padding-top: 4px;
@@ -1578,6 +1598,8 @@
   letter-spacing: -0.02em;
 }
 
+/* BUTTONS */
+
 .company-timeline-expand-btn {
   position: relative;
   z-index: 4;
@@ -1591,71 +1613,84 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: rgba(7, 54, 115, 0.86);
+  background:
+    linear-gradient(
+      135deg,
+      var(--category-color),
+      rgba(var(--category-rgb), 0.72)
+    );
   color: #ffffff;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.01em;
   cursor: pointer;
+  box-shadow: 0 16px 36px rgba(var(--category-rgb), 0.28);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition:
     transform 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .company-timeline-expand-btn:hover {
   transform: translateY(-3px);
-  background: rgba(3, 10, 140, 0.9);
   border-color: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 22px 46px rgba(var(--category-rgb), 0.38);
 }
 
 .company-timeline-company-controls {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 30px;
+  gap: 10px;
+  margin-top: 22px;
   padding: 8px;
+  width: fit-content;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(155, 216, 255, 0.24);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(155, 216, 255, 0.28);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
 
 .company-timeline-company-controls button {
   height: 42px;
-  padding: 0 18px;
+  padding: 0 16px;
   border: 0;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(7, 54, 115, 0.82);
+  background:
+    linear-gradient(
+      135deg,
+      var(--category-color),
+      rgba(var(--category-rgb), 0.72)
+    );
   color: #ffffff;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.company-timeline-company-controls small {
-  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
   font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(var(--category-rgb), 0.24);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
 }
 
-.company-timeline-coming-soon {
-  width: fit-content;
-  margin-top: 30px;
-  padding: 14px 18px;
-  border-radius: 18px;
-  color: #dff2ff;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(155, 216, 255, 0.24);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+.company-timeline-company-controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(var(--category-rgb), 0.34);
 }
 
-/* EXPANDED DETAILS PANEL */
+.company-timeline-company-controls span {
+  min-width: 44px;
+  text-align: center;
+  color: rgba(235, 248, 255, 0.86);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* EXPANDED DETAILS */
 
 .company-timeline-expanded-panel {
   position: relative;
@@ -1664,7 +1699,7 @@
   margin: 8px auto 0;
   overflow: hidden;
   border-radius: 0;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(190, 226, 255, 0.7);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
   backdrop-filter: none;
@@ -1694,22 +1729,6 @@
   line-height: 1.65;
 }
 
-.company-timeline-address {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 28px;
-  color: #073673;
-}
-
-.company-timeline-address p {
-  margin: -3px 0 0;
-}
-
-.company-timeline-services-title {
-  margin-top: 10px;
-}
-
 .company-timeline-expanded-inner ul {
   display: grid;
   gap: 10px;
@@ -1734,7 +1753,7 @@
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: #073673;
+  background: var(--category-color);
 }
 
 .company-timeline-collapse-btn {
@@ -1743,26 +1762,31 @@
   bottom: 18px;
   width: 52px;
   height: 52px;
-  border: 1px solid rgba(7, 54, 115, 0.2);
+  border: 1px solid rgba(var(--category-rgb), 0.2);
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: #073673;
+  background:
+    linear-gradient(
+      135deg,
+      var(--category-color),
+      rgba(var(--category-rgb), 0.72)
+    );
   color: #ffffff;
   cursor: pointer;
   transform: translateX(-50%);
-  box-shadow: 0 16px 34px rgba(7, 54, 115, 0.22);
+  box-shadow: 0 16px 34px rgba(var(--category-rgb), 0.26);
   transition:
     transform 0.3s ease,
-    background 0.3s ease;
+    box-shadow 0.3s ease;
 }
 
 .company-timeline-collapse-btn:hover {
   transform: translateX(-50%) translateY(-4px);
-  background: #030a8c;
+  box-shadow: 0 22px 44px rgba(var(--category-rgb), 0.36);
 }
 
-/* BOTTOM TIMELINE */
+/* DESKTOP TIMELINE */
 
 .company-timeline-bottom {
   position: absolute;
@@ -1810,10 +1834,11 @@
   background:
     linear-gradient(
       90deg,
-      rgba(155, 216, 255, 0.28),
-      rgba(155, 216, 255, 0.88),
-      rgba(155, 216, 255, 0.28)
+      rgba(var(--category-rgb), 0.16),
+      rgba(var(--category-rgb), 0.95),
+      rgba(var(--category-rgb), 0.16)
     );
+  box-shadow: 0 0 24px rgba(var(--category-rgb), 0.26);
   transform: translateY(-50%);
 }
 
@@ -1880,7 +1905,8 @@
   transition:
     background 0.3s ease,
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .company-timeline-point::before {
@@ -1919,7 +1945,8 @@
   transition:
     color 0.3s ease,
     background 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .company-timeline-point.point-top .company-timeline-category-name {
@@ -1930,25 +1957,81 @@
   top: calc(50% + 25px);
 }
 
+.company-timeline-point:hover .company-timeline-marker {
+  border-color: var(--point-color);
+  box-shadow: 0 0 0 6px rgba(155, 216, 255, 0.18);
+}
+
+.company-timeline-point:hover .company-timeline-category-name {
+  border-color: var(--point-color);
+}
+
 .company-timeline-point.active .company-timeline-marker {
-  background: #073673;
+  background: var(--category-color);
+  border-color: rgba(255, 255, 255, 0.82);
   transform: translate(-50%, -50%) scale(1.14);
   box-shadow:
-    0 0 0 8px rgba(155, 216, 255, 0.18),
-    0 0 28px rgba(155, 216, 255, 0.54);
+    0 0 0 8px rgba(var(--category-rgb), 0.2),
+    0 0 28px rgba(var(--category-rgb), 0.72);
 }
 
 .company-timeline-point.active .company-timeline-category-name {
   color: #ffffff;
-  background: rgba(7, 54, 115, 0.92);
-  border-color: rgba(255, 255, 255, 0.38);
+  background:
+    linear-gradient(
+      135deg,
+      var(--category-color),
+      rgba(var(--category-rgb), 0.72)
+    );
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 28px rgba(var(--category-rgb), 0.26);
 }
+
+/* MOVING CATEGORY PILLS */
 
 .company-timeline-mobile-pills {
   display: none;
 }
 
-/* MINIMIZED CATEGORY IN EXPAND MODE */
+.company-timeline-pill-track {
+  display: flex;
+  width: max-content;
+  gap: 10px;
+}
+
+.company-timeline-mobile-pills button {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(155, 216, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(230, 246, 255, 0.82);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.company-timeline-mobile-pills button.active {
+  color: #ffffff;
+  background: var(--pill-color);
+  border-color: rgba(255, 255, 255, 0.44);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.company-timeline-mobile-pills button:hover {
+  transform: translateY(-2px);
+}
+
+/* EXPAND VIEW PILL BANNER */
 
 .company-timeline-bottom.timeline-bottom-minimized {
   left: 50%;
@@ -1965,35 +2048,38 @@
   transform: translateX(-50%);
 }
 
-.company-timeline-mini-category {
-  min-width: 250px;
-  min-height: 58px;
-  padding: 10px 24px;
-  border: 1px solid rgba(155, 216, 255, 0.42);
+.timeline-bottom-minimized .company-timeline-mobile-pills {
+  display: block;
+  width: min(760px, calc(100vw - 34px));
+  overflow: hidden;
+  padding: 6px;
   border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: #ffffff;
-  background: rgba(7, 54, 115, 0.82);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(155, 216, 255, 0.34);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
-  font-size: 15px;
-  font-weight: 800;
-  cursor: pointer;
 }
 
-.company-timeline-mini-category span {
-  color: rgba(221, 244, 255, 0.7);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.timeline-bottom-minimized .company-timeline-pill-track {
+  animation: companyTimelinePillMarquee 28s linear infinite;
 }
 
-/* RESPONSIVE */
+.timeline-bottom-minimized .company-timeline-mobile-pills:hover .company-timeline-pill-track {
+  animation-play-state: paused;
+}
+
+@keyframes companyTimelinePillMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* TABLET RESPONSIVE */
 
 @media (max-width: 1024px) {
   .company-timeline-hero {
@@ -2018,12 +2104,20 @@
     margin-bottom: 34px;
   }
 
+  .timeline-expanded-mode .company-timeline-logo-box {
+    width: 280px;
+  }
+
   .company-timeline-main-copy h2 {
     font-size: clamp(52px, 11vw, 88px);
   }
 
   .company-timeline-expanded-inner {
     grid-template-columns: 1fr;
+  }
+
+  .company-timeline-track-scroll {
+    display: none;
   }
 
   .company-timeline-bottom {
@@ -2033,44 +2127,22 @@
     border-radius: 18px;
   }
 
-  .company-timeline-track-scroll {
-    display: none;
-  }
-
   .company-timeline-mobile-pills {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
+    display: block;
+    overflow: hidden;
     padding: 4px;
-    scrollbar-width: none;
-    scroll-snap-type: x mandatory;
   }
 
-  .company-timeline-mobile-pills::-webkit-scrollbar {
-    display: none;
+  .company-timeline-pill-track {
+    animation: companyTimelinePillMarquee 26s linear infinite;
   }
 
-  .company-timeline-mobile-pills button {
-    flex: 0 0 auto;
-    min-height: 44px;
-    padding: 0 18px;
-    border: 1px solid rgba(155, 216, 255, 0.34);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-    color: rgba(230, 246, 255, 0.82);
-    font-weight: 800;
-    cursor: pointer;
-    scroll-snap-align: start;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .company-timeline-mobile-pills button.active {
-    color: #ffffff;
-    background: rgba(7, 54, 115, 0.9);
-    border-color: rgba(255, 255, 255, 0.42);
+  .company-timeline-mobile-pills:hover .company-timeline-pill-track {
+    animation-play-state: paused;
   }
 }
+
+/* MOBILE RESPONSIVE */
 
 @media (max-width: 768px) {
   .company-timeline-hero {
@@ -2085,6 +2157,10 @@
     width: 230px;
     min-height: 96px;
     margin-bottom: 30px;
+  }
+
+  .timeline-expanded-mode .company-timeline-logo-box {
+    width: 240px;
   }
 
   .company-timeline-main-copy h2 {
@@ -2104,6 +2180,16 @@
     right: 14px;
     bottom: 16px;
   }
+
+  .company-timeline-mobile-pills button {
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  .timeline-bottom-minimized .company-timeline-mobile-pills {
+    width: calc(100vw - 28px);
+  }
 }
 
 @media (max-width: 480px) {
@@ -2116,11 +2202,21 @@
     padding: 24px;
   }
 
+  .company-timeline-logo-box {
+    width: 210px;
+    min-height: 90px;
+  }
+
+  .timeline-expanded-mode .company-timeline-logo-box {
+    width: 220px;
+  }
+
   .company-timeline-main-copy h2 {
     font-size: 40px;
   }
 
-  .company-timeline-contact a {
+  .company-timeline-contact a,
+  .company-timeline-contact-address {
     font-size: 13px;
   }
 
@@ -2132,13 +2228,24 @@
     width: 100%;
   }
 
+  .company-timeline-company-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .company-timeline-company-controls button {
+    height: 40px;
+    padding: 0 13px;
+    font-size: 12.5px;
+  }
+
   .company-timeline-expanded-inner {
     padding: 26px 22px 76px;
   }
 
-  .company-timeline-mini-category {
-    min-width: auto;
-    width: calc(100vw - 34px);
-    font-size: 14px;
+  .company-timeline-mobile-pills button {
+    min-height: 40px;
+    padding: 0 14px;
+    font-size: 12.5px;
   }
 }

@@ -61,7 +61,10 @@ import missionImage from "../assets/images/about/mission.png";
 //company showcase
 import rabbitLogo  from "../assets/images/about/company showcase/rabbit-logo.png";
 import rabbitBg from "../assets/images/about/company showcase/rabbit-bg.png";
-
+import printersLogo from "../assets/images/about/company showcase/printers-logo.png";
+import printersBg from "../assets/images/about/company showcase/printers-bg.png";
+import napcoLogo from "../assets/images/about/company showcase/napco-logo.png";
+import napcoBg from "../assets/images/about/company showcase/napco-bg.png";
 
 
 export const imageAssets = {
@@ -132,6 +135,14 @@ companyTimeline: {
     logo: rabbitLogo,
     background: rabbitBg,
   },
+  sumathiPrinters:{
+    logo: printersLogo,
+    background: printersBg
+  },
+  napco:{
+    logo: napcoLogo,
+    background: napcoBg,
+  }
 },
 
 

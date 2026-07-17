@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState, type CSSProperties } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowDown,
@@ -14,6 +14,17 @@ import {
   companyTimelineCategories,
   CompanyTimelineCategory,
 } from '../../data/companyTimelineData';
+
+function hexToRgb(hex: string) {
+  const cleanHex = hex.replace('#', '');
+  const value = parseInt(cleanHex, 16);
+
+  return {
+    r: (value >> 16) & 255,
+    g: (value >> 8) & 255,
+    b: value & 255,
+  };
+}
 
 export default function CompanyTimelineHero() {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
@@ -33,6 +44,9 @@ export default function CompanyTimelineHero() {
 
   const rabbitFallback = companyTimelineCategories[0].companies[0];
   const displayCompany = activeCompany ?? rabbitFallback;
+
+  const activeColor = activeCategory.color;
+  const activeRgb = hexToRgb(activeColor);
 
   const hasMultipleCompanies = activeCategory.companies.length > 1;
 
@@ -94,11 +108,49 @@ export default function CompanyTimelineHero() {
     }
   };
 
+  const CategoryPills = ({ duplicated = false }: { duplicated?: boolean }) => {
+    const items = duplicated
+      ? [...companyTimelineCategories, ...companyTimelineCategories]
+      : companyTimelineCategories;
+
+    return (
+      <div className="company-timeline-mobile-pills">
+        <div className="company-timeline-pill-track">
+          {items.map((item, index) => {
+            const realIndex = index % companyTimelineCategories.length;
+
+            return (
+              <button
+                key={`${item.id}-${index}`}
+                type="button"
+                className={realIndex === activeCategoryIndex ? 'active' : ''}
+                style={
+                  {
+                    '--pill-color': item.color,
+                  } as CSSProperties
+                }
+                onClick={() => handleCategorySelect(realIndex)}
+              >
+                {item.category}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <section
       className={`company-timeline-hero ${
         isExpanded ? 'timeline-expanded-mode' : ''
       }`}
+      style={
+        {
+          '--category-color': activeColor,
+          '--category-rgb': `${activeRgb.r}, ${activeRgb.g}, ${activeRgb.b}`,
+        } as CSSProperties
+      }
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -165,6 +217,11 @@ export default function CompanyTimelineHero() {
               <Phone size={15} />
               {displayCompany.contact.phone}
             </a>
+
+            <p className="company-timeline-contact-address">
+              <MapPin size={16} />
+              {displayCompany.contact.address}
+            </p>
           </div>
         </motion.div>
 
@@ -175,8 +232,6 @@ export default function CompanyTimelineHero() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span>Active Company</span>
-
           <AnimatePresence mode="wait">
             <motion.h2
               key={displayCompany.name}
@@ -216,24 +271,13 @@ export default function CompanyTimelineHero() {
           {hasMultipleCompanies && (
             <div className="company-timeline-company-controls">
               <button type="button" onClick={handlePrevCompany}>
-                <ChevronLeft size={18} />
-                Previous
+                <ChevronLeft size={18} /> 
               </button>
 
-              <small>
-                {activeCompanyIndex + 1} / {activeCategory.companies.length}
-              </small>
 
               <button type="button" onClick={handleNextCompany}>
-                Next
                 <ChevronRight size={18} />
               </button>
-            </div>
-          )}
-
-          {!activeCompany && (
-            <div className="company-timeline-coming-soon">
-              Company media and details for this category will be added later.
             </div>
           )}
         </motion.div>
@@ -256,15 +300,7 @@ export default function CompanyTimelineHero() {
               </div>
 
               <div>
-                <span>Address</span>
-                <div className="company-timeline-address">
-                  <MapPin size={18} />
-                  <p>{displayCompany.contact.address}</p>
-                </div>
-
-                <span className="company-timeline-services-title">
-                  Key Services
-                </span>
+                <span>Key Services</span>
                 <ul>
                   {displayCompany.services.map((service) => (
                     <li key={service}>{service}</li>
@@ -291,15 +327,7 @@ export default function CompanyTimelineHero() {
         }`}
       >
         {isExpanded ? (
-          <button
-            type="button"
-            className="company-timeline-mini-category"
-            onClick={() => setIsExpanded(false)}
-          >
-            <span>Active Category</span>
-            {activeCategory.category}
-            <ArrowUp size={16} />
-          </button>
+          <CategoryPills duplicated />
         ) : (
           <>
             <div
@@ -330,6 +358,11 @@ export default function CompanyTimelineHero() {
                         className={`company-timeline-point ${
                           isActive ? 'active' : ''
                         } ${isTop ? 'point-top' : 'point-bottom'}`}
+                        style={
+                          {
+                            '--point-color': item.color,
+                          } as CSSProperties
+                        }
                         onClick={() => handleCategorySelect(index)}
                       >
                         <span className="company-timeline-category-name">
@@ -343,18 +376,7 @@ export default function CompanyTimelineHero() {
               </div>
             </div>
 
-            <div className="company-timeline-mobile-pills">
-              {companyTimelineCategories.map((item, index) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={index === activeCategoryIndex ? 'active' : ''}
-                  onClick={() => handleCategorySelect(index)}
-                >
-                  {item.category}
-                </button>
-              ))}
-            </div>
+            <CategoryPills duplicated />
           </>
         )}
       </div>
