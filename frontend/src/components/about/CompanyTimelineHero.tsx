@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, type CSSProperties } from 'react';
+import { useMemo, useState, type CSSProperties } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowDown,
@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import {
   companyTimelineCategories,
-  CompanyTimelineCategory,
+  type CompanyTimelineCategory,
 } from '../../data/companyTimelineData';
 
 function hexToRgb(hex: string) {
@@ -31,19 +31,16 @@ export default function CompanyTimelineHero() {
   const [activeCompanyIndex, setActiveCompanyIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const timelineRef = useRef<HTMLDivElement | null>(null);
-  const isDragging = useRef(false);
-  const dragStartX = useRef(0);
-  const scrollStartX = useRef(0);
-
-  const activeCategory = companyTimelineCategories[activeCategoryIndex];
+  const activeCategory =
+    companyTimelineCategories[activeCategoryIndex] ??
+    companyTimelineCategories[0];
 
   const activeCompany = useMemo(() => {
     return activeCategory.companies[activeCompanyIndex] ?? null;
   }, [activeCategory, activeCompanyIndex]);
 
-  const rabbitFallback = companyTimelineCategories[0].companies[0];
-  const displayCompany = activeCompany ?? rabbitFallback;
+  const fallbackCompany = companyTimelineCategories[0].companies[0];
+  const displayCompany = activeCompany ?? fallbackCompany;
 
   const activeColor = activeCategory.color;
   const activeRgb = hexToRgb(activeColor);
@@ -53,7 +50,6 @@ export default function CompanyTimelineHero() {
   const handleCategorySelect = (index: number) => {
     setActiveCategoryIndex(index);
     setActiveCompanyIndex(0);
-    setIsExpanded(false);
   };
 
   const handleNextCompany = () => {
@@ -62,8 +58,6 @@ export default function CompanyTimelineHero() {
     setActiveCompanyIndex((current) =>
       current === activeCategory.companies.length - 1 ? 0 : current + 1
     );
-
-    setIsExpanded(false);
   };
 
   const handlePrevCompany = () => {
@@ -72,40 +66,6 @@ export default function CompanyTimelineHero() {
     setActiveCompanyIndex((current) =>
       current === 0 ? activeCategory.companies.length - 1 : current - 1
     );
-
-    setIsExpanded(false);
-  };
-
-  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    const timeline = timelineRef.current;
-    if (!timeline) return;
-
-    isDragging.current = true;
-    dragStartX.current = event.clientX;
-    scrollStartX.current = timeline.scrollLeft;
-
-    timeline.setPointerCapture(event.pointerId);
-    timeline.classList.add('is-dragging');
-  };
-
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    const timeline = timelineRef.current;
-    if (!timeline || !isDragging.current) return;
-
-    const distance = event.clientX - dragStartX.current;
-    timeline.scrollLeft = scrollStartX.current - distance;
-  };
-
-  const stopDragging = (event: React.PointerEvent<HTMLDivElement>) => {
-    const timeline = timelineRef.current;
-    if (!timeline) return;
-
-    isDragging.current = false;
-    timeline.classList.remove('is-dragging');
-
-    if (timeline.hasPointerCapture(event.pointerId)) {
-      timeline.releasePointerCapture(event.pointerId);
-    }
   };
 
   const CategoryPills = ({ duplicated = false }: { duplicated?: boolean }) => {
@@ -174,56 +134,58 @@ export default function CompanyTimelineHero() {
       <div className="company-timeline-glow company-timeline-glow-two" />
 
       <div className="company-timeline-content">
-        <motion.div
-          className="company-timeline-active-card"
-          initial={{ opacity: 0, x: -44 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="company-timeline-logo-box">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={displayCompany.logo}
-                src={displayCompany.logo}
-                alt={`${displayCompany.name} logo`}
-                initial={{ opacity: 0, y: 16, scale: 0.94 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -12, scale: 0.96 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                draggable={false}
-              />
-            </AnimatePresence>
-          </div>
+        {!isExpanded && (
+          <motion.div
+            className="company-timeline-active-card"
+            initial={{ opacity: 0, x: -44 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="company-timeline-logo-box">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={displayCompany.logo}
+                  src={displayCompany.logo}
+                  alt={`${displayCompany.name} logo`}
+                  initial={{ opacity: 0, y: 16, scale: 0.94 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  draggable={false}
+                />
+              </AnimatePresence>
+            </div>
 
-          <div className="company-timeline-contact">
-            <span>Contact Details</span>
+            <div className="company-timeline-contact">
+              <span>Contact Details</span>
 
-            <a
-              href={`https://${displayCompany.contact.website}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <ExternalLink size={15} />
-              {displayCompany.contact.website}
-            </a>
+              <a
+                href={`https://${displayCompany.contact.website}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ExternalLink size={15} />
+                {displayCompany.contact.website}
+              </a>
 
-            <a href={`mailto:${displayCompany.contact.email}`}>
-              <Mail size={15} />
-              {displayCompany.contact.email}
-            </a>
+              <a href={`mailto:${displayCompany.contact.email}`}>
+                <Mail size={15} />
+                {displayCompany.contact.email}
+              </a>
 
-            <a href={`tel:${displayCompany.contact.phone}`}>
-              <Phone size={15} />
-              {displayCompany.contact.phone}
-            </a>
+              <a href={`tel:${displayCompany.contact.phone}`}>
+                <Phone size={15} />
+                {displayCompany.contact.phone}
+              </a>
 
-            <p className="company-timeline-contact-address">
-              <MapPin size={16} />
-              {displayCompany.contact.address}
-            </p>
-          </div>
-        </motion.div>
+              <p className="company-timeline-contact-address">
+                <MapPin size={16} />
+                {displayCompany.contact.address}
+              </p>
+            </div>
+          </motion.div>
+        )}
 
         <motion.div
           className="company-timeline-main-copy"
@@ -267,19 +229,6 @@ export default function CompanyTimelineHero() {
             {isExpanded ? 'Collapse Details' : 'Expand Details'}
             {isExpanded ? <ArrowUp size={18} /> : <ArrowDown size={18} />}
           </button>
-
-          {hasMultipleCompanies && (
-            <div className="company-timeline-company-controls">
-              <button type="button" onClick={handlePrevCompany}>
-                <ChevronLeft size={18} /> 
-              </button>
-
-
-              <button type="button" onClick={handleNextCompany}>
-                <ChevronRight size={18} />
-              </button>
-            </div>
-          )}
         </motion.div>
       </div>
 
@@ -287,39 +236,86 @@ export default function CompanyTimelineHero() {
         {isExpanded && (
           <motion.div
             className="company-timeline-expanded-panel"
-            initial={{ opacity: 0, y: 38, height: 0 }}
+            initial={{ opacity: 0, y: 30, height: 0 }}
             animate={{ opacity: 1, y: 0, height: 'auto' }}
-            exit={{ opacity: 0, y: 28, height: 0 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            exit={{ opacity: 0, y: 22, height: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="company-timeline-expanded-inner">
-              <div>
+              <div className="company-timeline-expanded-description">
                 <span>Company Details</span>
-                <h3>{displayCompany.name}</h3>
                 <p>{displayCompany.fullDescription}</p>
+
+                <div className="company-timeline-expanded-services">
+                  {displayCompany.services.map((service) => (
+                    <small key={service}>{service}</small>
+                  ))}
+                </div>
               </div>
 
-              <div>
-                <span>Key Services</span>
-                <ul>
-                  {displayCompany.services.map((service) => (
-                    <li key={service}>{service}</li>
-                  ))}
-                </ul>
+              <div className="company-timeline-expanded-contact-card">
+                <div className="company-timeline-expanded-logo">
+                  <img
+                    src={displayCompany.logo}
+                    alt={`${displayCompany.name} logo`}
+                    draggable={false}
+                  />
+                </div>
+
+                <div className="company-timeline-expanded-contact">
+                  <span>Contact Details</span>
+
+                  <a
+                    href={`https://${displayCompany.contact.website}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <ExternalLink size={16} />
+                    {displayCompany.contact.website}
+                  </a>
+
+                  <a href={`mailto:${displayCompany.contact.email}`}>
+                    <Mail size={16} />
+                    {displayCompany.contact.email}
+                  </a>
+
+                  <a href={`tel:${displayCompany.contact.phone}`}>
+                    <Phone size={16} />
+                    {displayCompany.contact.phone}
+                  </a>
+
+                  <p>
+                    <MapPin size={16} />
+                    {displayCompany.contact.address}
+                  </p>
+                </div>
               </div>
             </div>
-
-            <button
-              type="button"
-              className="company-timeline-collapse-btn"
-              onClick={() => setIsExpanded(false)}
-              aria-label="Collapse company details"
-            >
-              <ArrowUp size={20} />
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {hasMultipleCompanies && (
+        <div className="company-timeline-corner-controls">
+          <button
+            type="button"
+            className="company-timeline-corner-btn company-timeline-corner-prev"
+            onClick={handlePrevCompany}
+            aria-label="Previous company"
+          >
+            <ChevronLeft size={28} />
+          </button>
+
+          <button
+            type="button"
+            className="company-timeline-corner-btn company-timeline-corner-next"
+            onClick={handleNextCompany}
+            aria-label="Next company"
+          >
+            <ChevronRight size={28} />
+          </button>
+        </div>
+      )}
 
       <div
         className={`company-timeline-bottom ${
@@ -330,19 +326,7 @@ export default function CompanyTimelineHero() {
           <CategoryPills duplicated />
         ) : (
           <>
-            <div
-              ref={timelineRef}
-              className="company-timeline-track-scroll"
-              onPointerDown={handlePointerDown}
-              onPointerMove={handlePointerMove}
-              onPointerUp={stopDragging}
-              onPointerCancel={stopDragging}
-              onPointerLeave={(event) => {
-                if (isDragging.current) {
-                  stopDragging(event);
-                }
-              }}
-            >
+            <div className="company-timeline-track-scroll">
               <div className="company-timeline-track">
                 <div className="company-timeline-line" />
 
