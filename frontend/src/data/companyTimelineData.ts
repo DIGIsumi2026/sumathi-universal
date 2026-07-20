@@ -122,7 +122,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         logo: imageAssets.companyTimeline.force.logo,
         background:imageAssets.companyTimeline.force.background,
         contact: {
-          website: 'www.octagonforce.lk',
+          website: 'www.octagonforce.com',
           email: 'info@octagonforce.lk',
           phone: '+(94) 11 242 1294',
           address: '445/1 Sirimavo Bandaranayaka Mawatha, Colombo 14.',
@@ -141,13 +141,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'octagon-engineering',
         name: 'Octagon Engineering',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.engineerig.logo,
+        background:imageAssets.companyTimeline.engineerig.background,
         contact: {
-          website: 'www.octagonengineering.lk',
-          email: 'info@octagonengineering.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          website: 'www.octagon.lk',
+          email: 'sales@octagon.lk',
+          phone: '+(94) 11 234 4444',
+          address: '445/1 Sirimavo Bandaranayaka Mawatha, Colombo 14.',
         },
         shortDescription:
           'Octagon Engineering delivers engineering and technical solutions for modern infrastructure and business needs.',
@@ -170,13 +170,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'sumi-shakthi',
         name: 'Sumi Shakthi',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.sumishakthi.logo,
+        background: imageAssets.companyTimeline.sumishakthi.background,
         contact: {
           website: 'www.sumishakthi.lk',
           email: 'info@sumishakthi.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          phone: '+(94) 112 697 106',
+          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
         },
         shortDescription:
           'Sumi Shakthi supports renewable energy development through sustainable power generation initiatives.',
@@ -192,13 +192,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'sujala-shakthi',
         name: 'Sujala Shakthi',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.sujalashakthi.logo,
+        background: imageAssets.companyTimeline.sujalashakthi.background,
         contact: {
           website: 'www.sujalashakthi.lk',
           email: 'info@sujalashakthi.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          phone: '+(94) 112 697 106',
+          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
         },
         shortDescription:
           'Sujala Shakthi contributes to the group’s renewable energy portfolio with sustainable energy initiatives.',
@@ -221,13 +221,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'suko',
         name: 'SUKO',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.suko.logo,
+        background: imageAssets.companyTimeline.suko.background,
         contact: {
           website: 'www.suko.lk',
           email: 'info@suko.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          phone: '+(94) 112 697 106',
+          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
         },
         shortDescription:
           'SUKO provides architectural and design solutions with a focus on functional, modern, and sustainable spaces.',
@@ -251,13 +251,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'sumathi-hospitality',
         name: 'Sumathi Hospitality',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.hospitality.logo,
+        background: imageAssets.companyTimeline.hospitality.background,
         contact: {
           website: 'www.sumathihospitality.lk',
           email: 'info@sumathihospitality.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          phone: '+(94) 112 697 106',
+          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
         },
         shortDescription:
           'Sumathi Hospitality manages hospitality-focused ventures that create quality service experiences.',
@@ -273,12 +273,12 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'butlers-park-street',
         name: 'Butlers Park Street',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.butlers.logo,
+        background: imageAssets.companyTimeline.butlers.background,
         contact: {
           website: 'www.butlersparkstreet.lk',
           email: 'info@butlersparkstreet.lk',
-          phone: '+94 XX XXX XXXX',
+          phone: '+(94) XX XXX XXXX',
           address: 'Sri Lanka.',
         },
         shortDescription:
@@ -302,13 +302,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'sumathi-universal-trading',
         name: 'Sumathi Universal Trading',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.trading.logo,
+        background: imageAssets.companyTimeline.trading.background,
         contact: {
           website: 'www.sumathiuniversaltrading.lk',
           email: 'info@sumathiuniversaltrading.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          phone: '+(94) 112 421 294',
+          address: '445, Sirimavo Bandaranaike Mawatha, Colombo 14. Sri Lanka.',
         },
         shortDescription:
           'Sumathi Universal Trading focuses on imports, distribution, procurement, and commerce-related business operations.',
@@ -325,13 +325,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'thi-lk',
         name: 'THi.lk',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.thi.logo,
+        background: imageAssets.companyTimeline.thi.background,
         contact: {
           website: 'www.thi.lk',
           email: 'info@thi.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          phone: '+(94) 11 291 0015',
+          address: '445/1, Sirimavo Bandaranaike Mawatha, Colombo 14. Sri Lanka.',
         },
         shortDescription:
           'THi.lk supports the trading and commerce category through digital commerce and online business solutions.',
@@ -354,12 +354,12 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'sumathi-entertainment',
         name: 'Sumathi Entertainment',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.entertainment.logo,
+        background:imageAssets.companyTimeline.entertainment.background,
         contact: {
-          website: 'www.sumathientertainment.lk',
+          website: 'www.sumathieventainment.lk',
           email: 'info@sumathientertainment.lk',
-          phone: '+94 XX XXX XXXX',
+          phone: '+(94) 112 697 106',
           address: 'Sri Lanka.',
         },
         shortDescription:
@@ -376,10 +376,10 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'sumathi-films',
         name: 'Sumathi Films',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.films.logo,
+        background: imageAssets.companyTimeline.films.background,
         contact: {
-          website: 'www.sumathifilms.lk',
+          website: 'www.sumathieventainment.lk',
           email: 'info@sumathifilms.lk',
           phone: '+94 XX XXX XXXX',
           address: 'Sri Lanka.',
@@ -398,8 +398,8 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'sumathi-awards',
         name: 'Sumathi Awards',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.awards.logo,
+        background: imageAssets.companyTimeline.awards.background,
         contact: {
           website: 'www.sumathiawards.lk',
           email: 'info@sumathiawards.lk',
@@ -427,13 +427,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
       {
         id: 'sumathi-ventures',
         name: 'Sumathi Ventures',
-        logo: fallbackLogo,
-        background: fallbackBackground,
+        logo: imageAssets.companyTimeline.ventures.logo,
+        background: imageAssets.companyTimeline.ventures.background,
         contact: {
-          website: 'www.sumathiventures.lk',
-          email: 'info@sumathiventures.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          website: 'www.sumathiventures.com',
+          email: 'info@sumathiventures.com',
+          phone: '+(94) 11 269 7106',
+          address: 'No.758, Baseline Road, Colombo 09, Sri Lanka.',
         },
         shortDescription:
           'Sumathi Ventures focuses on strategic investments, partnerships, and new business opportunities.',

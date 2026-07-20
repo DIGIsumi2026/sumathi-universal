@@ -67,6 +67,31 @@ import napcoLogo from "../assets/images/about/company showcase/napco-logo.png";
 import napcoBg from "../assets/images/about/company showcase/napco-bg.png";
 import octagonforceLogo from "../assets/images/about/company showcase/octagon-logo.png";
 import octagonforceBg from "../assets/images/about/company showcase/octagon-bg.png";
+import engineeringLogo from "../assets/images/about/company showcase/egineering-logo.png";
+import engineeringBg from "../assets/images/about/company showcase/engineering-bg.jpg";
+import sumishakthiLogo from "../assets/images/about/company showcase/sumishakthi-logo.png";
+import sumishakthiBg from "../assets/images/about/company showcase/sumishakthi-bg.png";
+import sujalaLogo from "../assets/images/about/company showcase/sujalashakthi-logo.png";
+import sujalaBg from "../assets/images/about/company showcase/sujalashakthi-bg.png";
+import sukoLogo from "../assets/images/about/company showcase/suko-logo.png";
+import sukoBg from "../assets/images/about/company showcase/suko-bg.png";
+import hospitalityLogo from "../assets/images/about/company showcase/hospitality-logo.png";
+import hospitalityBg from "../assets/images/about/company showcase/hospitality-bg.png";
+import butlersLogo from "../assets/images/about/company showcase/butlers-logo.png";
+import butlersBg from '../assets/images/about/company showcase/butlers-bg.png';
+import tradingLogo from "../assets/images/about/company showcase/tradibg-logo.png";
+import tradingBg from "../assets/images/about/company showcase/trading-bg.png";
+import thiLogo from "../assets/images/about/company showcase/THi-logo.png";
+import thiBg from "../assets/images/about/company showcase/THi-bg.png";
+import entertainmentLogo from "../assets/images/about/company showcase/entertainment-logo.png";
+import entertainmentBg from "../assets/images/about/company showcase/hospitality-bg.png";
+import filmsLogo from "../assets/images/about/company showcase/sumathifilms-logo.png";
+import filmsBg from "../assets/images/about/company showcase/sumathifilms-bg.png";
+import awardsLogo from "../assets/images/about/company showcase/awards-logo.png";
+import awardsBg from "../assets/images/about/company showcase/awards-bg.png";
+import venturesLogo from "../assets/images/about/company showcase/vetures-logo.png";
+import venturesBg from "../assets/images/about/company showcase/ventures-bg.png";
+
 
 
 export const imageAssets = {
@@ -149,7 +174,54 @@ companyTimeline: {
     logo: octagonforceLogo,
     background:octagonforceBg
   },
-  
+  engineerig:{
+    logo:engineeringLogo,
+    background:engineeringBg
+  },
+  sumishakthi:{
+    logo:sumishakthiLogo,
+    background: sumishakthiBg
+  },
+  sujalashakthi:{
+    logo:sujalaLogo,
+    background:sujalaBg
+  },
+  suko:{
+    logo: sukoLogo,
+    background:sukoBg
+  },
+  hospitality:{
+    logo:hospitalityLogo,
+    background:hospitalityBg
+  },
+  butlers:{
+    logo:butlersLogo,
+    background:butlersBg
+  },
+  trading:{
+    logo:tradingLogo,
+    background:tradingBg
+  },
+  thi:{
+    logo:thiLogo,
+    background:thiBg
+  },
+  entertainment:{
+    logo: entertainmentLogo,
+    background: entertainmentBg
+  },
+  films:{
+    logo:filmsLogo,
+    background: filmsBg
+  },
+  awards:{
+    logo:awardsLogo,
+    background:awardsBg
+  },
+  ventures:{
+    logo: venturesLogo,
+    background:venturesBg
+  }
 },
 
 
