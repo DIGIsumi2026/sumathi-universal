@@ -192,7 +192,11 @@ export default function CompanyTimelineHero() {
           initial={{ opacity: 0, x: 44 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 0.8,
+            delay: 0.08,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         >
           <AnimatePresence mode="wait">
             <motion.h2
@@ -236,14 +240,15 @@ export default function CompanyTimelineHero() {
         {isExpanded && (
           <motion.div
             className="company-timeline-expanded-panel"
-            initial={{ opacity: 0, y: 30, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: 'auto' }}
-            exit={{ opacity: 0, y: 22, height: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 22 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="company-timeline-expanded-inner">
-              <div className="company-timeline-expanded-description">
+            <div className="company-timeline-expanded-stack">
+              <div className="company-timeline-expanded-description-card">
                 <span>Company Details</span>
+
                 <p>{displayCompany.fullDescription}</p>
 
                 <div className="company-timeline-expanded-services">

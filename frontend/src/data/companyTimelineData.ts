@@ -78,7 +78,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         shortDescription:
           'Sumathi Printers delivers professional printing solutions for commercial, publication, packaging, and corporate requirements.',
         fullDescription:
-          'Sumathi Printers represents the printing arm of the group, providing reliable and high-quality printing solutions for businesses, publications, packaging needs, and corporate communication materials.',
+          'With decades of experience in the printing industry, Sumathi Printers is a trusted provider of high-quality commercial and publication printing solutions in Sri Lanka. Combining advanced printing technology with skilled craftsmanship, the company delivers precision, consistency, and reliability across every project. From large-scale publications to premium corporate printing, Sumathi Printers is committed to helping businesses, institutions, and publishers bring their ideas to life with exceptional quality and timely service.',
         services: [
           'Commercial Printing',
           'Publication Printing',
@@ -101,7 +101,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         shortDescription:
           'NAPCO supports the printing and publishing ecosystem with specialised printing and production services.',
         fullDescription:
-          'NAPCO operates within the group printing category, supporting specialised printing, publishing, production, and related business requirements.',
+          'A comprehensive directory and commercial printing solution established by a consortium of leading Sri Lankan printers. Originally serving Sri Lanka Telecom, Napco has expanded into high-quality commercial printing and packaging.',
         services: [
           'Print Production',
           'Publishing Support',

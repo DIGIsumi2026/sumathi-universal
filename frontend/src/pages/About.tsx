@@ -4,7 +4,7 @@ import AboutIntroSection from '../components/about/AboutIntroSection';
 import VisionMissionSection from '../components/about/VisionMissionSection';
 import GroupAtGlanceSection from "../components/about/GroupAtGlanceSection";
 import CompanyTimelineHero from '../components/about/CompanyTimelineHero';
-
+import CompanyLogoGridSection from '../components/about/CompanyLogoGridSection';
 
 
 export default function About() {
@@ -15,6 +15,7 @@ export default function About() {
       <VisionMissionSection/>
       <GroupAtGlanceSection/>
       <CompanyTimelineHero/>
+      <CompanyLogoGridSection/>
     </>
   );
 }
