@@ -93,6 +93,9 @@ import venturesLogo from "../assets/images/about/company showcase/vetures-logo.p
 import venturesBg from "../assets/images/about/company showcase/ventures-bg.png";
 
 
+//management
+import managemetHero from "../assets/images/management/management-hero.png";
+
 
 export const imageAssets = {
   brand: {
@@ -222,6 +225,10 @@ companyTimeline: {
     logo: venturesLogo,
     background:venturesBg
   }
+},
+
+management:{
+  hero:managemetHero
 },
 
 
