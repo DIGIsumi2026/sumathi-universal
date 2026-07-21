@@ -1,0 +1,73 @@
+/* ======================================================
+   MANAGEMENT PAGE
+====================================================== */
+
+.management-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #061730;
+}
+
+.management-hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 140px clamp(22px, 5vw, 80px) 90px;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(7, 54, 115, 0.12), transparent 34%),
+    radial-gradient(circle at 82% 76%, rgba(3, 10, 140, 0.1), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #eef6ff 100%);
+}
+
+.management-hero-inner {
+  width: min(1100px, 100%);
+  text-align: center;
+}
+
+.management-hero-inner span {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #073673;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.management-hero-inner h1 {
+  margin: 0;
+  font-size: clamp(64px, 9vw, 140px);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  background: linear-gradient(90deg, #061730 0%, #073673 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.management-hero-inner p {
+  max-width: 680px;
+  margin: 26px auto 0;
+  color: rgba(6, 23, 48, 0.72);
+  font-size: clamp(17px, 1.4vw, 22px);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .management-hero-section {
+    padding: 120px 22px 72px;
+  }
+
+  .management-hero-inner h1 {
+    font-size: 58px;
+  }
+
+  .management-hero-inner p {
+    font-size: 15.5px;
+  }
+}

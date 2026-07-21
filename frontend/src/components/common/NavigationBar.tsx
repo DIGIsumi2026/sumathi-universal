@@ -4,10 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Instagram, Linkedin, Menu, X } from 'lucide-react';
 import { imageAssets } from '../../data/imageAssets';
 import '../../styles/components/navigationBar.css';
+import { label } from 'framer-motion/m';
 
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'About Us', path: '/about' },
+  {label: 'Management', path:'/management'},
   { label: 'Services', path: '/services' },
   { label: 'Contact', path: '/contact' },
 ];
