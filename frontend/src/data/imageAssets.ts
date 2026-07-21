@@ -95,7 +95,7 @@ import venturesBg from "../assets/images/about/company showcase/ventures-bg.png"
 
 //management
 import managemetHero from "../assets/images/management/management-hero.png";
-
+import familyLegacyImage  from "../assets/images/management/family-legacy.png";
 
 export const imageAssets = {
   brand: {
@@ -228,7 +228,8 @@ companyTimeline: {
 },
 
 management:{
-  hero:managemetHero
+  hero:managemetHero,
+  familyLegacy:familyLegacyImage
 },
 
 
