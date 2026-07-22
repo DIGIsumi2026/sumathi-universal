@@ -2601,9 +2601,9 @@
   margin: 0;
   color: #061730;
   font-size: clamp(40px, 4.1vw, 72px);
-  line-height: 0.98;
-  font-weight: 800;
-  letter-spacing: -0.065em;
+  line-height: 0.99;
+  font-weight: 600;
+  letter-spacing: -0.0065em;
 }
 
 .family-legacy-content p {

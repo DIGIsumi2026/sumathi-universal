@@ -97,6 +97,14 @@ import venturesBg from "../assets/images/about/company showcase/ventures-bg.png"
 import managemetHero from "../assets/images/management/management-hero.png";
 import familyLegacyImage  from "../assets/images/management/family-legacy.png";
 
+import thilangaProfile from "../assets/images/management/thilanga-sumathipala.png";
+import udhanthaProfile from "../assets/images/management/udhantha-sumathipala.png";
+import samadaraProfile from "../assets/images/management/samadara-sumathipala.png";
+import sajanthaProfile from "../assets/images/management/sajantha-sumathipala.jpeg";
+import dulanthaProfile from "../assets/images/management/dulantha-sumathipala.png";
+
+
+
 export const imageAssets = {
   brand: {
     companyLogo
@@ -229,7 +237,12 @@ companyTimeline: {
 
 management:{
   hero:managemetHero,
-  familyLegacy:familyLegacyImage
+  familyLegacy:familyLegacyImage,
+  thilanga:thilangaProfile,
+  udhantha:udhanthaProfile,
+  samadara:samadaraProfile,
+  sajantha:sajanthaProfile,
+  dulantha:dulanthaProfile
 },
 
 

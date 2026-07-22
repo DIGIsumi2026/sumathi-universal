@@ -1,54 +1,77 @@
-import { ArrowUp } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 
-const PROGRESS_RADIUS = 29;
-
-export default function ScrollToTop() {
-  const [show, setShow] = useState(false);
-  const [progress, setProgress] = useState(0);
+export default function ScrollToTopButton() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    const handleScroll = () => {
       const scrollTop = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const nextProgress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      const documentHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
 
-      setShow(scrollTop > 300);
-      setProgress(Math.min(100, Math.max(0, nextProgress)));
+      const progress =
+        documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+
+      setScrollProgress(Math.min(Math.max(progress, 0), 100));
+      setIsVisible(scrollTop > 320);
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  const radius = 26;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset =
+    circumference - (scrollProgress / 100) * circumference;
 
   return (
     <button
-      className={`scroll-top${show ? ' visible' : ''}`}
       type="button"
+      className={`scroll-top${isVisible ? ' visible' : ''}`}
+      onClick={scrollToTop}
       aria-label="Scroll to top"
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >
-      <svg className="scroll-top__progress" viewBox="0 0 64 64" aria-hidden="true">
+      <svg
+        className="scroll-top__progress"
+        width="64"
+        height="64"
+        viewBox="0 0 64 64"
+        aria-hidden="true"
+      >
         <circle
           className="scroll-top__track"
           cx="32"
           cy="32"
-          r={PROGRESS_RADIUS}
-          pathLength="100"
+          r={radius}
         />
+
         <circle
           className="scroll-top__progress-value"
           cx="32"
           cy="32"
-          r={PROGRESS_RADIUS}
-          pathLength="100"
-          strokeDasharray="100"
-          strokeDashoffset={100 - progress}
+          r={radius}
+          strokeDasharray={circumference}
+          strokeDashoffset={strokeDashoffset}
         />
       </svg>
+
       <span className="scroll-top__inner">
-        <ArrowUp size={19} strokeWidth={2.5} />
+        <ArrowUp size={22} strokeWidth={2.4} />
       </span>
     </button>
   );

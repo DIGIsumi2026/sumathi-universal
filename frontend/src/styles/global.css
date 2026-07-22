@@ -268,14 +268,14 @@ u {
 .custom-cursor.is-pressed { width: 38px; height: 38px; border-color: var(--pink); }
 .scroll-top {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 60;
+  right: 28px;
+  bottom: 28px;
+  z-index: 9999;
   width: 64px;
   height: 64px;
   padding: 0;
   border-radius: 50%;
-  background: #fff;
+  background: transparent;
   color: #fff;
   box-shadow: 0 10px 25px rgba(7, 54, 115, .2);
   border: 0;
@@ -299,9 +299,18 @@ u {
   inset: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
   transform: rotate(-90deg);
   overflow: visible;
   pointer-events: none;
+}
+.scroll-top::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  z-index: 0;
+  border-radius: 999px;
+  background: #fff;
 }
 .scroll-top__track,
 .scroll-top__progress-value {
@@ -316,7 +325,7 @@ u {
 }
 .scroll-top__inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 46px;
   height: 46px;
   border-radius: 50%;

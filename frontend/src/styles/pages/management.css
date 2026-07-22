@@ -215,3 +215,389 @@
     font-size: 14px;
   }
 }
+
+/* ======================================================
+   MANAGEMENT PROFILES SECTION
+====================================================== */
+
+.management-profiles-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(7, 54, 115, 0.08), transparent 32%),
+    radial-gradient(circle at 88% 86%, rgba(3, 10, 140, 0.07), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+  padding: clamp(64px, 6vw, 98px) clamp(22px, 5vw, 72px);
+  color: #061730;
+}
+
+.management-profiles-header {
+  width: min(1200px, 100%);
+  margin: 0 auto clamp(38px, 5vw, 64px);
+  text-align: center;
+}
+
+.management-profiles-header span {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #073673;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.management-profiles-header h2 {
+  margin: 0;
+  color: #061730;
+  font-size: clamp(42px, 5vw, 78px);
+  line-height: 0.96;
+  font-weight: 600;
+  letter-spacing: -0.07em;
+}
+
+.management-profiles-list {
+  width: min(1480px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(28px, 3vw, 44px);
+}
+
+/* ======================================================
+   PROFILE CARD
+====================================================== */
+
+.management-profile-card {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.58fr) minmax(0, 1.42fr);
+  align-items: start;
+  min-height: auto;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(7, 54, 115, 0.1);
+  box-shadow: 0 26px 80px rgba(7, 54, 115, 0.1);
+}
+
+/* fixed image box: image will not stretch when text expands */
+.management-profile-image-wrap {
+  position: relative;
+  height: clamp(420px, 38vw, 540px);
+  min-height: 0;
+  align-self: start;
+  overflow: visible;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(7, 54, 115, 0.14), transparent 38%),
+    linear-gradient(135deg, #020b18 0%, #061730 100%);
+}
+
+.management-profile-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 28px;
+  user-select: none;
+  box-shadow: 0 22px 54px rgba(2, 11, 24, 0.24);
+  transform: scale(1);
+  transition:
+    transform 0.42s ease,
+    box-shadow 0.42s ease;
+}
+
+.management-profile-image-wrap:hover .management-profile-image {
+  transform: translateY(-8px) scale(1.035);
+  box-shadow: 0 34px 76px rgba(2, 11, 24, 0.34);
+}
+
+/* ======================================================
+   PROFILE CONTENT
+====================================================== */
+
+.management-profile-content {
+  position: relative;
+  padding: clamp(34px, 4.2vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(7, 54, 115, 0.07), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+}
+
+.management-profile-content > span {
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 10px;
+  color: #073673;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.management-profile-content h3 {
+  margin: 0;
+  color: #061730;
+  font-size: clamp(36px, 3.6vw, 66px);
+  line-height: 0.98;
+  font-weight: 600;
+  letter-spacing: -0.07em;
+}
+
+.management-profile-qualification {
+  max-width: 780px;
+  margin: 12px 0 0;
+  padding-left: 18px;
+  border-left: 4px solid #073673;
+  color: rgba(7, 54, 115, 0.88);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.management-profile-text {
+  margin-top: 14px;
+  display: grid;
+  gap: 13px;
+}
+
+.management-profile-text p {
+  max-width: 920px;
+  margin: 0;
+  color: rgba(6, 23, 48, 0.76);
+  font-size: clamp(14.5px, 1vw, 16.4px);
+  line-height: 1.66;
+  font-weight: 400;
+}
+
+/* ======================================================
+   EXPAND BUTTON
+====================================================== */
+
+.management-profile-expand-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.management-profile-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(7, 54, 115, 0.28),
+    transparent
+  );
+}
+
+.management-profile-expand-btn {
+  height: 46px;
+  padding: 0 20px;
+  border: 1px solid rgba(7, 54, 115, 0.18);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #073673 0%, #030a8c 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 14px 34px rgba(7, 54, 115, 0.22);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.management-profile-expand-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px rgba(7, 54, 115, 0.32);
+}
+
+/* ======================================================
+   LARGE TABLET
+====================================================== */
+
+@media (max-width: 1100px) {
+  .management-profile-card {
+    grid-template-columns: minmax(280px, 0.6fr) minmax(0, 1.4fr);
+  }
+
+  .management-profile-image-wrap {
+    height: 500px;
+    padding: 22px;
+  }
+
+  .management-profile-content {
+    padding: 42px;
+  }
+
+  .management-profile-content h3 {
+    font-size: 46px;
+  }
+
+  .management-profile-text {
+    margin-top: 13px;
+  }
+}
+
+/* ======================================================
+   TABLET + MOBILE
+   No curved edges and no hover pop on small screens
+====================================================== */
+
+@media (max-width: 900px) {
+  .management-profiles-section {
+    padding: 56px 24px;
+  }
+
+  .management-profile-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .management-profile-image-wrap {
+    height: 460px;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .management-profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+    transition: none;
+  }
+
+  .management-profile-image-wrap:hover .management-profile-image {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .management-profile-content {
+    padding: 38px 32px 42px;
+  }
+
+  .management-profile-content > span {
+    margin-bottom: 10px;
+  }
+
+  .management-profile-content h3 {
+    font-size: 42px;
+    line-height: 1;
+  }
+
+  .management-profile-qualification {
+    margin-top: 12px;
+    font-size: 14.5px;
+  }
+
+  .management-profile-text {
+    margin-top: 14px;
+    gap: 13px;
+  }
+
+  .management-profile-text p {
+    font-size: 14.6px;
+    line-height: 1.6;
+  }
+}
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 576px) {
+  .management-profiles-section {
+    padding: 46px 16px;
+  }
+
+  .management-profiles-header {
+    margin-bottom: 34px;
+  }
+
+  .management-profiles-header span {
+    font-size: 12px;
+    letter-spacing: 0.24em;
+  }
+
+  .management-profiles-header h2 {
+    font-size: 34px;
+  }
+
+  .management-profile-image-wrap {
+    height: 360px;
+  }
+
+  .management-profile-content {
+    padding: 32px 22px 36px;
+  }
+
+  .management-profile-content > span {
+    margin-bottom: 9px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+  }
+
+  .management-profile-content h3 {
+    font-size: 32px;
+    line-height: 1.04;
+  }
+
+  .management-profile-qualification {
+    margin-top: 11px;
+    padding-left: 13px;
+    border-left-width: 3px;
+    font-size: 14px;
+  }
+
+  .management-profile-text {
+    margin-top: 13px;
+    gap: 12px;
+  }
+
+  .management-profile-text p {
+    font-size: 13.6px;
+    line-height: 1.58;
+  }
+
+  .management-profile-expand-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .management-profile-line {
+    display: none;
+  }
+
+  .management-profile-expand-btn {
+    width: 100%;
+    height: 43px;
+  }
+}
+
+@media (max-width: 390px) {
+  .management-profile-image-wrap {
+    height: 320px;
+  }
+
+  .management-profile-content h3 {
+    font-size: 29px;
+  }
+
+  .management-profile-text p {
+    font-size: 13.2px;
+  }
+}
