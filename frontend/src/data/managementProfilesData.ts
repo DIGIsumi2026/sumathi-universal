@@ -22,7 +22,7 @@ export const managementProfiles: ManagementProfile[] = [
       'Mr. Sumathipala was instrumental as the Chairman of Sri Lanka Telecom PLC and Mobitel, where he transformed SLT from a corporation to a listed company in the Colombo Stock Exchange. During his tenure, SLT acquired a 100% stake in Mobitel, and Mobitel transformed from a TDMA system to a GSM EDGE network. He also spearheaded the listing of a USD 100 million corporate bond on the Singapore Stock Exchange, the first listed international instrument from Sri Lanka.',
       'Along with his immense business insights, Mr. Sumathipala entered the political field as a Member of the Western Provincial Council. He has since served the nation as the Deputy Speaker of Parliament as well as State Minister of Technology and Innovation.',
       'His quest for self-development led him to Harvard University and Harvard Business School for the Senior Executive programme Building New Ventures. He also studied Driving Government Performance at the Harvard University John F. Kennedy School of Government. In Sri Lanka, he completed a Post Graduate Diploma in Public Management at the University of Colombo, followed by a Master’s in Public Administration. In 2014, he served as a distinguished Professor on Leadership for Transformation at Keimyung University, Republic of Korea, and is currently reading for his PhD at Beijing University of Foreign Studies, China.',
-      'With over three decades of expertise in making businesses future-ready, Mr. Sumathipala continues to extend his knowledge to place Sri Lanka on the global map.',
+      'With over three decades of expertise in making businesses future ready, Mr. Sumathipala continues to extend his knowledge to place Sri Lanka on the global map.',
     ],
   },
   {
@@ -32,7 +32,7 @@ export const managementProfiles: ManagementProfile[] = [
     qualification: 'BSc in Architectural Science from Curtin University, Perth, Australia.',
     image: imageAssets.management.udhantha,
     paragraphs: [
-      'Holding a bachelor’s degree in Architectural Science from Curtin University in Perth, Australia, Mr. Udhantha Sumathipala’s charisma is defined by his dedication and go-getter personality. His constant quest for innovation makes him an invaluable member of Sumathi Universal (Pvt) Ltd.',
+      'Holding a bachelor’s degree in Architectural Science from Curtin University in Perth, Australia, Mr. Udhantha Sumathipala’s charisma is defined by his dedication and go getter personality. His constant quest for innovation makes him an invaluable member of Sumathi Universal (Pvt) Ltd.',
       'He is the oldest son of Mr. Thilanga Sumathipala and was awarded university colours for outstanding achievements from the University of Limkokwing. In 2018, he joined Sumathi Universal (Pvt) Ltd. as an Executive Director and currently leads the subsidiary companies of SUMI. His alma mater was the distinguished Royal College, Colombo.',
     ],
   },
@@ -42,7 +42,7 @@ export const managementProfiles: ManagementProfile[] = [
     role: 'Director',
     image: imageAssets.management.samadara,
     paragraphs: [
-      'As a Director of Sumathi Universal (Pvt) Ltd., Mrs. Samadara Sumathipala is a strategic, forward-thinking individual with strong temperament. Her role in the organisation is vital as she uses her passion, grit, and dedication to ensure success in every aspect of the business. Mrs. Sumathipala has played a key role in many successful endeavours that the group has embarked on.',
+      'As a Director of Sumathi Universal (Pvt) Ltd., Mrs. Samadara Sumathipala is a strategic, forward thinking individual with strong temperament. Her role in the organisation is vital as she uses her passion, grit, and dedication to ensure success in every aspect of the business. Mrs. Sumathipala has played a key role in many successful endeavours that the group has embarked on.',
       'The beloved wife of Mr. Thilanga Sumathipala, it is she who determines the opportunities to stimulate business growth and makes sensible leadership decisions with utmost integrity.',
     ],
   },

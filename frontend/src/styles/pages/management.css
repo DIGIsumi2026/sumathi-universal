@@ -277,19 +277,20 @@
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(7, 54, 115, 0.1);
   box-shadow: 0 26px 80px rgba(7, 54, 115, 0.1);
+  transform-origin: top center;
+  will-change: transform, opacity;
 }
 
-/* fixed image box: image will not stretch when text expands */
+/* fixed image box: will not stretch or zoom when expanded text appears */
 .management-profile-image-wrap {
   position: relative;
   height: clamp(420px, 38vw, 540px);
   min-height: 0;
   align-self: start;
-  overflow: visible;
-  padding: 24px;
-  background:
-    radial-gradient(circle at 50% 24%, rgba(7, 54, 115, 0.14), transparent 38%),
-    linear-gradient(135deg, #020b18 0%, #061730 100%);
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  will-change: transform;
 }
 
 .management-profile-image {
@@ -298,18 +299,29 @@
   display: block;
   object-fit: cover;
   object-position: center top;
-  border-radius: 28px;
+  border-radius: 0;
   user-select: none;
-  box-shadow: 0 22px 54px rgba(2, 11, 24, 0.24);
   transform: scale(1);
   transition:
     transform 0.42s ease,
     box-shadow 0.42s ease;
 }
 
-.management-profile-image-wrap:hover .management-profile-image {
-  transform: translateY(-8px) scale(1.035);
-  box-shadow: 0 34px 76px rgba(2, 11, 24, 0.34);
+/* desktop only: curved image edges + hover pop */
+@media (min-width: 901px) {
+  .management-profile-image-wrap {
+    border-radius: 28px;
+    overflow: hidden;
+  }
+
+  .management-profile-image {
+    box-shadow: 0 22px 54px rgba(2, 11, 24, 0.16);
+  }
+
+  .management-profile-image-wrap:hover .management-profile-image {
+    transform: scale(1.045);
+    box-shadow: 0 34px 76px rgba(2, 11, 24, 0.28);
+  }
 }
 
 /* ======================================================
@@ -374,6 +386,35 @@
 }
 
 /* ======================================================
+   EXPANDED FULL-WIDTH TEXT
+====================================================== */
+
+.management-profile-expanded-body {
+  grid-column: 1 / -1;
+  width: 100%;
+  overflow: hidden;
+  will-change: height, opacity, transform;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(7, 54, 115, 0.04), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+}
+
+.management-profile-expanded-body-inner {
+  padding: 0 clamp(34px, 4.2vw, 64px) clamp(38px, 4.2vw, 64px);
+  display: grid;
+  gap: 16px;
+}
+
+.management-profile-expanded-body-inner p {
+  max-width: none;
+  margin: 0;
+  color: rgba(6, 23, 48, 0.76);
+  font-size: clamp(14.5px, 1vw, 16.4px);
+  line-height: 1.66;
+  font-weight: 400;
+}
+
+/* ======================================================
    EXPAND BUTTON
 ====================================================== */
 
@@ -420,6 +461,20 @@
   box-shadow: 0 20px 44px rgba(7, 54, 115, 0.32);
 }
 
+/* collapsed button stays inside right-side content */
+.management-profile-content > .management-profile-expand-row {
+  margin-top: 24px;
+}
+
+/* expanded Show Less button stays under full expanded text */
+.management-profile-expanded-body-inner .management-profile-expand-row {
+  margin-top: 10px;
+}
+
+.management-profile-expanded-body-inner .management-profile-expand-btn {
+  justify-self: center;
+}
+
 /* ======================================================
    LARGE TABLET
 ====================================================== */
@@ -431,7 +486,6 @@
 
   .management-profile-image-wrap {
     height: 500px;
-    padding: 22px;
   }
 
   .management-profile-content {
@@ -442,14 +496,13 @@
     font-size: 46px;
   }
 
-  .management-profile-text {
-    margin-top: 13px;
+  .management-profile-expanded-body-inner {
+    padding: 0 42px 42px;
   }
 }
 
 /* ======================================================
    TABLET + MOBILE
-   No curved edges and no hover pop on small screens
 ====================================================== */
 
 @media (max-width: 900px) {
@@ -466,13 +519,15 @@
     height: 460px;
     min-height: 0;
     padding: 0;
+    border-radius: 0;
     overflow: hidden;
+    background: transparent;
   }
 
   .management-profile-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center top;
     border-radius: 0;
     box-shadow: none;
@@ -487,10 +542,6 @@
 
   .management-profile-content {
     padding: 38px 32px 42px;
-  }
-
-  .management-profile-content > span {
-    margin-bottom: 10px;
   }
 
   .management-profile-content h3 {
@@ -508,9 +559,18 @@
     gap: 13px;
   }
 
-  .management-profile-text p {
+  .management-profile-text p,
+  .management-profile-expanded-body-inner p {
     font-size: 14.6px;
     line-height: 1.6;
+  }
+
+  .management-profile-expanded-body {
+    grid-column: 1;
+  }
+
+  .management-profile-expanded-body-inner {
+    padding: 0 32px 42px;
   }
 }
 
@@ -567,9 +627,15 @@
     gap: 12px;
   }
 
-  .management-profile-text p {
+  .management-profile-text p,
+  .management-profile-expanded-body-inner p {
     font-size: 13.6px;
     line-height: 1.58;
+  }
+
+  .management-profile-expanded-body-inner {
+    padding: 0 22px 36px;
+    gap: 12px;
   }
 
   .management-profile-expand-row {
@@ -586,6 +652,10 @@
     width: 100%;
     height: 43px;
   }
+
+  .management-profile-expanded-body-inner .management-profile-expand-row {
+    margin-top: 16px;
+  }
 }
 
 @media (max-width: 390px) {
@@ -597,7 +667,8 @@
     font-size: 29px;
   }
 
-  .management-profile-text p {
+  .management-profile-text p,
+  .management-profile-expanded-body-inner p {
     font-size: 13.2px;
   }
 }
