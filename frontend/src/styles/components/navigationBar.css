@@ -188,12 +188,24 @@
   color: var(--white);
   border-radius: 50%;
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes navbar-toggle-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .navbar-menu-btn:hover {
@@ -297,7 +309,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .navbar-inner,
   .navbar-scrolled .navbar-inner {
     width: calc(100% - 32px);
@@ -307,6 +319,11 @@
   .navbar-links,
   .navbar-socials {
     display: none;
+  }
+
+  .navbar-menu-btn {
+    display: flex;
+    animation: navbar-toggle-appear 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .navbar-logo img {

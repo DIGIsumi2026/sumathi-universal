@@ -271,20 +271,80 @@ u {
   right: 24px;
   bottom: 24px;
   z-index: 60;
-  width: 45px;
-  height: 45px;
+  width: 64px;
+  height: 64px;
+  padding: 0;
   border-radius: 50%;
   background: #fff;
-  color: #37ce7d;
-  box-shadow: 0 10px 25px rgba(19, 83, 71, .2);
-  border: 1px solid #daf5ea;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(7, 54, 115, .2);
+  border: 0;
   display: grid;
   place-items: center;
-  transform: translateY(90px);
+  transform: translateY(18px) scale(.9);
   opacity: 0;
-  transition: .28s ease;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .28s ease, transform .28s ease, visibility 0s linear .28s;
 }
-.scroll-top.visible { transform: translateY(0); opacity: 1; }
+.scroll-top.visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity .28s ease, transform .28s ease, visibility 0s linear 0s;
+}
+.scroll-top__progress {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  overflow: visible;
+  pointer-events: none;
+}
+.scroll-top__track,
+.scroll-top__progress-value {
+  fill: none;
+  stroke-width: 4;
+}
+.scroll-top__track { stroke: rgba(7, 54, 115, .14); }
+.scroll-top__progress-value {
+  stroke: #073673;
+  stroke-linecap: round;
+  transition: stroke-dashoffset .22s ease, stroke .2s ease;
+}
+.scroll-top__inner {
+  position: relative;
+  z-index: 1;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #073673 0%, #030A8C 100%);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 14px rgba(7, 54, 115, .22);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.scroll-top:hover .scroll-top__inner,
+.scroll-top:focus-visible .scroll-top__inner {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 20px rgba(3, 10, 140, .32);
+}
+.scroll-top:hover .scroll-top__progress-value,
+.scroll-top:focus-visible .scroll-top__progress-value { stroke: #030A8C; }
+.scroll-top:focus-visible { outline: 3px solid rgba(7, 54, 115, .28); outline-offset: 4px; }
+@media (max-width: 640px) {
+  .scroll-top {
+    right: 16px;
+    bottom: 16px;
+    width: 56px;
+    height: 56px;
+  }
+  .scroll-top__inner { width: 40px; height: 40px; }
+  .scroll-top__progress-value,
+  .scroll-top__track { stroke-width: 4; }
+}
 .preloader {
   position: fixed;
   inset: 0;

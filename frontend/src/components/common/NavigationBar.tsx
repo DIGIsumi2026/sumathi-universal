@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Instagram, Linkedin, Menu, X } from 'lucide-react';
 import { imageAssets } from '../../data/imageAssets';
 import '../../styles/components/navigationBar.css';
-import { label } from 'framer-motion/m';
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -16,28 +15,70 @@ const navLinks = [
 
 const NavigationBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showScrollNav, setShowScrollNav] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const lastScrollY = useRef(0);
+  const hideScrollNavTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      const currentY = window.scrollY;
+      const threshold = 80;
+      const scrollingUp = currentY < lastScrollY.current;
+
+      if (currentY <= threshold) {
+        setIsScrolled(false);
+        setShowScrollNav(false);
+        if (hideScrollNavTimer.current) {
+          clearTimeout(hideScrollNavTimer.current);
+          hideScrollNavTimer.current = null;
+        }
+      } else {
+        setIsScrolled(true);
+
+        if (scrollingUp) {
+          setShowScrollNav(true);
+          if (hideScrollNavTimer.current) {
+            clearTimeout(hideScrollNavTimer.current);
+          }
+          hideScrollNavTimer.current = setTimeout(() => {
+            setShowScrollNav(false);
+            hideScrollNavTimer.current = null;
+          }, 2800);
+        } else {
+          setShowScrollNav(false);
+          if (hideScrollNavTimer.current) {
+            clearTimeout(hideScrollNavTimer.current);
+            hideScrollNavTimer.current = null;
+          }
+        }
+      }
+
+      lastScrollY.current = currentY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    lastScrollY.current = window.scrollY;
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (hideScrollNavTimer.current) {
+        clearTimeout(hideScrollNavTimer.current);
+      }
+    };
   }, []);
 
   return (
     <>
       <AnimatePresence mode="wait">
+        {(!isScrolled || showScrollNav) && (
         <motion.header
           key={isScrolled ? 'scroll-navbar' : 'default-navbar'}
-          className={`navbar ${isScrolled ? 'navbar-scrolled' : 'navbar-default'}`}
+          className={`navbar ${isScrolled ? 'navbar-scrolled navbar-scroll-visible' : 'navbar-default'}`}
           initial={
             isScrolled
-              ? { y: -90, opacity: 0, scale: 0.92, borderRadius: '0 0 80px 80px' }
+              ? { y: -20, opacity: 0, scale: 0.98, borderRadius: '999px' }
               : { y: -30, opacity: 0 }
           }
           animate={
@@ -45,7 +86,7 @@ const NavigationBar = () => {
               ? { y: 0, opacity: 1, scale: 1, borderRadius: '999px' }
               : { y: 0, opacity: 1 }
           }
-          exit={{ y: -60, opacity: 0 }}
+          exit={{ y: -20, opacity: 0 }}
           transition={{
             duration: 0.65,
             ease: [0.22, 1, 0.36, 1],
@@ -95,6 +136,7 @@ const NavigationBar = () => {
             </div>
           </div>
         </motion.header>
+        )}
       </AnimatePresence>
 
       <AnimatePresence>
