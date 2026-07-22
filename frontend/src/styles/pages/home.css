@@ -764,7 +764,7 @@
   margin: 0;
   font-size: clamp(46px, 3vw, 86px);
   line-height: 0.98;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.055em;
   color: #ffffff;
 }
@@ -787,7 +787,7 @@
   background: rgba(255, 255, 255, 0.96);
   color: #073673;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
@@ -1001,12 +1001,12 @@
 }
 
 .intro-logo-video-content h2 {
-  max-width: 680px;
+  max-width: 700px;
   margin: 0;
   font-size: clamp(46px, 3vw, 86px);
-  line-height: 0.98;
-  font-weight: 800;
-  letter-spacing: -0.055em;
+  line-height: 0.99;
+  font-weight: 600;
+  letter-spacing: -0.0055em;
   color: #ffffff;
 }
 
@@ -1026,7 +1026,7 @@
   background: #ffffff;
   color: #073673;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
@@ -1114,7 +1114,7 @@
   display: block;
   margin-bottom: 14px;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.38em;
   text-transform: uppercase;
   color: #073673;
@@ -1123,8 +1123,8 @@
 .what-we-do-header h2 {
   margin: 0;
   font-size: clamp(42px, 3vw, 72px);
-  line-height: 0.95;
-  font-weight: 900;
+  line-height: 0.99;
+  font-weight: 600;
   letter-spacing: -0.0055em;
   text-transform: uppercase;
   color: #24272d;
@@ -1406,7 +1406,7 @@
   margin-bottom: 14px;
   color: #073673;
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: 0.34em;
   text-transform: uppercase;
 }
@@ -1416,7 +1416,7 @@
   margin: 0;
   font-size: clamp(42px, 3vw, 82px);
   line-height: 0.95;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -0.005em;
   text-transform: uppercase;
   color: #10151f;

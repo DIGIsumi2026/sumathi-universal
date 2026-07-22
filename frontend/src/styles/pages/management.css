@@ -322,6 +322,12 @@
     transform: scale(1.045);
     box-shadow: 0 34px 76px rgba(2, 11, 24, 0.28);
   }
+
+  .management-profile-card.profile-expanded
+    .management-profile-image-wrap:hover
+    .management-profile-image {
+    transform: none;
+  }
 }
 
 /* ======================================================
@@ -392,11 +398,23 @@
 .management-profile-expanded-body {
   grid-column: 1 / -1;
   width: 100%;
+  max-height: 0;
+  opacity: 0;
   overflow: hidden;
-  will-change: height, opacity, transform;
   background:
     radial-gradient(circle at 88% 12%, rgba(7, 54, 115, 0.04), transparent 30%),
     linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  transition:
+    max-height 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.22s ease;
+  contain: layout paint;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.management-profile-expanded-body.is-open {
+  max-height: var(--expanded-height);
+  opacity: 1;
 }
 
 .management-profile-expanded-body-inner {
@@ -473,6 +491,10 @@
 
 .management-profile-expanded-body-inner .management-profile-expand-btn {
   justify-self: center;
+}
+
+.management-profiles-reduced-motion .management-profile-expanded-body {
+  transition: none;
 }
 
 /* ======================================================
@@ -670,5 +692,225 @@
   .management-profile-text p,
   .management-profile-expanded-body-inner p {
     font-size: 13.2px;
+  }
+}
+
+/* ======================================================
+   MANAGEMENT CONTACT CTA
+====================================================== */
+
+.management-contact-cta-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #020b18;
+
+  /* remove white space around the section */
+  padding: 0;
+  margin: 0;
+}
+
+.management-contact-cta-card {
+  position: relative;
+  width: 100%;
+
+  /* small CTA height, not full hero height */
+  min-height: clamp(380px, 34vw, 500px);
+
+  margin: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #020b18;
+
+  /* remove card floating shadow because section is full width now */
+  box-shadow: none;
+}
+
+.management-contact-cta-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* keeps lady and wall logo visible */
+  object-position: center center;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+.management-contact-cta-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 11, 24, 0.94) 0%,
+      rgba(2, 11, 24, 0.84) 28%,
+      rgba(2, 11, 24, 0.42) 52%,
+      rgba(2, 11, 24, 0.12) 100%
+    );
+}
+
+.management-contact-cta-content {
+  position: relative;
+  z-index: 4;
+  width: min(560px, 100%);
+  min-height: clamp(380px, 34vw, 500px);
+  padding: clamp(42px, 5vw, 76px) clamp(24px, 7vw, 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+
+
+.management-contact-cta-content h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 0.99;
+  font-weight: 600;
+  letter-spacing: -0.007em;
+  text-shadow: 0 20px 54px rgba(0, 0, 0, 0.28);
+}
+
+.management-contact-cta-content p {
+  max-width: 480px;
+  margin: 22px 0 0;
+  color: rgba(235, 248, 255, 0.88);
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.65;
+}
+
+.management-contact-cta-actions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.management-contact-cta-btn {
+  min-height: 50px;
+  padding: 0 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 600;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.management-contact-cta-btn.primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #073673 0%, #030a8c 100%);
+  box-shadow: 0 18px 42px rgba(7, 54, 115, 0.34);
+}
+
+.management-contact-cta-btn.whatsapp {
+  color: #073673;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 42px rgba(255, 255, 255, 0.12);
+}
+
+.management-contact-cta-btn:hover {
+  transform: translateY(-3px);
+}
+
+.management-contact-cta-btn.primary:hover {
+  box-shadow: 0 24px 54px rgba(7, 54, 115, 0.44);
+}
+
+.management-contact-cta-btn.whatsapp:hover {
+  color: #030a8c;
+  background: #ffffff;
+  box-shadow: 0 24px 54px rgba(255, 255, 255, 0.18);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
+  .management-contact-cta-card {
+    min-height: 520px;
+  }
+
+  .management-contact-cta-image {
+    object-position: 62% center;
+  }
+
+  .management-contact-cta-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2, 11, 24, 0.9) 0%,
+        rgba(2, 11, 24, 0.68) 44%,
+        rgba(2, 11, 24, 0.22) 100%
+      );
+  }
+
+  .management-contact-cta-content {
+    width: 100%;
+    min-height: 520px;
+    justify-content: flex-start;
+    padding: 44px 28px;
+  }
+
+  .management-contact-cta-content h2 {
+    font-size: 46px;
+  }
+
+  .management-contact-cta-content p {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 576px) {
+  .management-contact-cta-card {
+    min-height: 500px;
+  }
+
+  .management-contact-cta-image {
+    object-position: 64% center;
+  }
+
+  .management-contact-cta-content {
+    min-height: 500px;
+    padding: 34px 22px;
+  }
+
+  .management-contact-cta-content span {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+  }
+
+  .management-contact-cta-content h2 {
+    font-size: 36px;
+    line-height: 1.02;
+  }
+
+  .management-contact-cta-content p {
+    font-size: 14px;
+  }
+
+  .management-contact-cta-actions {
+    display: grid;
+    gap: 12px;
+  }
+
+  .management-contact-cta-btn {
+    width: 100%;
   }
 }

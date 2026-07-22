@@ -1,21 +1,119 @@
-import { useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { type CSSProperties, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { managementProfiles } from '../../data/managementProfilesData';
 
 export default function ManagementProfilesSection() {
   const [expandedProfiles, setExpandedProfiles] = useState<Record<string, boolean>>({});
+  const [expandedHeights, setExpandedHeights] = useState<Record<string, number>>({});
+  const expandedContentRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const measureFrameRef = useRef<number | null>(null);
   const shouldReduceMotion = useReducedMotion();
 
-  const toggleProfile = (profileId: string) => {
+  const measureProfileHeight = useCallback((profileId: string) => {
+    const contentElement = expandedContentRefs.current[profileId];
+    const measuredHeight = contentElement?.scrollHeight ?? 0;
+
+    setExpandedHeights((current) => {
+      if (current[profileId] === measuredHeight) {
+        return current;
+      }
+
+      return {
+        ...current,
+        [profileId]: measuredHeight,
+      };
+    });
+  }, []);
+
+  const measureAllProfileHeights = useCallback(() => {
+    const nextHeights: Record<string, number> = {};
+
+    managementProfiles.forEach((profile) => {
+      if (profile.paragraphs.length <= 2) {
+        return;
+      }
+
+      nextHeights[profile.id] = expandedContentRefs.current[profile.id]?.scrollHeight ?? 0;
+    });
+
+    setExpandedHeights((current) => {
+      const currentKeys = Object.keys(current);
+      const nextKeys = Object.keys(nextHeights);
+      const hasChanged =
+        currentKeys.length !== nextKeys.length ||
+        nextKeys.some((profileId) => current[profileId] !== nextHeights[profileId]);
+
+      return hasChanged ? nextHeights : current;
+    });
+  }, []);
+
+  const cancelPendingMeasurement = useCallback(() => {
+    if (measureFrameRef.current === null) {
+      return;
+    }
+
+    window.cancelAnimationFrame(measureFrameRef.current);
+    measureFrameRef.current = null;
+  }, []);
+
+  const scheduleAllHeightMeasurements = useCallback(() => {
+    cancelPendingMeasurement();
+
+    measureFrameRef.current = window.requestAnimationFrame(() => {
+      measureFrameRef.current = null;
+      measureAllProfileHeights();
+    });
+  }, [cancelPendingMeasurement, measureAllProfileHeights]);
+
+  const openProfile = useCallback(
+    (profileId: string) => {
+      cancelPendingMeasurement();
+
+      measureFrameRef.current = window.requestAnimationFrame(() => {
+        measureFrameRef.current = null;
+        measureProfileHeight(profileId);
+        setExpandedProfiles((current) => ({
+          ...current,
+          [profileId]: true,
+        }));
+      });
+    },
+    [cancelPendingMeasurement, measureProfileHeight],
+  );
+
+  const closeProfile = useCallback((profileId: string) => {
     setExpandedProfiles((current) => ({
       ...current,
-      [profileId]: !current[profileId],
+      [profileId]: false,
     }));
-  };
+  }, []);
+
+  useLayoutEffect(() => {
+    scheduleAllHeightMeasurements();
+
+    return cancelPendingMeasurement;
+  }, [cancelPendingMeasurement, scheduleAllHeightMeasurements]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      scheduleAllHeightMeasurements();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      cancelPendingMeasurement();
+    };
+  }, [cancelPendingMeasurement, scheduleAllHeightMeasurements]);
 
   return (
-    <section className="management-profiles-section">
+    <section
+      className={`management-profiles-section ${
+        shouldReduceMotion ? 'management-profiles-reduced-motion' : ''
+      }`}
+    >
       <motion.div
         className="management-profiles-header"
         initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
@@ -39,32 +137,42 @@ export default function ManagementProfilesSection() {
             ? profile.paragraphs.slice(2)
             : [];
 
-          const ExpandButton = () => (
-            <div className="management-profile-expand-row">
-              <div className="management-profile-line" />
+          const ExpandButton = ({ mode }: { mode: 'open' | 'close' }) => {
+            const isCloseButton = mode === 'close';
 
-              <button
-                type="button"
-                className="management-profile-expand-btn"
-                onClick={() => toggleProfile(profile.id)}
-                aria-expanded={isExpanded}
-              >
-                {isExpanded ? 'Show Less' : 'Read Full Profile'}
+            return (
+              <div className="management-profile-expand-row">
+                <div className="management-profile-line" />
 
-                {isExpanded ? (
-                  <ChevronUp size={18} />
-                ) : (
-                  <ChevronDown size={18} />
-                )}
-              </button>
+                <button
+                  type="button"
+                  className="management-profile-expand-btn"
+                  onClick={() => {
+                    if (isCloseButton) {
+                      closeProfile(profile.id);
+                      return;
+                    }
 
-              <div className="management-profile-line" />
-            </div>
-          );
+                    openProfile(profile.id);
+                  }}
+                  aria-expanded={isExpanded}
+                >
+                  {isCloseButton ? 'Show Less' : 'Read Full Profile'}
+
+                  {isCloseButton ? (
+                    <ChevronUp size={18} />
+                  ) : (
+                    <ChevronDown size={18} />
+                  )}
+                </button>
+
+                <div className="management-profile-line" />
+              </div>
+            );
+          };
 
           return (
             <motion.article
-              layout
               key={profile.id}
               id={profile.id === 'thilanga-sumathipala' ? 'chairman-profile' : profile.id}
               className={`management-profile-card ${isExpanded ? 'profile-expanded' : ''}`}
@@ -88,10 +196,6 @@ export default function ManagementProfilesSection() {
               }
               viewport={{ once: true, margin: '-90px' }}
               transition={{
-                layout: {
-                  duration: 0.55,
-                  ease: [0.22, 1, 0.36, 1],
-                },
                 opacity: {
                   duration: 0.7,
                   delay: index * 0.08,
@@ -109,16 +213,16 @@ export default function ManagementProfilesSection() {
                 },
               }}
             >
-              <motion.div layout className="management-profile-image-wrap">
+              <div className="management-profile-image-wrap">
                 <img
                   src={profile.image}
                   alt={profile.name}
                   className="management-profile-image"
                   draggable={false}
                 />
-              </motion.div>
+              </div>
 
-              <motion.div layout className="management-profile-content">
+              <div className="management-profile-content">
                 <span>{profile.role}</span>
 
                 <h3>{profile.name}</h3>
@@ -135,101 +239,33 @@ export default function ManagementProfilesSection() {
                   ))}
                 </div>
 
-                {hasLongText && !isExpanded && <ExpandButton />}
-              </motion.div>
+                {hasLongText && !isExpanded && <ExpandButton mode="open" />}
+              </div>
 
-              <AnimatePresence initial={false}>
-                {isExpanded && remainingParagraphs.length > 0 && (
-                  <motion.div
-                    key={`${profile.id}-expanded-body`}
-                    className="management-profile-expanded-body"
-                    initial={
-                      shouldReduceMotion
-                        ? false
-                        : {
-                            height: 0,
-                            opacity: 0,
-                            y: -12,
-                          }
-                    }
-                    animate={
-                      shouldReduceMotion
-                        ? undefined
-                        : {
-                            height: 'auto',
-                            opacity: 1,
-                            y: 0,
-                          }
-                    }
-                    exit={
-                      shouldReduceMotion
-                        ? undefined
-                        : {
-                            height: 0,
-                            opacity: 0,
-                            y: -10,
-                          }
-                    }
-                    transition={{
-                      height: {
-                        duration: 0.58,
-                        ease: [0.22, 1, 0.36, 1],
-                      },
-                      opacity: {
-                        duration: 0.35,
-                        ease: 'easeOut',
-                      },
-                      y: {
-                        duration: 0.45,
-                        ease: [0.22, 1, 0.36, 1],
-                      },
+              {hasLongText && remainingParagraphs.length > 0 && (
+                <div
+                  className={`management-profile-expanded-body ${isExpanded ? 'is-open' : ''}`}
+                  aria-hidden={!isExpanded}
+                  style={
+                    {
+                      '--expanded-height': `${expandedHeights[profile.id] ?? 0}px`,
+                    } as CSSProperties
+                  }
+                >
+                  <div
+                    className="management-profile-expanded-body-inner"
+                    ref={(element) => {
+                      expandedContentRefs.current[profile.id] = element;
                     }}
                   >
-                    <motion.div
-                      className="management-profile-expanded-body-inner"
-                      initial={shouldReduceMotion ? false : { opacity: 0 }}
-                      animate={shouldReduceMotion ? undefined : { opacity: 1 }}
-                      exit={shouldReduceMotion ? undefined : { opacity: 0 }}
-                      transition={{
-                        duration: 0.35,
-                        delay: 0.12,
-                        ease: 'easeOut',
-                      }}
-                    >
-                      {remainingParagraphs.map((paragraph, paragraphIndex) => (
-                        <motion.p
-                          key={paragraph}
-                          initial={
-                            shouldReduceMotion
-                              ? false
-                              : {
-                                  opacity: 0,
-                                  y: 14,
-                                }
-                          }
-                          animate={
-                            shouldReduceMotion
-                              ? undefined
-                              : {
-                                  opacity: 1,
-                                  y: 0,
-                                }
-                          }
-                          transition={{
-                            duration: 0.42,
-                            delay: paragraphIndex * 0.05,
-                            ease: [0.22, 1, 0.36, 1],
-                          }}
-                        >
-                          {paragraph}
-                        </motion.p>
-                      ))}
+                    {remainingParagraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
 
-                      <ExpandButton />
-                    </motion.div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    <ExpandButton mode="close" />
+                  </div>
+                </div>
+              )}
             </motion.article>
           );
         })}

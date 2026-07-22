@@ -103,7 +103,7 @@ import samadaraProfile from "../assets/images/management/samadara-sumathipala.pn
 import sajanthaProfile from "../assets/images/management/sajantha-sumathipala.jpeg";
 import dulanthaProfile from "../assets/images/management/dulantha-sumathipala.png";
 
-
+import managementContactBanner from "../assets/images/management/contact-banner.png";
 
 export const imageAssets = {
   brand: {
@@ -242,7 +242,8 @@ management:{
   udhantha:udhanthaProfile,
   samadara:samadaraProfile,
   sajantha:sajanthaProfile,
-  dulantha:dulanthaProfile
+  dulantha:dulanthaProfile,
+  contactBanner: managementContactBanner
 },
 
 
