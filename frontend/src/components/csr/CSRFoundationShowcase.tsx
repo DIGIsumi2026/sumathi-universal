@@ -1,4 +1,12 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type TouchEvent,
+} from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { csrSectionsData, type CSRSectionItem } from '../../data/csrSectionsData';
 
@@ -60,6 +68,7 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
     };
   }, [isMobile, section.gallery.length, isZoomOpen, goNext]);
 
+  /* desktop zoom mode: disable body scroll, nav, scroll-up button through body class */
   useEffect(() => {
     if (!isZoomOpen) return;
 
@@ -123,14 +132,14 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
     setIsZoomOpen(false);
   };
 
-  const handleTouchStart = (event: React.TouchEvent<HTMLButtonElement>) => {
+  const handleTouchStart = (event: TouchEvent<HTMLButtonElement>) => {
     if (!isMobile) return;
 
     touchStartX.current = event.touches[0].clientX;
     touchEndX.current = null;
   };
 
-  const handleTouchMove = (event: React.TouchEvent<HTMLButtonElement>) => {
+  const handleTouchMove = (event: TouchEvent<HTMLButtonElement>) => {
     if (!isMobile) return;
 
     touchEndX.current = event.touches[0].clientX;
@@ -159,14 +168,19 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
     touchEndX.current = null;
   };
 
+  if (!activeImage) {
+    return null;
+  }
+
   return (
     <article
       className="csr-foundation-card"
+      data-csr-section={section.id}
       style={
         {
           '--csr-accent': section.accentColor,
           backgroundImage: `url(${section.outerBg})`,
-        } as React.CSSProperties
+        } as CSSProperties
       }
     >
       <div

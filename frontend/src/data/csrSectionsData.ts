@@ -82,6 +82,53 @@ export const csrSectionsData: CSRSectionItem[] = [
     },
   ],
 },
+{
+  id: 'sumathi-awards',
+  label: 'Sumathi Awards',
+  logo: imageAssets.csr.sumathiAwards.logo,
+  outerBg: imageAssets.csr.sumathiAwards.outerBg,
+  leftBg: imageAssets.csr.sumathiAwards.leftBg,
+  galleryBg: imageAssets.csr.sumathiAwards.galleryBg,
+  accentColor: '#D4A64A',
+  paragraphs: [
+    'In 1995, Mr. Thilanga Sumathipala, together with the National Youth Council, founded the Sumathi Awards to fill the void left by television awards. A total of 32 awards were presented, categorized into four sections: Best Awards, Popular Awards, Commercial Awards, and Merit Awards.',
 
+    'The Sumathi Awards is an esteemed recognition presented annually by the Sumathi Group of Companies, Sri Lanka, honoring outstanding individuals within the country’s television industry. These awards acknowledge the remarkable contributions made by recipients to Sri Lanka’s teledrama sector and television programming landscape.',
+
+    'The Sumathi ceremony stands as a highly anticipated television event in Sri Lanka, showcasing excellence and celebrating talent. Initiated in 1995, the Sumathi Awards continue to highlight and applaud excellence in television.',
+
+    'The second Sumathi Awards ceremony in 1996 introduced the U. W. Sumathipala Award. From 2000 onwards, awards were distributed across five categories. The 2000 Sumathi Awards marked the inclusion of the Jury Award category, expanding the total to six categories until 2011. In the 2011 Sumathi Awards, the News and Other Broadcasting category was introduced. Subsequently, the Child Award category was added in the 2014 Sumathi Awards. Since then, between 50 and 55 Sumathi Awards have been presented annually under eight categories.',
+  ],
+  gallery: [
+    {
+      image: imageAssets.csr.sumathiAwards.gallery[0],
+      alt: 'Sumathi Awards ceremony stage performance',
+    },
+    {
+      image: imageAssets.csr.sumathiAwards.gallery[1],
+      alt: 'Sumathi Awards official address at the ceremony',
+    },
+    {
+      image: imageAssets.csr.sumathiAwards.gallery[2],
+      alt: 'Sumathi Awards cultural event moment',
+    },
+    {
+      image: imageAssets.csr.sumathiAwards.gallery[3],
+      alt: 'Sumathi Awards stage dance performance',
+    },
+    {
+      image: imageAssets.csr.sumathiAwards.gallery[4],
+      alt: 'Sumathi Awards winners holding awards',
+    },
+    {
+      image: imageAssets.csr.sumathiAwards.gallery[5],
+      alt: 'Sumathi Awards trophies displayed at the event',
+    },
+    {
+      image: imageAssets.csr.sumathiAwards.gallery[6],
+      alt: 'Sumathi Awards honorees with trophies',
+    },
+  ],
+},
 
 ];

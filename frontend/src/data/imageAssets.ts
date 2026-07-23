@@ -130,7 +130,20 @@ import csrThilangaGallery4 from "../assets/images/csr/thilanga-foundation/galler
 import csrThilangaGallery5 from "../assets/images/csr/thilanga-foundation/gallery-5.jpg";
 import csrThilangaGallery6 from "../assets/images/csr/thilanga-foundation/gallery-6.jpg";
 
+//sumathi-awards
+import csrSumathiAwardsLogo from '../assets/images/csr/sumathi-awards/logo.png';
 
+import  csrSumathiAwardsOuterBg from '../assets/images/csr/sumathi-awards/outer-bg.png';
+import csrSumathiAwardsLeftBg from '../assets/images/csr/sumathi-awards/left-bg.png';
+import csrSumathiAwardsGalleryBg from '../assets/images/csr/sumathi-awards/gallery-bg.png';
+
+import csrSumathiAwardsGallery1 from '../assets/images/csr/sumathi-awards/gallery-1.jpg';
+import csrSumathiAwardsGallery2 from '../assets/images/csr/sumathi-awards/gallery-2.jpg';
+import csrSumathiAwardsGallery3 from '../assets/images/csr/sumathi-awards/gallery-3.jpg';
+import csrSumathiAwardsGallery4 from '../assets/images/csr/sumathi-awards/gallery-4.jpg';
+import csrSumathiAwardsGallery5 from '../assets/images/csr/sumathi-awards/gallery-5.jpg';
+import csrSumathiAwardsGallery6 from '../assets/images/csr/sumathi-awards/gallery-6.jpg';
+import csrSumathiAwardsGallery7 from '../assets/images/csr/sumathi-awards/gallery-7.png';
 
 
 
@@ -302,6 +315,22 @@ csr:{
       csrThilangaGallery6,
     ],
   },
+
+  sumathiAwards: {
+  outerBg: csrSumathiAwardsOuterBg,
+  leftBg: csrSumathiAwardsLeftBg,
+  galleryBg: csrSumathiAwardsGalleryBg,
+  logo: csrSumathiAwardsLogo,
+  gallery: [
+    csrSumathiAwardsGallery1,
+    csrSumathiAwardsGallery2,
+    csrSumathiAwardsGallery3,
+    csrSumathiAwardsGallery4,
+    csrSumathiAwardsGallery5,
+    csrSumathiAwardsGallery6,
+    csrSumathiAwardsGallery7,
+  ],
+},
 },
 
 };

@@ -1048,3 +1048,33 @@ body.csr-zoom-active .scroll-progress-button {
     width: 20px;
   }
 }
+
+/* Sumathi Awards long-content adjustment */
+.csr-foundation-card[data-csr-section='sumathi-awards'] .csr-foundation-logo-wrap {
+  width: min(220px, 68%);
+  margin-bottom: 24px;
+}
+
+.csr-foundation-card[data-csr-section='sumathi-awards'] .csr-foundation-logo {
+  max-height: 170px;
+}
+
+.csr-foundation-card[data-csr-section='sumathi-awards'] .csr-foundation-copy {
+  gap: 16px;
+}
+
+.csr-foundation-card[data-csr-section='sumathi-awards'] .csr-foundation-copy p {
+  font-size: clamp(13.4px, 0.92vw, 15px);
+  line-height: 1.58;
+}
+
+@media (max-width: 768px) {
+  .csr-foundation-card[data-csr-section='sumathi-awards'] .csr-foundation-logo {
+    max-height: 140px;
+  }
+
+  .csr-foundation-card[data-csr-section='sumathi-awards'] .csr-foundation-copy p {
+    font-size: 13px;
+    line-height: 1.56;
+  }
+}
