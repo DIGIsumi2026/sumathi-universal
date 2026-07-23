@@ -109,6 +109,14 @@ import managementContactBanner from "../assets/images/management/contact-banner.
 import csrHeroThumbnail from "../assets/images/csr/csr-hero-thumbnail.png";
 import csrDescriptionEducation from "../assets/images/csr/csr-description-education.png";
 
+//milina-matha
+import csrMilinaOuterBg from "../assets/images/csr/milina-matha/outer-bg.png.png";
+import csrMilinaLeftBg from "../assets/images/csr/milina-matha/left-bg.png";
+import csrMilinaGalleryBg from "../assets/images/csr/milina-matha/gallery-bg.png";
+import csrMilinaLogo from "../assets/images/csr/milina-matha/milina-logo.jpg";
+import csrMilinaGallery1 from "../assets/images/csr/milina-matha/milina-gallery-1.jpg";
+import csrMilinaGallery2  from "../assets/images/csr/milina-matha/milina-gallery-2.jpg";
+
 
 export const imageAssets = {
   brand: {
@@ -248,12 +256,21 @@ management:{
   samadara:samadaraProfile,
   sajantha:sajanthaProfile,
   dulantha:dulanthaProfile,
-  contactBanner: managementContactBanner
+  contactBanner: managementContactBanner,
+
 },
 
 csr:{
   heroThumbnail: csrHeroThumbnail,
-  descriptionEducation: csrDescriptionEducation
+  descriptionEducation: csrDescriptionEducation,
+
+  milinaMatha: {
+    outerBg: csrMilinaOuterBg,
+    leftBg: csrMilinaLeftBg,
+    galleryBg: csrMilinaGalleryBg,
+    logo: csrMilinaLogo,
+    gallery: [csrMilinaGallery1, csrMilinaGallery2],
+  },
 },
 
 };
