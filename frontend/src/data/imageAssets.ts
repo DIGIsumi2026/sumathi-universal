@@ -107,6 +107,8 @@ import managementContactBanner from "../assets/images/management/contact-banner.
 
 //CSR
 import csrHeroThumbnail from "../assets/images/csr/csr-hero-thumbnail.png";
+import csrDescriptionEducation from "../assets/images/csr/csr-description-education.png";
+
 
 export const imageAssets = {
   brand: {
@@ -251,6 +253,7 @@ management:{
 
 csr:{
   heroThumbnail: csrHeroThumbnail,
+  descriptionEducation: csrDescriptionEducation
 },
 
 };
