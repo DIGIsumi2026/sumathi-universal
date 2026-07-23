@@ -117,6 +117,22 @@ import csrMilinaLogo from "../assets/images/csr/milina-matha/milina-logo.jpg";
 import csrMilinaGallery1 from "../assets/images/csr/milina-matha/milina-gallery-1.jpg";
 import csrMilinaGallery2  from "../assets/images/csr/milina-matha/milina-gallery-2.jpg";
 
+//thilanga-foundaion
+import csrThilangaOuterBg from "../assets/images/csr/thilanga-foundation/outer-bg.png";
+import csrThilangaLeftBg from "../assets/images/csr/thilanga-foundation/left-bg.png";
+import csrThilangaGalleryBg from "../assets/images/csr/thilanga-foundation/gallery-bg.png";
+import csrThilangaLogo from "../assets/images/csr/thilanga-foundation/logo.png";
+
+import csrThilangaGallery1 from "../assets/images/csr/thilanga-foundation/gallery-1.jpg";
+import csrThilangaGallery2 from "../assets/images/csr/thilanga-foundation/gallery-2.jpg";
+import csrThilangaGallery3 from "../assets/images/csr/thilanga-foundation/gallery-3.jpg";
+import csrThilangaGallery4 from "../assets/images/csr/thilanga-foundation/gallery-4.jpg";
+import csrThilangaGallery5 from "../assets/images/csr/thilanga-foundation/gallery-5.jpg";
+import csrThilangaGallery6 from "../assets/images/csr/thilanga-foundation/gallery-6.jpg";
+
+
+
+
 
 export const imageAssets = {
   brand: {
@@ -270,6 +286,21 @@ csr:{
     galleryBg: csrMilinaGalleryBg,
     logo: csrMilinaLogo,
     gallery: [csrMilinaGallery1, csrMilinaGallery2],
+  },
+
+  thilangaFoundation: {
+    outerBg: csrThilangaOuterBg,
+    leftBg: csrThilangaLeftBg,
+    galleryBg: csrThilangaGalleryBg,
+    logo: csrThilangaLogo,
+    gallery: [
+      csrThilangaGallery1,
+      csrThilangaGallery2,
+      csrThilangaGallery3,
+      csrThilangaGallery4,
+      csrThilangaGallery5,
+      csrThilangaGallery6,
+    ],
   },
 },
 

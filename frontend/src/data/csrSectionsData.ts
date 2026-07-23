@@ -41,4 +41,47 @@ export const csrSectionsData: CSRSectionItem[] = [
       },
     ],
   },
+
+  {
+  id: 'thilanga-sumathipala-foundation',
+  label: 'Thilanga Sumathipala Foundation',
+  logo: imageAssets.csr.thilangaFoundation.logo,
+  outerBg: imageAssets.csr.thilangaFoundation.outerBg,
+  leftBg: imageAssets.csr.thilangaFoundation.leftBg,
+  galleryBg: imageAssets.csr.thilangaFoundation.galleryBg,
+  accentColor: '#F26A2E',
+  paragraphs: [
+    'Founded in 2006 with the goal of creating a better future, the Thilanga Sumathipala Foundation, under the leadership of Hon. Thilanga Sumathipala, has impacted countless lives in the last decade through its many activities. The foundation’s work extends across a broad range of social and environmental needs including humanitarian needs, poverty alleviation and social development, environmental activities, urban development, disaster management, rehabilitation and more.',
+
+    'Looking to the future, the Foundation has plans to implement programmes aimed towards empowering women, children, the elderly, youth and Buddhism.',
+  ],
+  gallery: [
+    {
+      image: imageAssets.csr.thilangaFoundation.gallery[0],
+      alt: 'Thilanga Sumathipala Foundation book donation ceremony',
+    },
+    {
+      image: imageAssets.csr.thilangaFoundation.gallery[1],
+      alt: 'Thilanga Sumathipala Foundation community support group',
+    },
+    {
+      image: imageAssets.csr.thilangaFoundation.gallery[2],
+      alt: 'Thilanga Sumathipala Foundation Buddhist community programme',
+    },
+    {
+      image: imageAssets.csr.thilangaFoundation.gallery[3],
+      alt: 'Thilanga Sumathipala Foundation awareness programme',
+    },
+    {
+      image: imageAssets.csr.thilangaFoundation.gallery[4],
+      alt: 'Thilanga Sumathipala Foundation educational support donation',
+    },
+    {
+      image: imageAssets.csr.thilangaFoundation.gallery[5],
+      alt: 'Thilanga Sumathipala Foundation social service meeting',
+    },
+  ],
+},
+
+
 ];
