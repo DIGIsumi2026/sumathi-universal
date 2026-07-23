@@ -62,7 +62,7 @@
   transform: scale(1);
 }
 
-/* light text support only, no blur overlay */
+
 .csr-hero-section::after {
   content: '';
   position: absolute;
@@ -72,9 +72,11 @@
   background:
     linear-gradient(
       90deg,
-      rgba(2, 11, 24, 0.14) 0%,
-      rgba(2, 11, 24, 0.04) 42%,
-      rgba(2, 11, 24, 0.16) 100%
+      rgba(0, 0, 0, 0.26) 0%,
+      rgba(0, 0, 0, 0.599) 22%,
+      rgba(0, 0, 0, 0.597) 42%,
+      rgba(0, 0, 0, 0.592) 62%,
+      rgba(0, 0, 0, 0.59) 100%
     );
 }
 
@@ -217,12 +219,14 @@
 
   .csr-hero-section::after {
     background:
-      linear-gradient(
-        180deg,
-        rgba(2, 11, 24, 0.08) 0%,
-        rgba(2, 11, 24, 0.16) 42%,
-        rgba(2, 11, 24, 0.46) 100%
-      );
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.26) 0%,
+      rgba(0, 0, 0, 0.599) 22%,
+      rgba(0, 0, 0, 0.597) 42%,
+      rgba(0, 0, 0, 0.592) 62%,
+      rgba(0, 0, 0, 0.59) 100%
+    );
   }
 
   .csr-hero-content {
