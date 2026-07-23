@@ -4,7 +4,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Management from './pages/Management';
-import Csr from './pages/Csr';
+import CSR from './pages/CSR';
 import Contact from './pages/Contact';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path ="/management" element={<Management/>} />
-        <Route path="/csr" element={<Csr />} />
+        <Route path="/csr" element={<CSR />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>

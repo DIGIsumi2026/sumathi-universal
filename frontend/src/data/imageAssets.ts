@@ -145,6 +145,7 @@ import csrSumathiAwardsGallery5 from '../assets/images/csr/sumathi-awards/galler
 import csrSumathiAwardsGallery6 from '../assets/images/csr/sumathi-awards/gallery-6.jpg';
 import csrSumathiAwardsGallery7 from '../assets/images/csr/sumathi-awards/gallery-7.png';
 
+import csrContactCtaBg from '../assets/images/csr/csr-contact-cta-bg.png';
 
 
 export const imageAssets = {
@@ -331,6 +332,7 @@ csr:{
     csrSumathiAwardsGallery7,
   ],
 },
+  contactCtaBg: csrContactCtaBg,
 },
 
 };
