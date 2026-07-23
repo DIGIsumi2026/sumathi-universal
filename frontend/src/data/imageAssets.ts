@@ -105,6 +105,9 @@ import dulanthaProfile from "../assets/images/management/dulantha-sumathipala.pn
 
 import managementContactBanner from "../assets/images/management/contact-banner.png";
 
+//CSR
+import csrHeroThumbnail from "../assets/images/csr/csr-hero-thumbnail.png";
+
 export const imageAssets = {
   brand: {
     companyLogo
@@ -246,7 +249,9 @@ management:{
   contactBanner: managementContactBanner
 },
 
-
+csr:{
+  heroThumbnail: csrHeroThumbnail,
+},
 
 };
 

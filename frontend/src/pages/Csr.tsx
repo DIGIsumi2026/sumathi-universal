@@ -1,12 +1,11 @@
 import '../styles/pages/Csr.css';
+import CSRHero from '../components/csr/CSRHero';
 
-export default function Services() {
+
+export default function About() {
   return (
-    <section className="simple-page">
-      <div className="container">
-        <h1>Services</h1>
-        <p>This route is ready for the next development phase. The home page service section is already component based.</p>
-      </div>
-    </section>
+    <>
+    <CSRHero/>
+    </>
   );
 }
