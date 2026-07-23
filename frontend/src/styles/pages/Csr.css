@@ -912,14 +912,24 @@ body.csr-zoom-active .scroll-progress-button {
   }
 
   .csr-foundation-card {
+    grid-template-columns: 1fr;
     padding: 18px;
     border-radius: 28px;
     gap: 22px;
   }
 
+  /* mobile order: description first, gallery after */
   .csr-foundation-left {
+    order: 1;
     padding: 28px 22px;
     border-radius: 24px;
+  }
+
+  .csr-foundation-gallery {
+    order: 2;
+    padding: 0;
+    border-radius: 24px;
+    background: transparent !important;
   }
 
   .csr-foundation-logo-wrap {
@@ -940,34 +950,23 @@ body.csr-zoom-active .scroll-progress-button {
     line-height: 1.62;
   }
 
-  .csr-foundation-gallery {
-    padding: 0;
-    border-radius: 24px;
-    background: transparent !important;
-  }
-
   .csr-foundation-main-image-wrap {
     border-radius: 22px;
+    touch-action: pan-y;
+    cursor: grab;
   }
 
+  .csr-foundation-main-image-wrap:active {
+    cursor: grabbing;
+  }
+
+  .csr-foundation-main-image {
+    animation: csrGalleryFade 0.42s ease both;
+  }
+
+  /* mobile: disable preview images */
   .csr-foundation-thumbnails {
-    margin-top: 12px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 7px;
-  }
-
-  .csr-foundation-thumb {
-    height: 62px;
-    border-radius: 10px;
-  }
-
-  .csr-foundation-thumb:hover,
-  .csr-foundation-thumb.active {
-    transform: none;
-  }
-
-  .csr-foundation-thumb.active::after {
-    border-width: 1.5px;
+    display: none;
   }
 
   .csr-foundation-controls {
@@ -977,7 +976,7 @@ body.csr-zoom-active .scroll-progress-button {
     gap: 0;
   }
 
-  /* mobile mode: hide next / previous buttons */
+  /* mobile: disable next / previous buttons */
   .csr-foundation-control {
     display: none;
   }
@@ -1030,17 +1029,6 @@ body.csr-zoom-active .scroll-progress-button {
 
   .csr-foundation-main-image-wrap {
     border-radius: 18px;
-  }
-
-  .csr-foundation-thumbnails {
-    margin-top: 10px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .csr-foundation-thumb {
-    height: 52px;
-    border-radius: 8px;
   }
 
   .csr-foundation-controls {

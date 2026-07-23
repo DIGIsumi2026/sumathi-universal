@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { csrSectionsData, type CSRSectionItem } from '../../data/csrSectionsData';
 
@@ -7,6 +7,9 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isZoomOpen, setIsZoomOpen] = useState(false);
+
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const activeImage = section.gallery[activeIndex];
 
@@ -44,7 +47,7 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
     }
   }, [isDesktop]);
 
-  /* mobile only autoplay */
+  /* mobile autoplay only */
   useEffect(() => {
     if (!isMobile || section.gallery.length <= 1 || isZoomOpen) return;
 
@@ -120,6 +123,42 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
     setIsZoomOpen(false);
   };
 
+  const handleTouchStart = (event: React.TouchEvent<HTMLButtonElement>) => {
+    if (!isMobile) return;
+
+    touchStartX.current = event.touches[0].clientX;
+    touchEndX.current = null;
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLButtonElement>) => {
+    if (!isMobile) return;
+
+    touchEndX.current = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!isMobile) return;
+
+    const startX = touchStartX.current;
+    const endX = touchEndX.current;
+
+    if (startX === null || endX === null) return;
+
+    const distance = startX - endX;
+    const swipeDistance = 45;
+
+    if (Math.abs(distance) > swipeDistance) {
+      if (distance > 0) {
+        goNext();
+      } else {
+        goPrev();
+      }
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
     <article
       className="csr-foundation-card"
@@ -160,6 +199,9 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
             isDesktop ? 'zoom-enabled' : ''
           }`}
           onClick={openZoom}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
           aria-label={isDesktop ? 'Zoom active CSR image' : activeImage.alt}
         >
           <img
