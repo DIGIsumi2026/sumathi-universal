@@ -157,7 +157,7 @@ export default function ManagementProfilesSection() {
                   }}
                   aria-expanded={isExpanded}
                 >
-                  {isCloseButton ? 'Show Less' : 'Read Full Profile'}
+                  {isCloseButton ? 'Show Less' : 'Read more'}
 
                   {isCloseButton ? (
                     <ChevronUp size={18} />

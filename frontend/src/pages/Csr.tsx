@@ -1,4 +1,4 @@
-import '../styles/pages/services.css';
+import '../styles/pages/Csr.css';
 
 export default function Services() {
   return (
