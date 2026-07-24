@@ -29,7 +29,13 @@ export default function CorporateHeadquarters() {
       <ContactNetworkBackground />
 
       <div className="contact-headquarters-grid">
-        <article className="contact-headquarters-card">
+        <a
+          href="https://maps.app.goo.gl/uHPmr2QALxE5RN9HA"
+          target="_blank"
+          rel="noreferrer"
+          className="contact-headquarters-card contact-headquarters-link"
+          aria-label="Open Sumathi Universal Corporate Headquarters on Google Maps"
+        >
           <div className="contact-headquarters-icon">
             <MapPin size={38} />
           </div>
@@ -43,7 +49,7 @@ export default function CorporateHeadquarters() {
             <br />
             Sri Lanka.
           </p>
-        </article>
+        </a>
 
         <a
           href="mailto:info@sumathiuniversal.com"
@@ -70,7 +76,7 @@ export default function CorporateHeadquarters() {
 
           <div className="contact-headquarters-divider" />
 
-          <p>+94 11 269 7106</p>
+          <p>+(94) 11 269 7106</p>
         </a>
       </div>
     </section>

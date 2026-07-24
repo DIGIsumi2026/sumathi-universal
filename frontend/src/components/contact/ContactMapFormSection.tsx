@@ -44,9 +44,6 @@ ${message}`
 
         <div className="contact-form-card">
           <div className="contact-form-top">
-            <div className="contact-form-icon">
-              <Building2 size={26} />
-            </div>
 
             <div>
               <h2>Send Your Inquiry</h2>

@@ -695,24 +695,12 @@
   margin-bottom: 30px;
 }
 
-.contact-form-icon {
-  width: 58px;
-  height: 58px;
-  flex: 0 0 auto;
-  border-radius: 18px;
-  display: grid;
-  place-items: center;
-  color: #ffffff;
-  background: linear-gradient(135deg, #073673 0%, #030a8c 100%);
-  box-shadow: 0 18px 42px rgba(7, 54, 115, 0.28);
-}
-
 .contact-form-top h2 {
   margin: 0;
   color: #061730;
   font-size: clamp(30px, 3vw, 48px);
   line-height: 1;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -0.07em;
 }
 
@@ -743,9 +731,9 @@
 }
 
 .contact-form label span {
-  color: #061730;
+  color: #03469e;
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
