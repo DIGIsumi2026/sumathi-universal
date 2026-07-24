@@ -147,6 +147,9 @@ import csrSumathiAwardsGallery7 from '../assets/images/csr/sumathi-awards/galler
 
 import csrContactCtaBg from '../assets/images/csr/csr-contact-cta-bg.png';
 
+//contact
+import contactHeroImage from "../assets/images/contact/contact-hero.png";
+
 
 export const imageAssets = {
   brand: {
@@ -334,6 +337,10 @@ csr:{
 },
   contactCtaBg: csrContactCtaBg,
 },
+
+contact:{
+  hero: contactHeroImage,
+}
 
 };
 
