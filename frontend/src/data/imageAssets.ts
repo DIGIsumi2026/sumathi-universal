@@ -149,6 +149,9 @@ import csrContactCtaBg from '../assets/images/csr/csr-contact-cta-bg.png';
 
 //contact
 import contactHeroImage from "../assets/images/contact/contact-hero.png";
+import contactSubsidiaryPrintingBg from "../assets/images/contact/printing-packaging-bg.png";
+import contactSubsidiaryEngineeringBg from "../assets/images/contact/engineering-security-bg.png";
+import contactSubsidiaryTechnologyBg from "../assets/images/contact/technology-trading-bg.png";
 
 
 export const imageAssets = {
@@ -340,6 +343,12 @@ csr:{
 
 contact:{
   hero: contactHeroImage,
+
+  subsidiaries: {
+    printingPackaging: contactSubsidiaryPrintingBg,
+    engineeringSecurity: contactSubsidiaryEngineeringBg,
+    technologyTrading: contactSubsidiaryTechnologyBg,
+  },
 }
 
 };
