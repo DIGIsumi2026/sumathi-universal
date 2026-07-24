@@ -13,6 +13,12 @@ const navLinks = [
   { label: 'Contact', path: '/contact' },
 ];
 
+const socialLinks = [
+  { label: 'Facebook', href: '#', Icon: Facebook },
+  { label: 'Instagram', href: '#', Icon: Instagram },
+  { label: 'LinkedIn', href: '#', Icon: Linkedin },
+];
+
 const NavigationBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showScrollNav, setShowScrollNav] = useState(false);
@@ -92,47 +98,48 @@ const NavigationBar = () => {
             ease: [0.22, 1, 0.36, 1],
           }}
         >
-          <div className="navbar-inner">
-            <NavLink to="/" className="navbar-logo">
-            <img src={imageAssets.brand.companyLogo} alt="Company Logo" />
-          </NavLink>
+          <div className="navbar-shell">
+            <div className="navbar-inner">
+              <NavLink to="/" className="navbar-logo">
+                <img src={imageAssets.brand.companyLogo} alt="Company Logo" />
+              </NavLink>
 
-            <nav className="navbar-links">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.label}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    isActive ? 'nav-link active' : 'nav-link'
-                  }
+              <nav className="navbar-links">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.label}
+                    to={link.path}
+                    className={({ isActive }) =>
+                      isActive ? 'nav-link active' : 'nav-link'
+                    }
+                  >
+                    <span>{link.label}</span>
+                  </NavLink>
+                ))}
+              </nav>
+
+              <div className="navbar-actions">
+                <button
+                  className="navbar-menu-btn"
+                  onClick={() => setSidebarOpen(true)}
+                  aria-label="Open sidebar"
                 >
-                  <span>{link.label}</span>
-                </NavLink>
+                  <Menu size={24} />
+                </button>
+              </div>
+            </div>
+
+            <div className="header-social-links" aria-label="Social media links">
+              {socialLinks.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  className="header-social-link"
+                  href={href}
+                  aria-label={label}
+                >
+                  <Icon size={18} />
+                </a>
               ))}
-            </nav>
-
-            <div className="navbar-actions">
-              {!isScrolled && (
-                <div className="navbar-socials">
-                  <a href="#" aria-label="Facebook">
-                    <Facebook size={18} />
-                  </a>
-                  <a href="#" aria-label="Instagram">
-                    <Instagram size={18} />
-                  </a>
-                  <a href="#" aria-label="LinkedIn">
-                    <Linkedin size={18} />
-                  </a>
-                </div>
-              )}
-
-              <button
-                className="navbar-menu-btn"
-                onClick={() => setSidebarOpen(true)}
-                aria-label="Open sidebar"
-              >
-                <Menu size={24} />
-              </button>
             </div>
           </div>
         </motion.header>
@@ -181,15 +188,11 @@ const NavigationBar = () => {
               </div>
 
               <div className="sidebar-socials">
-                <a href="#" aria-label="Facebook">
-                  <Facebook size={20} />
-                </a>
-                <a href="#" aria-label="Instagram">
-                  <Instagram size={20} />
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                  <Linkedin size={20} />
-                </a>
+                {socialLinks.map(({ label, href, Icon }) => (
+                  <a key={label} href={href} aria-label={label}>
+                    <Icon size={20} />
+                  </a>
+                ))}
               </div>
             </motion.div>
           </motion.aside>
