@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 import { imageAssets } from '../../data/imageAssets';
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
 const Footer: React.FC = () => {
   return (
     <footer className="site-footer">
@@ -23,13 +30,13 @@ const Footer: React.FC = () => {
               Sumathi Universal delivers specialized services across diverse sectors with a commitment to excellence, innovation and unwavering reliability.
             </p>
             <div className="site-footer-socials">
-              <a href="#" className="site-footer-social-icon">
+              <a href="https://www.facebook.com/share/1KtpK2xGdT/?mibextid=wwXIfr" className="site-footer-social-icon">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="site-footer-social-icon">
+              <a href="https://www.instagram.com/sumathi_universal?igsh=NnB6OWJjZmlwcnA3" className="site-footer-social-icon">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="site-footer-social-icon">
+              <a href="https://www.linkedin.com/company/sumathi-universal/" className="site-footer-social-icon">
                 <Linkedin size={18} />
               </a>
             </div>
@@ -39,11 +46,11 @@ const Footer: React.FC = () => {
           <div className="site-footer-col">
             <h3 className="site-footer-heading">Quick Links</h3>
             <ul className="site-footer-links-list">
-              <li><Link to="/" className="footer-link">Home</Link></li>
-              <li><Link to="/about" className="footer-link">About Us</Link></li>
-              <li><Link to="/management" className="footer-link">Management</Link></li>
-              <li><Link to="/csr" className="footer-link">CSR</Link></li>
-              <li><Link to="/contact" className="footer-link">Contact</Link></li>
+              <li><Link to="/" className="footer-link" onClick={scrollToTop}>Home</Link></li>
+              <li><Link to="/about" className="footer-link" onClick={scrollToTop}>About Us</Link></li>
+              <li><Link to="/management" className="footer-link" onClick={scrollToTop}>Management</Link></li>
+              <li><Link to="/csr" className="footer-link" onClick={scrollToTop}>CSR</Link></li>
+              <li><Link to="/contact" className="footer-link" onClick={scrollToTop}>Contact</Link></li>
             </ul>
           </div>
 

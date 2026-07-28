@@ -61,7 +61,7 @@
 
 /* SMALL FLOATING NAVBAR AFTER SCROLL */
 .navbar-scrolled .navbar-inner {
-  height: 64px;
+  height: 72px;
   width: fit-content;
   max-width: calc(100vw - 260px);
   padding: 0 26px;
@@ -83,16 +83,16 @@
 }
 
 .navbar-logo img {
-  height: 52px;
+  height: 64px;
   width: auto;
-  max-width: 190px;
+  max-width: 220px;
   object-fit: contain;
   display: block;
 }
 
 .navbar-scrolled .navbar-logo img {
-  height: 42px;
-  max-width: 160px;
+  height: 52px;
+  max-width: 180px;
 }
 
 /* CENTER NAV LINKS */
@@ -409,7 +409,7 @@
 }
 
 .navbar-default .navbar-inner {
-  height: 70px;
+  height: 80px;
 }
 
 .navbar-default .nav-link {
@@ -431,7 +431,7 @@
 }
 
 .navbar-default .navbar-logo img {
-  height: 44px;
+  height: 64px;
 }
 
 @media (max-width: 576px) {

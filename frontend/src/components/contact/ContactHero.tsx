@@ -28,7 +28,7 @@ export default function ContactHero() {
 
         <p>
           We&apos;re here to help you connect with Sumathi Universal for
-          inquiries, partnerships, corporate communication, and business support.
+          inquiries, partnerships, corporate communication  and business support.
         </p>
 
         <div className="contact-hero-actions">
@@ -41,7 +41,7 @@ export default function ContactHero() {
             <ArrowDown size={18} />
           </button>
 
-          <a href="tel:+94770000000" className="contact-hero-btn secondary">
+          <a href="tel:+94112697106" className="contact-hero-btn secondary">
             <PhoneCall size={18} />
             Call Us
           </a>

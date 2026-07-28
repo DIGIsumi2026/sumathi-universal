@@ -1,8 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
   --bg: #ffffff;
@@ -558,7 +558,7 @@ u {
   color: rgba(255, 255, 255, 0.03);
   text-align: left;
   text-transform: uppercase;
-  letter-spacing: -0.1355em;
+  letter-spacing: -0.0355em;
   pointer-events: none;
   user-select: none;
   z-index: 0;
@@ -598,7 +598,7 @@ u {
 }
 
 .site-footer-logo {
-  height: 56px;
+  height: 96px;
   object-fit: contain;
   margin-bottom: 24px;
   align-self: flex-start;

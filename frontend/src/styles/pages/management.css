@@ -772,7 +772,7 @@
 .management-contact-cta-content h2 {
   margin: 0;
   color: #ffffff;
-  font-size: clamp(42px, 5vw, 76px);
+  font-size: clamp(42px, 3vw, 76px);
   line-height: 0.99;
   font-weight: 600;
   letter-spacing: -0.007em;
