@@ -14,9 +14,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { label: 'Facebook', href: '#', Icon: Facebook },
-  { label: 'Instagram', href: '#', Icon: Instagram },
-  { label: 'LinkedIn', href: '#', Icon: Linkedin },
+  { label: 'Facebook', href: 'https://www.facebook.com/share/1KtpK2xGdT/?mibextid=wwXIfr', Icon: Facebook },
+  { label: 'Instagram', href: 'https://www.instagram.com/sumathi_universal?igsh=NnB6OWJjZmlwcnA3', Icon: Instagram },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/sumathi-universal/', Icon: Linkedin },
 ];
 
 const NavigationBar = () => {
