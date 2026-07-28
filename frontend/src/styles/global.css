@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
@@ -496,4 +500,38 @@ u {
   background: rgba(255,255,255,.96);
   border-radius: 999px;
   padding: 4px 10px;
+}
+
+/* ========================================= */
+/* Footer Link Hover Effect (Progress Bar)   */
+/* ========================================= */
+.footer-link {
+  position: relative;
+  display: inline-block;
+  color: #D1D5DB; /* Matches Tailwind gray-300 */
+  text-decoration: none;
+  font-size: 0.875rem; /* 14px */
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  /* Blue color gradient progress bar */
+  background: linear-gradient(90deg, #3b82f6 0%, #0ea5e9 100%); 
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+.footer-link:hover::after {
+  width: 100%;
 }

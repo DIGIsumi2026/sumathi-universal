@@ -1,17 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavigationBar from './components/common/NavigationBar';
 import ScrollToTop from './components/common/ScrollToTop';
+import Footer from './components/common/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Management from './pages/Management';
 import CSR from './pages/CSR';
 import Contact from './pages/Contact';
 
+
 function App() {
   return (
     <BrowserRouter>
       <NavigationBar />
       <ScrollToTop/>
+      
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,7 +23,9 @@ function App() {
         <Route path="/csr" element={<CSR />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
+    
   );
 }
 
