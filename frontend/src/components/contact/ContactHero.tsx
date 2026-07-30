@@ -28,7 +28,7 @@ export default function ContactHero() {
 
         <p>
           We&apos;re here to help you connect with Sumathi Universal for
-          inquiries, partnerships, corporate communication  and business support.
+          inquiries, partnerships, corporate communication and business support.
         </p>
 
         <div className="contact-hero-actions">
