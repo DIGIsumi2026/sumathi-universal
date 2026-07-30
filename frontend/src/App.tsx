@@ -26,9 +26,18 @@ function AppContent() {
 
   return (
     <>
+      {/* Preloader sits as a fixed overlay on top of the live page — no unmounting */}
       {isPreloading && <Preloader />}
 
-      <div className={`transition-all duration-500 ${isPreloading ? 'blur-sm pointer-events-none select-none' : 'blur-none'}`}>
+      {/* Page content is always rendered so it is visible blurred behind the overlay */}
+      <div
+        style={{
+          filter: isPreloading ? 'blur(6px)' : 'none',
+          transition: 'filter 0.5s ease',
+          pointerEvents: isPreloading ? 'none' : 'auto',
+          userSelect: isPreloading ? 'none' : 'auto',
+        }}
+      >
         <ScrollController />
         <NavigationBar />
         <ScrollToTop />

@@ -105,17 +105,27 @@ const NavigationBar = () => {
               </NavLink>
 
               <nav className="navbar-links">
-                {navLinks.map((link) => (
-                  <NavLink
-                    key={link.label}
-                    to={link.path}
-                    className={({ isActive }) =>
-                      isActive ? 'nav-link active' : 'nav-link'
-                    }
-                  >
-                    <span>{link.label}</span>
-                  </NavLink>
-                ))}
+                {navLinks.map((link) =>
+                  link.label === 'Contact' ? (
+                    <NavLink
+                      key={link.label}
+                      to={link.path}
+                      className="nav-contact-btn"
+                    >
+                      {link.label}
+                    </NavLink>
+                  ) : (
+                    <NavLink
+                      key={link.label}
+                      to={link.path}
+                      className={({ isActive }) =>
+                        isActive ? 'nav-link active' : 'nav-link'
+                      }
+                    >
+                      <span>{link.label}</span>
+                    </NavLink>
+                  )
+                )}
               </nav>
 
               <div className="navbar-actions">

@@ -725,3 +725,119 @@ u {
     flex-direction: row;
   }
 }
+
+/* ============================================================ */
+/* Contact Navigation Button — Premium Glassmorphism CTA        */
+/* ============================================================ */
+
+/* --- Keyframe: spins the conic gradient around the pill --- */
+@keyframes border-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* --- Base Button --- */
+.nav-contact-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 156px;
+  height: 58px;
+  padding: 0;
+
+  /* White background fills the 5px gap at rest so it matches the navbar.
+     The glow (z: -2) renders on top of this background on hover. */
+  background: #ffffff;
+
+  /* Text sits at z-index: auto (above all negative z pseudo-elements) */
+  color: #111827;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.35px;
+  white-space: nowrap;
+
+  /* Always pill-shaped */
+  border-radius: 99px;
+  border: none;
+
+  /* *** KEY: clips ALL children to the pill — glow can never bleed into navbar *** */
+  overflow: hidden;
+
+  /* Subtle depth shadow */
+  z-index: 0;
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+
+  transition:
+    transform   0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow  0.24s ease;
+}
+
+/* --- Hover: lift + scale --- */
+.nav-contact-btn:hover {
+  transform: translateY(-2px) scale(1.012);
+}
+
+/* --- Press: scale down --- */
+.nav-contact-btn:active {
+  transform: translateY(0px) scale(0.985);
+  transition-duration: 0.08s;
+}
+
+/* ---- Spinning conic glow source (::before, z: -2) ----
+   Fills the entire button. overflow: hidden on the parent
+   hard-clips it to the pill — zero bleed into the navbar.
+   Always spinning. Invisible by default (opacity: 0).
+   On hover → fades in, visible ONLY at the rim because
+   ::after (white fill) permanently masks the center.         */
+.nav-contact-btn::before {
+  content: "";
+  position: absolute;
+  /* Slightly oversized so the conic origin covers corners correctly */
+  inset: -20%;
+  border-radius: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent               0deg,
+    transparent               235deg,
+    /* Streak — cyan hot tip */
+    rgba(0,   229, 255, 1.00) 250deg,
+    /* Light blue */
+    rgba(173, 216, 230, 0.90) 285deg,
+    /* Deep blue tail */
+    rgba(59,  130, 246, 0.95) 318deg,
+    /* Fade out */
+    rgba(59,  130, 246, 0.08) 344deg,
+    transparent               360deg
+  );
+  z-index: -2;
+  transform-origin: center center;
+  /* Always spinning — ready the instant hover triggers */
+  animation: border-spin 4.45s linear infinite;
+  opacity: 0;
+  transition: opacity 0.30s ease;
+}
+
+/* ---- White center mask (::after, z: -1) ----
+   Solid white fill, inset 5px from the pill edge.
+   Sits ABOVE ::before (z: -1 > z: -2).
+   Permanently hides the glow in the center.
+   The 5px ring between this mask and the pill edge
+   is the only area where the spinning glow shows through. */
+.nav-contact-btn::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 9999px;
+  background: #ffffff;
+  z-index: -1;
+  /* No animation — static white mask, always present */
+}
+
+/* --- Hover: reveal the glow at the button's rim only --- */
+.nav-contact-btn:hover::before {
+  opacity: 1;
+}
