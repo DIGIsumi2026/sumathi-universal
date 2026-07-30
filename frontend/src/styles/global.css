@@ -749,7 +749,7 @@ u {
 
   /* White background fills the 5px gap at rest so it matches the navbar.
      The glow (z: -2) renders on top of this background on hover. */
-  background: #ffffff;
+  background: #ffffff00;
 
   /* Text sits at z-index: auto (above all negative z pseudo-elements) */
   color: #111827;
@@ -759,7 +759,7 @@ u {
   white-space: nowrap;
 
   /* Always pill-shaped */
-  border-radius: 99px;
+  border-radius: 999999px;
   border: none;
 
   /* *** KEY: clips ALL children to the pill — glow can never bleed into navbar *** */
