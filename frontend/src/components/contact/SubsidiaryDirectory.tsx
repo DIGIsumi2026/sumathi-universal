@@ -69,7 +69,7 @@ export default function SubsidiaryDirectory() {
 
                   <h3>{group.title}</h3>
 
-                  <p>{group.description}</p>
+                  <p className="subsidiary-accordion-description">{group.description}</p>
 
                   <div className="subsidiary-company-list">
                     {group.companies.map((company) => (

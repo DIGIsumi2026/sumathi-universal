@@ -435,6 +435,10 @@
 }
 
 @media (max-width: 576px) {
+  .navbar-shell {
+    width: calc(100% - 120px);
+  }
+
   .navbar-default .navbar-inner {
     height: 62px;
     padding: 0 18px;

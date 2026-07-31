@@ -186,15 +186,27 @@ const NavigationBar = () => {
               />
 
               <div className="sidebar-links">
-                {navLinks.map((link) => (
-                  <NavLink
-                    key={link.label}
-                    to={link.path}
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    {link.label}
-                  </NavLink>
-                ))}
+                {navLinks.map((link) =>
+                  link.label === 'Contact' ? (
+                    <NavLink
+                      key={link.label}
+                      to={link.path}
+                      onClick={() => setSidebarOpen(false)}
+                      className="nav-contact-btn"
+                      style={{ marginTop: '20px', alignSelf: 'center' }}
+                    >
+                      {link.label}
+                    </NavLink>
+                  ) : (
+                    <NavLink
+                      key={link.label}
+                      to={link.path}
+                      onClick={() => setSidebarOpen(false)}
+                    >
+                      {link.label}
+                    </NavLink>
+                  )
+                )}
               </div>
 
               <div className="sidebar-socials">

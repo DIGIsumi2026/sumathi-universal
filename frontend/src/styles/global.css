@@ -351,12 +351,17 @@ u {
   .scroll-top {
     right: 16px;
     bottom: 16px;
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
+    box-shadow: none;
   }
-  .scroll-top__inner { width: 40px; height: 40px; }
-  .scroll-top__progress-value,
-  .scroll-top__track { stroke-width: 4; }
+  .scroll-top__inner { width: 44px; height: 44px; }
+  
+  /* Disable the progress bar in mobile view */
+  .scroll-top__progress,
+  .scroll-top::before {
+    display: none;
+  }
 }
 .preloader {
   position: fixed;
@@ -743,8 +748,8 @@ u {
   align-items: center;
   justify-content: center;
 
-  width: 156px;
-  height: 58px;
+  width: 140px;
+  height: 48px;
   padding: 0;
 
   /* White background fills the 5px gap at rest so it matches the navbar.
@@ -802,22 +807,23 @@ u {
   background: conic-gradient(
     from 0deg,
     transparent               0deg,
-    transparent               235deg,
+    transparent               40deg,
     /* Streak — cyan hot tip */
-    rgba(0,   229, 255, 1.00) 250deg,
+    rgba(0,   229, 255, 1.00) 60deg,
     /* Light blue */
-    rgba(173, 216, 230, 0.90) 285deg,
+    rgba(173, 216, 230, 0.90) 160deg,
     /* Deep blue tail */
-    rgba(59,  130, 246, 0.95) 318deg,
+    rgba(59,  130, 246, 0.95) 260deg,
     /* Fade out */
-    rgba(59,  130, 246, 0.08) 344deg,
+    rgba(59,  130, 246, 0.08) 350deg,
     transparent               360deg
   );
   z-index: -2;
   transform-origin: center center;
-  /* Always spinning — ready the instant hover triggers */
+  /* Always visible, but only spins on hover */
   animation: border-spin 4.45s linear infinite;
-  opacity: 0;
+  animation-play-state: paused;
+  opacity: 1;
   transition: opacity 0.30s ease;
 }
 
@@ -830,14 +836,14 @@ u {
 .nav-contact-btn::after {
   content: "";
   position: absolute;
-  inset: 5px;
+  inset: 2px;
   border-radius: 9999px;
   background: #ffffff;
   z-index: -1;
   /* No animation — static white mask, always present */
 }
 
-/* --- Hover: reveal the glow at the button's rim only --- */
+/* --- Hover: make the gradient spin --- */
 .nav-contact-btn:hover::before {
-  opacity: 1;
-}
+  animation-play-state: running;
+}

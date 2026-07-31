@@ -27,13 +27,13 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     companies: [
       {
         name: 'Sumathi Printers',
-        phone: '+(94) 11 291 0015',
-        phoneHref: '+94112910015',
+        phone: '+(94) 77 642 6900',
+        phoneHref: '+94776426900',
         email: 'info@sumathiuniversal.com',
       },
       {
         name: 'Napco',
-        phone: '+(94) 11 291 0015',
+        phone: '+(94) 71 653 2112',
         phoneHref: '+94112910015',
         email: 'info@napco.lk',
       },
