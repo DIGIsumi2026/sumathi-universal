@@ -27,7 +27,7 @@ export default function HomeContactCTA() {
         >
           <p>
             Connect with Sumathi Universal for business inquiries,
-            partnerships, service support, and group company information. Our
+            partnerships, service support and group company information. Our
             team is ready to guide you with professional assistance and prompt
             communication.
           </p>

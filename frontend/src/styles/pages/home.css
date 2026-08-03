@@ -1636,7 +1636,7 @@
 }
 
 .home-contact-cta__inner {
-  width: min(1180px, calc(100% - 44px));
+  width: min(1180px, calc(100% - 50px));
   min-height: 620px;
   margin: 0 auto;
   display: flex;
@@ -1661,10 +1661,10 @@
 .home-contact-cta__content p {
   margin: 0;
   color: #073673;
-  font-size: clamp(22px, 2vw, 36px);
+  font-size: clamp(20px, 1.5vw, 34px);
   line-height: 1.25;
-  font-weight: 100;
-  letter-spacing: -0.045em;
+  font-weight: 300;
+  letter-spacing: -0.0045em;
 }
 
 .home-contact-cta__actions {
@@ -1766,8 +1766,8 @@
   }
 
   .home-contact-cta__content p {
-    font-size: 24px;
-    line-height: 1.28;
+    font-size: 20px;
+    line-height: 1.33;
   }
 
   .home-contact-cta__actions {
