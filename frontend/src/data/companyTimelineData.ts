@@ -72,7 +72,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sumathiprinters.lk',
           email: 'info@sumathiprinters.lk',
-          phone: '+(94) 77 42 6900 ',
+          phone: '+94 77 42 6900 ',
           address: 'Sri Lanka.',
         },
         shortDescription:
@@ -95,7 +95,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.napco.lk',
           email: 'info@napco.lk',
-          phone: '+(94) 112 910 015',
+          phone: '+94 112 910 015',
           address: 'Sri Lanka.',
         },
         shortDescription:
@@ -124,13 +124,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.octagonforce.com',
           email: 'info@octagonforce.lk',
-          phone: '+(94) 11 242 1294',
+          phone: '+94 11 242 1294',
           address: '445/1 Sirimavo Bandaranayaka Mawatha, Colombo 14.',
         },
         shortDescription:
           'Octagon Force provides security and operational support services for businesses and institutions.',
         fullDescription:
-          'Octagon Force focuses on security and support services, helping organisations maintain safer, organised, and well-managed operational environments.',
+          'Octagon Force focuses on security and support services, helping organisations maintain safer, organised, and well managed operational environments.',
         services: [
           'Security Services',
           'Operational Support',
@@ -146,13 +146,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.octagon.lk',
           email: 'sales@octagon.lk',
-          phone: '+(94) 11 234 4444',
+          phone: '+94 11 234 4444',
           address: '445/1 Sirimavo Bandaranayaka Mawatha, Colombo 14.',
         },
         shortDescription:
           'Octagon Engineering delivers engineering and technical solutions for modern infrastructure and business needs.',
         fullDescription:
-          'Octagon Engineering represents the technical service capability of the group, offering engineering, maintenance, infrastructure, and system support services.',
+          'Octagon Engineering represents the technical service capability of the group, offering engineering, maintenance, infrastructure and system support services.',
         services: [
           'Engineering Services',
           'Technical Maintenance',
@@ -175,13 +175,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sumishakthi.lk',
           email: 'info@sumishakthi.lk',
-          phone: '+(94) 112 697 106',
+          phone: '+94 112 697 106',
           address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
         },
         shortDescription:
           'Sumi Shakthi supports renewable energy development through sustainable power generation initiatives.',
         fullDescription:
-          'Sumi Shakthi operates within the renewable energy sector, contributing to sustainable energy production and environmentally responsible development.',
+          'Dedicated to advancing solar power generation, Sumi Shakthi was founded in 2017 specializing in renewable energy and energy storage solutions for domestic, commercial and industrial requirements. This initiative effectively contributes power to the national grid, showcasing our commitment to sustainable energy solutions. Sumi Shakthi is well positioned to contribute towards the future renewable energy requirement of the nation while providing customers with customized solar solutions.',
         services: [
           'Renewable Energy',
           'Sustainable Power',
@@ -197,13 +197,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sujalashakthi.lk',
           email: 'info@sujalashakthi.lk',
-          phone: '+(94) 112 697 106',
+          phone: '+94 112 697 106',
           address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
         },
         shortDescription:
           'Sujala Shakthi contributes to the group’s renewable energy portfolio with sustainable energy initiatives.',
         fullDescription:
-          'Sujala Shakthi is part of the renewable energy category, supporting long-term sustainability, responsible power generation, and environmental value creation.',
+          'Sujala Shakthi is the pioneering renewable energy arm of the Group, dedicated to generating clean, reliable and sustainable power through hydroelectric energy. The company laid the foundation for long-term commitment to environmental sustainability and energy innovation. Its success has since paved the way for the Group expansion into large-scale solar energy through Energy. Committed to operational excellence and responsible resource management, Sujala Shakthi contributes to  renewable energy landscape by delivering environmentally friendly power solutions while supporting the nation transition towards a greener, more sustainable future.',
         services: [
           'Sustainable Energy',
           'Power Generation',
@@ -226,13 +226,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.suko.lk',
           email: 'info@suko.lk',
-          phone: '+(94) 112 697 106',
+          phone: '+94 112 697 106',
           address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
         },
         shortDescription:
           'SUKO provides architectural and design solutions with a focus on functional, modern, and sustainable spaces.',
         fullDescription:
-          'SUKO represents the architecture and design category of the group, focusing on architecture, interior design, space planning, and project-related design solutions.',
+          'At Suko, we handle a diverse range of projects, including landscape design, interior design and architectural endeavors. Our approach involves engaging with clients to understand their project requirements thoroughly and establish clear objectives. We utilize advanced design software to create meticulous plans, drawings and blueprints. Collaboration with engineers, contractors and other professionals is integral to ensuring project feasibility and compliance with regulatory standards.',
         services: [
           'Architecture',
           'Interior Design',
@@ -256,13 +256,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sumathihospitality.lk',
           email: 'info@sumathihospitality.lk',
-          phone: '+(94) 112 697 106',
+          phone: '+94 112 697 106',
           address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
         },
         shortDescription:
           'Sumathi Hospitality manages hospitality-focused ventures that create quality service experiences.',
         fullDescription:
-          'Sumathi Hospitality represents the hospitality interests of the group, focusing on service quality, guest experience, and hospitality business operations.',
+          'Sumathi Hospitality was established to oversee the growth and management of various ventures, including restaurants, resto-bars, student hostels, and city hotel projects within the property holding portfolio. Additionally, we have partnerships with three hotels to further enrich our offerings. Our Park Street location, a resto-bar, exemplifies our endeavors, offering live music, craft cocktails, and stylish amenities.',
         services: [
           'Hospitality Management',
           'Guest Services',
@@ -278,13 +278,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.butlersparkstreet.lk',
           email: 'info@butlersparkstreet.lk',
-          phone: '+(94) XX XXX XXXX',
+          phone: '+94 XX XXX XXXX',
           address: 'Sri Lanka.',
         },
         shortDescription:
           'Butlers Park Street operates within the hospitality and food service space with a focus on premium experiences.',
         fullDescription:
-          'Butlers Park Street is part of the hospitality category, offering food, beverage, and lifestyle-focused customer experiences.',
+          'Butlers is a contemporary dining destination that brings together exceptional cuisine, warm hospitality, and a welcoming atmosphere. Designed as a place for families, friends and professionals to connect, the restaurant offers a carefully curated menu featuring local favorites and international specialties, prepared with fresh ingredients and a commitment to quality. With a focus on taste, comfort, and customer satisfaction, Butlers has established itself as a preferred destination for quality dining.',
         services: [
           'Food & Beverage',
           'Hospitality Service',
@@ -307,13 +307,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sumathiuniversaltrading.lk',
           email: 'info@sumathiuniversaltrading.lk',
-          phone: '+(94) 112 421 294',
+          phone: '+94 112 421 294',
           address: '445, Sirimavo Bandaranaike Mawatha, Colombo 14. Sri Lanka.',
         },
         shortDescription:
           'Sumathi Universal Trading focuses on imports, distribution, procurement, and commerce-related business operations.',
         fullDescription:
-          'Sumathi Universal Trading supports the group’s trading and commerce activities through import, distribution, procurement, warehousing, and business supply solutions.',
+          'Sumathi Universal Trading, established in 2018, is geared towards becoming a premier trading entity within the group. It’s primary objective is to serve as the trading arm of the Holding Company, overseeing direct imports of specialized products for distribution. Additionally, it is tasked with managing procurement activities across the group’s subsidiaries and offering warehousing services. \n  All merchandise imported and retailed by SUT is marketed through various platforms including Daraz, Facebook Marketplace, and promoted via Facebook and Instagram. Our product range encompasses a diverse array, spanning from stationary and essential items to office furniture, tires, air conditioners, generators and beyond.',
         services: [
           'Imports',
           'Distribution',
@@ -330,13 +330,13 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.thi.lk',
           email: 'info@thi.lk',
-          phone: '+(94) 11 291 0015',
+          phone: '+94 11 291 0015',
           address: '445/1, Sirimavo Bandaranaike Mawatha, Colombo 14. Sri Lanka.',
         },
         shortDescription:
           'THi.lk supports the trading and commerce category through digital commerce and online business solutions.',
         fullDescription:
-          'THi.lk operates within the trading and commerce ecosystem, supporting online commerce, retail, product visibility, and digital marketplace-related activities.',
+          'THi.lk is a trusted Sri Lankan consumer electronics and technology retailer committed to delivering innovative, high quality products backed by reliable service and customer centric solutions. As the latest digital venture of Sumathi Universal Holdings, THi brings together globally recognized technology brands on a single platform, offering customers a convenient and dependable online shopping experience. \n Our product portfolio features a carefully curated selection of internationally renowned brands, spanning televisions, home appliances, computing devices, mobile accessories, office equipment, networking solutions and lifestyle technology.',
         services: [
           'Online Commerce',
           'Digital Retail',
@@ -365,7 +365,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         shortDescription:
           'Sumathi Entertainment supports entertainment, media, and event-related business activities within the group.',
         fullDescription:
-          'Sumathi Entertainment represents the group’s entertainment arm, focusing on events, productions, media experiences, and entertainment-related ventures.',
+          'Manages events across all group subsidiaries film releases, cultural programs, religious festivals, corporate workshops, and sports tournaments. Released the spiritual film "Gauthama Buddha Matha" in December 2024.',
         services: [
           'Entertainment',
           'Event Production',
@@ -387,7 +387,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         shortDescription:
           'Sumathi Films contributes to the entertainment category through film and media-related productions.',
         fullDescription:
-          'Sumathi Films focuses on film, media, and creative entertainment activities, supporting the group’s presence in the entertainment sector.',
+          'Over 40 years in Sri Lankan cinema. Award winning productions include Ganga Addara (21 national awards, 1980), Uppalawanna (Buddhist Film Festivals, London & Singapore), and Duwata Mawak Misa produced by Thilanga Sumathipala.',
         services: [
           'Film Production',
           'Media Projects',
@@ -409,7 +409,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         shortDescription:
           'Sumathi Awards celebrates excellence in entertainment, media, and creative performance.',
         fullDescription:
-          'Sumathi Awards is a key recognition platform connected to the group’s entertainment and media legacy, celebrating creative achievements and industry excellence.',
+          'In 1995 Mr.Thilanga Sumathipala, in together with the National Youth Council, founded the “Sumathi Awards” to fill the void left by television awards; a total of 32 awards were presented, categorized into four sections: Best Awards, Popular Awards, Commercial Awards, and Merit Awards. \n The Sumathi Awards is an esteemed recognition presented annually by the Sumathi Group of Companies, Sri Lanka, honoring outstanding individuals within the country’s television industry. These awards acknowledge the remarkable contributions made by recipients to Sri Lanka’s teledrama sector and television programming landscape.',
         services: [
           'Awards Events',
           'Media Recognition',
@@ -438,7 +438,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         shortDescription:
           'Sumathi Ventures focuses on strategic investments, partnerships, and new business opportunities.',
         fullDescription:
-          'Sumathi Ventures represents the group’s venture and partnership interests, focusing on strategic investments, new opportunities, and business expansion initiatives.',
+          'Founded in 2020, Sumathi Ventures, under the leadership of experienced businessman Mr. Thilanga Sumathipala, aims to establish a sustainable business model that benefits society while ensuring profitability. Leveraging intellectual property, practices, and resources of potential partners, Sumathi Ventures combines them with its financial capital and local market presence through structures like joint ventures, BOOT, and PPPs to achieve mutually beneficial business outcomes. \n Sumathi Ventures forges strategic partnerships with top-tier global firms across Manufacturing & Agriculture (Industry Pillar), Infrastructure, Real Estate Development, Power and Energy, Financial Services (Commerce Pillar), and Hardware and Software Information Technology Solutions (Technology Pillar).',
         services: [
           'Strategic Investments',
           'Business Ventures',
