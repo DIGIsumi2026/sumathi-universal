@@ -2294,7 +2294,7 @@
   background: rgba(255, 255, 255, 0.48);
   overflow: visible;
   isolation: isolate;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* vertical broken edge line */
@@ -2345,8 +2345,16 @@
   display: none;
 }
 
-.company-logo-card:hover {
-  background: rgba(255, 255, 255, 0.72);
+.company-logo-card:hover,
+.company-logo-card.is-popped {
+  background:
+    linear-gradient(135deg, var(--logo-brand-color) 0%, transparent 12%),
+    linear-gradient(225deg, var(--logo-brand-color) 0%, transparent 12%),
+    linear-gradient(45deg, var(--logo-brand-color) 0%, transparent 12%),
+    linear-gradient(315deg, var(--logo-brand-color) 0%, transparent 12%),
+    rgba(255, 255, 255, 0.95);
+  box-shadow: none;
+  z-index: 10;
 }
 
 /* no hover shadow */
@@ -2371,7 +2379,8 @@
     transform 0.32s ease;
 }
 
-.company-logo-card:hover .company-logo-card-media img {
+.company-logo-card:hover .company-logo-card-media img,
+.company-logo-card.is-popped .company-logo-card-media img {
   filter: grayscale(0) saturate(1) opacity(1);
   transform: scale(1.08);
 }
@@ -2395,7 +2404,8 @@
     transform 0.28s ease;
 }
 
-.company-logo-card:hover .company-logo-card-link-icon {
+.company-logo-card:hover .company-logo-card-link-icon,
+.company-logo-card.is-popped .company-logo-card-link-icon {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
