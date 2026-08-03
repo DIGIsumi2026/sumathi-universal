@@ -1257,6 +1257,11 @@
   color: #ffffff;
 }
 
+@keyframes statCardSlowZoomOut {
+  0% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
 @media (max-width: 1180px) {
   .what-we-do-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1264,6 +1269,29 @@
 
   .what-we-do-card {
     min-height: 380px;
+  }
+
+  /* Make hover state default for tablet/mobile */
+  .what-we-do-card-image {
+    opacity: 1;
+    animation: statCardSlowZoomOut 12s ease-in-out infinite alternate;
+  }
+
+  .what-we-do-card-overlay {
+    opacity: 1;
+  }
+
+  .what-we-do-icon {
+    transform: scale(1.06) rotate(-4deg);
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #ffffff;
+  }
+
+  .what-we-do-card h3,
+  .what-we-do-card p {
+    color: #ffffff;
   }
 }
 
