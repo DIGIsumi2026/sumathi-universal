@@ -1257,6 +1257,36 @@
   color: #ffffff;
 }
 
+/* ── intro-active: mirrors hover, desktop-only, used for sequential intro animation ── */
+@media (min-width: 1181px) {
+  .what-we-do-card--intro-active {
+    transform: translateY(-12px);
+    box-shadow: 0 28px 80px rgba(7, 54, 115, 0.24);
+  }
+
+  .what-we-do-card--intro-active .what-we-do-card-image {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .what-we-do-card--intro-active .what-we-do-card-overlay {
+    opacity: 1;
+  }
+
+  .what-we-do-card--intro-active .what-we-do-icon {
+    transform: scale(1.06) rotate(-4deg);
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #ffffff;
+  }
+
+  .what-we-do-card--intro-active h3,
+  .what-we-do-card--intro-active p {
+    color: #ffffff;
+  }
+}
+
 @keyframes statCardSlowZoomOut {
   0% { transform: scale(1.15); }
   100% { transform: scale(1); }
