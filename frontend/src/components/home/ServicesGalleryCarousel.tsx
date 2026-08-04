@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { servicesGalleryData } from '../../data/servicesGalleryData';
 
-const AUTO_PLAY_DELAY = 6200;
+const AUTO_PLAY_DELAY = 6200; // ms
 
 export default function ServicesGalleryCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,19 +14,13 @@ export default function ServicesGalleryCarousel() {
 
   useEffect(() => {
     let loadedCount = 0;
-
     servicesGalleryData.forEach((service) => {
       const img = new Image();
       img.src = service.image;
-
       const handleImageDone = () => {
         loadedCount += 1;
-
-        if (loadedCount === servicesGalleryData.length) {
-          setImagesReady(true);
-        }
+        if (loadedCount === servicesGalleryData.length) setImagesReady(true);
       };
-
       img.onload = handleImageDone;
       img.onerror = handleImageDone;
     });
@@ -34,13 +28,11 @@ export default function ServicesGalleryCarousel() {
 
   useEffect(() => {
     if (!imagesReady) return;
-
     const timer = window.setInterval(() => {
       setActiveIndex((current) =>
         current === servicesGalleryData.length - 1 ? 0 : current + 1
       );
     }, AUTO_PLAY_DELAY);
-
     return () => window.clearInterval(timer);
   }, [imagesReady]);
 
@@ -50,6 +42,7 @@ export default function ServicesGalleryCarousel() {
 
   return (
     <section className="services-gallery-hero">
+      {/* Background image slide */}
       <AnimatePresence mode="sync" initial={false}>
         <motion.div
           key={activeService.id}
@@ -74,6 +67,7 @@ export default function ServicesGalleryCarousel() {
 
       <div className="services-gallery-overlay" />
 
+      {/* Text content */}
       <AnimatePresence mode="wait">
         <motion.div
           key={`content-${activeService.id}`}
@@ -121,18 +115,37 @@ export default function ServicesGalleryCarousel() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="services-gallery-left-dots">
-        {servicesGalleryData.map((service, index) => (
-          <button
-            key={service.id}
-            type="button"
-            className={index === activeIndex ? 'active' : ''}
-            onClick={() => setActiveIndex(index)}
-            aria-label={`View ${service.title}`}
-          />
-        ))}
+      {/* ── Vertical pill indicators — left side, next to text ── */}
+      <div className="services-gallery-pills">
+        {servicesGalleryData.map((service, index) => {
+          const isActive = index === activeIndex;
+          return (
+            <button
+              key={service.id}
+              type="button"
+              className={`sgp-pill${isActive ? ' sgp-pill--active' : ''}`}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`View ${service.title}`}
+            >
+              {isActive && (
+                /*
+                 * Pure CSS keyframe animation — runs on the GPU compositor
+                 * thread, completely independent of JS, zero dropped frames.
+                 * The key prop forces a fresh element on every slide change
+                 * so the animation always restarts from the beginning.
+                 */
+                <span
+                  key={`fill-${service.id}-${activeIndex}`}
+                  className="sgp-pill__fill"
+                  style={{ '--sgp-duration': `${AUTO_PLAY_DELAY}ms` } as React.CSSProperties}
+                />
+              )}
+            </button>
+          );
+        })}
       </div>
 
+      {/* Right-side slide counter */}
       <div className="services-gallery-right-index">
         <span>{activeService.id}</span>
 
@@ -141,10 +154,7 @@ export default function ServicesGalleryCarousel() {
             key={`progress-${activeService.id}`}
             initial={{ height: '0%' }}
             animate={{ height: '100%' }}
-            transition={{
-              duration: AUTO_PLAY_DELAY / 1000,
-              ease: 'linear',
-            }}
+            transition={{ duration: AUTO_PLAY_DELAY / 1000, ease: 'linear' }}
           />
         </div>
 

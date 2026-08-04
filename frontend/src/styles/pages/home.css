@@ -805,18 +805,21 @@
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25);
 }
 
-.services-gallery-left-dots {
+/* ── pill progress indicators — left side, vertical ── */
+.services-gallery-pills {
   position: absolute;
   left: clamp(22px, 3vw, 48px);
   top: 50%;
-  z-index: 5;
   transform: translateY(-50%);
+  z-index: 5;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  align-items: center;
+  gap: 12px;
 }
 
-.services-gallery-left-dots button {
+.sgp-pill {
+  position: relative;
   width: 7px;
   height: 7px;
   padding: 0;
@@ -824,20 +827,40 @@
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.42);
   cursor: pointer;
+  overflow: hidden;
+  /* height expands on active, width stays fixed */
   transition:
-    height 0.35s ease,
-    background 0.35s ease,
-    transform 0.35s ease;
+    height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
 }
 
-.services-gallery-left-dots button.active {
-  height: 30px;
-  background: #ffffff;
+/* active pill: expands to tall bar */
+.sgp-pill--active {
+  height: 52px;
+  background: rgba(255, 255, 255, 0.18);
+  cursor: default;
 }
 
-.services-gallery-left-dots button:hover {
-  transform: scale(1.35);
+/* Fill uses pure CSS keyframe — scaleY runs on compositor, zero jank */
+@keyframes sgp-fill-vertical {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+.sgp-pill__fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   background: #ffffff;
+  transform-origin: top center;
+  /* duration set via inline style --sgp-duration */
+  animation: sgp-fill-vertical var(--sgp-duration, 6.2s) linear forwards;
+  will-change: transform;
+}
+
+.sgp-pill:not(.sgp-pill--active):hover {
+  background: rgba(255, 255, 255, 0.75);
+  transform: scale(1.25);
 }
 
 .services-gallery-right-index {
@@ -919,6 +942,15 @@
 
   .services-gallery-left-dots {
     left: 16px;
+  }
+
+  .services-gallery-pills {
+    left: 16px;
+    gap: 10px;
+  }
+
+  .sgp-pill--active {
+    height: 40px;
   }
 
   .services-gallery-right-index {
