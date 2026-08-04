@@ -3,7 +3,7 @@ import { ArrowRight, HeartHandshake, MessageCircle } from 'lucide-react';
 import { imageAssets } from '../../data/imageAssets';
 
 export default function CSRContactCTA() {
-  const whatsappNumber = '94770000000';
+  const whatsappNumber = '94716824520';
 
   return (
     <section className="csr-contact-cta-section">

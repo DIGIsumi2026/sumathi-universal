@@ -42,7 +42,7 @@ export default function ScrollToTopButton() {
   return (
     <div className="floating-actions-container">
       <a
-        href="https://wa.me/94112697106"
+        href="https://wa.me/94716824520"
         target="_blank"
         rel="noreferrer"
         className={`whatsapp-float-btn${isVisible ? ' visible' : ''}`}

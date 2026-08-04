@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { imageAssets } from '../../data/imageAssets';
 
 export default function HomeContactCTA() {
-  const whatsappNumber = '947XXXXXXXX';
+  const whatsappNumber = '94716824520';
 
   return (
     <section className="home-contact-cta">

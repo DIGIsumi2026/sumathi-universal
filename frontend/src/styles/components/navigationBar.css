@@ -259,6 +259,8 @@
   background: var(--white);
   padding: 38px 34px;
   box-shadow: -20px 0 60px rgba(0, 0, 0, 0.16);
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
 }
 
 .sidebar-close {
@@ -296,6 +298,24 @@
 .sidebar-links a:hover {
   color: var(--primary-blue);
   transform: translateX(8px);
+}
+
+.sidebar-links .nav-contact-btn {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 500;
+  transform: none !important;
+  display: inline-block;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-links .nav-contact-btn:hover {
+  background-color: #02086e;
+  color: var(--white);
 }
 
 .sidebar-socials {
@@ -447,4 +467,12 @@
   .navbar-default .navbar-logo img {
     height: 36px;
   }
+}
+
+body.sidebar-active {
+  overflow: hidden;
+}
+
+body.sidebar-active .floating-actions-container {
+  display: none !important;
 }

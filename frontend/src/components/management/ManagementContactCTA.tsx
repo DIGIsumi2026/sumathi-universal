@@ -3,7 +3,7 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 import { imageAssets } from '../../data/imageAssets';
 
 export default function ManagementContactCTA() {
-  const whatsappNumber = '94770000000';
+  const whatsappNumber = '94716824520';
 
   return (
     <section className="management-contact-cta-section">
