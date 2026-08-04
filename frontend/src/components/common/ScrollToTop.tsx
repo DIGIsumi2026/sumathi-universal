@@ -4,6 +4,7 @@ import { ArrowUp } from 'lucide-react';
 export default function ScrollToTopButton() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [sidebarActive, setSidebarActive] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +28,15 @@ export default function ScrollToTopButton() {
     };
   }, []);
 
+  // Watch body class for sidebar-active
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setSidebarActive(document.body.classList.contains('sidebar-active'));
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -38,6 +48,8 @@ export default function ScrollToTopButton() {
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset =
     circumference - (scrollProgress / 100) * circumference;
+
+  if (sidebarActive) return null;
 
   return (
     <div className="floating-actions-container">

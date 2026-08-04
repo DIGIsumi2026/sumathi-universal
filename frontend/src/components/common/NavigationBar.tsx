@@ -34,12 +34,30 @@ const NavigationBar = () => {
 
   useEffect(() => {
     if (sidebarOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       document.body.classList.add('sidebar-active');
     } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.classList.remove('sidebar-active');
+      if (scrollY) {
+        window.scrollTo(0, -parseInt(scrollY || '0', 10));
+      }
     }
     return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.classList.remove('sidebar-active');
+      if (scrollY) {
+        window.scrollTo(0, -parseInt(scrollY || '0', 10));
+      }
     };
   }, [sidebarOpen]);
 
@@ -180,6 +198,7 @@ const NavigationBar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setSidebarOpen(false)}
           >
             <motion.div
               className="sidebar-panel"
@@ -187,6 +206,7 @@ const NavigationBar = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 className="sidebar-close"
