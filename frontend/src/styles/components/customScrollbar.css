@@ -1,0 +1,109 @@
+/* =============================================
+   CUSTOM SCROLLBAR — Desktop only (> 1024px)
+   ============================================= */
+
+/* Hide the native scrollbar on all browsers (desktop) */
+@media (min-width: 1025px) {
+  html {
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE / Edge legacy */
+  }
+  html::-webkit-scrollbar {
+    display: none;                /* Chrome / Safari / Opera */
+  }
+}
+
+/* === TRACK === */
+.custom-scrollbar-track {
+  /* hidden on mobile/tablet */
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .custom-scrollbar-track {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100vh;
+    z-index: 10000;
+    cursor: pointer;
+
+    /* track background — subtle, only shows on hover/active */
+    background: transparent;
+    border-radius: 999px;
+    transition: background 0.25s ease, opacity 0.3s ease, width 0.25s ease;
+
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Show track on hover or when scrolling */
+  .custom-scrollbar-track:hover,
+  .custom-scrollbar-track--visible {
+    opacity: 1;
+    pointer-events: auto;
+    background: rgba(3, 10, 140, 0.08);
+    width: 8px;
+  }
+
+  /* === THUMB === */
+  .custom-scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 999px;
+    cursor: grab;
+
+    background: linear-gradient(
+      180deg,
+      #030a8c 0%,
+      #0736b3 60%,
+      #1052d4 100%
+    );
+    box-shadow:
+      0 2px 8px rgba(3, 10, 140, 0.35),
+      0 0 0 1px rgba(3, 10, 140, 0.1);
+
+    transition:
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      width 0.2s ease,
+      left 0.2s ease;
+
+    will-change: transform;
+  }
+
+  .custom-scrollbar-track:hover .custom-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      #030a8c 0%,
+      #0428a0 50%,
+      #0736b3 100%
+    );
+    box-shadow:
+      0 4px 14px rgba(3, 10, 140, 0.45),
+      0 0 0 1.5px rgba(3, 10, 140, 0.18);
+  }
+
+  .custom-scrollbar-thumb--dragging {
+    cursor: grabbing;
+    background: linear-gradient(
+      180deg,
+      #02068a 0%,
+      #030a8c 50%,
+      #0428a0 100%
+    );
+    box-shadow:
+      0 6px 20px rgba(3, 10, 140, 0.55),
+      0 0 0 2px rgba(3, 10, 140, 0.22);
+  }
+
+  /* prevent text selection while dragging */
+  body:has(.custom-scrollbar-thumb--dragging) {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}

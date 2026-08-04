@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import NavigationBar from './components/common/NavigationBar';
 import ScrollToTop from './components/common/ScrollToTop';
+import CustomScrollbar from './components/common/CustomScrollbar';
 import ScrollController from './components/common/ScrollController';
 import Footer from './components/common/Footer';
 import Preloader from './components/common/Preloader';
@@ -41,6 +42,7 @@ function AppContent() {
         <ScrollController />
         <NavigationBar />
         <ScrollToTop />
+        <CustomScrollbar />
 
         <Routes>
           <Route path="/" element={<Home />} />
