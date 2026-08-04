@@ -301,21 +301,22 @@
 }
 
 .sidebar-links .nav-contact-btn {
-  background-color: var(--primary-blue);
-  color: var(--white);
-  padding: 12px 28px;
+  background-color: transparent;
+  color: var(--primary-blue);
+  border: 0.5px solid var(--primary-blue);
+  padding: 10px 26px;
   border-radius: 999px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   transform: none !important;
   display: inline-block;
   align-self: flex-start;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .sidebar-links .nav-contact-btn:hover {
-  background-color: #02086e;
-  color: var(--white);
+  background-color: var(--primary-blue);
+  color: var(--primary-blue);
 }
 
 .sidebar-socials {
