@@ -76,7 +76,7 @@ export default function CorporateHeadquarters() {
 
           <div className="contact-headquarters-divider" />
 
-          <p>+(94) 11 269 7106</p>
+          <p>+94 11 269 7106</p>
         </a>
       </div>
     </section>

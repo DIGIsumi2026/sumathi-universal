@@ -27,13 +27,13 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     companies: [
       {
         name: 'Sumathi Printers',
-        phone: '+(94) 77 642 6900',
+        phone: '+94 77 642 6900',
         phoneHref: '+94776426900',
         email: 'info@sumathiuniversal.com',
       },
       {
         name: 'Napco',
-        phone: '+(94) 71 653 2112',
+        phone: '+94 71 653 2112',
         phoneHref: '+94112910015',
         email: 'info@napco.lk',
       },
@@ -49,13 +49,13 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     companies: [
       {
         name: 'Octagon Engineering',
-        phone: '+(94) 112 344 444',
+        phone: '+94 112 344 444',
         phoneHref: '+94112344444',
         email: 'sales@octagon.lk',
       },
       {
         name: 'Octagon Force',
-        phone: '+(94) 112 344 444',
+        phone: '+94 112 344 444',
         phoneHref: '+94112344444',
         email: 'info@octagonforce.com',
       },
@@ -71,13 +71,13 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     companies: [
       {
         name: 'Rabbit Solutions',
-        phone: '+(94) 11 211 8130',
+        phone: '+94 11 211 8130',
         phoneHref: '+94112118130',
         email: 'info@rabbit.lk',
       },
       {
         name: 'Sumathi Universal Trading',
-        phone: '+(94) 112 421 294',
+        phone: '+94 112 421 294',
         phoneHref: '+94112421294',
         email: 'info@sut.lk',
       },

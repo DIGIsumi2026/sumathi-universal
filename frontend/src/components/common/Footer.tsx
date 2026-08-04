@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
             <div className="site-footer-map-container">
               <iframe
                 title="Sumathi Universal Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7686888206144!2d79.8631024!3d6.918231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTUnMDUuNiJOIDc5wrA1MSc0Ny4yIkU!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.73988985588!2d79.87005581009308!3d6.921666518380401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2590b84e25971%3A0x35ebee7d9faae5c0!2sSumathi%20Universal%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1785826897861!5m2!1sen!2slk"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
