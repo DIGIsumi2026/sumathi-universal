@@ -1,157 +1,145 @@
-import printopLogo from '../assets/images/brand/printop-logo.svg';
-import heroProducts from '../assets/images/home/hero-products.jpg';
-import aboutCollage from '../assets/images/home/about-collage.jpg';
-import serviceFace from '../assets/images/home/service-face.jpg';
-import serviceHoodie from '../assets/images/home/service-hoodie.jpg';
-import testimonialCard from '../assets/images/home/testimonial-card.jpg';
-import categoryGrid from '../assets/images/home/category-grid.jpg';
-import blogCards from '../assets/images/home/blog-cards.jpg';
-import ctaPerson from '../assets/images/home/cta-person.jpg';
-import footerReference from '../assets/images/home/footer-reference.jpg';
-
-
 // home 
 import companyLogo from "../assets/images/brand/company-logo.png";
 
 // home - gallery 
-import technologyIt from "../assets/images/home/technology-it.png";
-import printing from "../assets/images/home/printing.png";
-import securityFacility from "../assets/images/home/security-facility-services.png";
-import engineeringTechnical from "../assets/images/home/engineering-technical-services.png";
-import architectureDesign from "../assets/images/home/architecture-design.png";
-import tradingCommerce from "../assets/images/home/trading-commerce.png";
+import technologyIt from "../assets/images/home/technology-it.webp";
+import printing from "../assets/images/home/printing.webp";
+import securityFacility from "../assets/images/home/security-facility-services.webp";
+import engineeringTechnical from "../assets/images/home/engineering-technical-services.webp";
+import architectureDesign from "../assets/images/home/architecture-design.webp";
+import tradingCommerce from "../assets/images/home/trading-commerce.webp";
 
 //home service 
-import printingCard from "../assets/images/home/printing-card.png";
-import servicesCard from "../assets/images/home/services-card.png";
-import managementInvestmentCard from "../assets/images/home/management-investment-card.png";
-import csrCard from "../assets/images/home/csr-card.png";
+import printingCard from "../assets/images/home/printing-card.webp";
+import servicesCard from "../assets/images/home/services-card.webp";
+import managementInvestmentCard from "../assets/images/home/management-investment-card.webp";
+import csrCard from "../assets/images/home/csr-card.webp";
 
 //companies
-import Logo1 from "../assets/images/home/company1.png";
-import Logo2 from "../assets/images/home/company2.png";
-import Logo3 from "../assets/images/home/company3.png";
-import Logo4 from "../assets/images/home/company4.png";
-import Logo5 from "../assets/images/home/company5.png";
-import Logo6 from "../assets/images/home/company6.png";
-import Logo7 from "../assets/images/home/company7.png";
-import Logo8 from "../assets/images/home/company8.png";
-import Logo9 from "../assets/images/home/company9.png";
-import Logo10 from "../assets/images/home/company10.png";
-import Logo11 from "../assets/images/home/company11.png";
-import Logo12 from "../assets/images/home/company12.png";
-import Logo13 from "../assets/images/home/company13.png";
-import Logo14 from "../assets/images/home/company14.png";
-import Logo15 from "../assets/images/home/company15.png";
-import Logo16 from "../assets/images/home/company16.png";
+import Logo1 from "../assets/images/home/company1.webp";
+import Logo2 from "../assets/images/home/company2.webp";
+import Logo3 from "../assets/images/home/company3.webp";
+import Logo4 from "../assets/images/home/company4.webp";
+import Logo5 from "../assets/images/home/company5.webp";
+import Logo6 from "../assets/images/home/company6.webp";
+import Logo7 from "../assets/images/home/company7.webp";
+import Logo8 from "../assets/images/home/company8.webp";
+import Logo9 from "../assets/images/home/company9.webp";
+import Logo10 from "../assets/images/home/company10.webp";
+import Logo11 from "../assets/images/home/company11.webp";
+import Logo12 from "../assets/images/home/company12.webp";
+import Logo13 from "../assets/images/home/company13.webp";
+import Logo14 from "../assets/images/home/company14.webp";
+import Logo15 from "../assets/images/home/company15.webp";
+import Logo16 from "../assets/images/home/company16.webp";
 
 //contact cta
-import contactCtaBg from "../assets/images/home/contact-cta-bg.png";
+import contactCtaBg from "../assets/images/home/contact-cta-bg.webp";
 
 
 //about us 
-import aboutHeroThumbnail from "../assets/images/about/about-hero-thumbnail.png";
-import  aboutTeamImage from "../assets/images/about/about-team.png";
-import  aboutTeamPeople from "../assets/images/about/about-team-people.png";
+import aboutHeroThumbnail from "../assets/images/about/about-hero-thumbnail.webp";
+import  aboutTeamImage from "../assets/images/about/about-team.webp";
+import  aboutTeamPeople from "../assets/images/about/about-team-people.webp";
 
-import visionImage from "../assets/images/about/vision.png";
-import missionImage from "../assets/images/about/mission.png";
+import visionImage from "../assets/images/about/vision.webp";
+import missionImage from "../assets/images/about/mission.webp";
 
 
 //company showcase
-import rabbitLogo  from "../assets/images/about/company showcase/rabbit-logo.png";
-import rabbitBg from "../assets/images/about/company showcase/rabbit-bg.png";
-import printersLogo from "../assets/images/about/company showcase/printers-logo.png";
-import printersBg from "../assets/images/about/company showcase/printers-bg.png";
-import napcoLogo from "../assets/images/about/company showcase/napco-logo.png";
-import napcoBg from "../assets/images/about/company showcase/napco-bg.png";
-import octagonforceLogo from "../assets/images/about/company showcase/octagon-logo.png";
-import octagonforceBg from "../assets/images/about/company showcase/octagon-bg.png";
-import engineeringLogo from "../assets/images/about/company showcase/egineering-logo.png";
-import engineeringBg from "../assets/images/about/company showcase/engineering-bg.jpg";
-import sumishakthiLogo from "../assets/images/about/company showcase/sumishakthi-logo.png";
-import sumishakthiBg from "../assets/images/about/company showcase/sumishakthi-bg.png";
-import sujalaLogo from "../assets/images/about/company showcase/sujalashakthi-logo.png";
-import sujalaBg from "../assets/images/about/company showcase/sujalashakthi-bg.png";
-import sukoLogo from "../assets/images/about/company showcase/suko-logo.png";
-import sukoBg from "../assets/images/about/company showcase/suko-bg.png";
-import hospitalityLogo from "../assets/images/about/company showcase/hospitality-logo.png";
-import hospitalityBg from "../assets/images/about/company showcase/hospitality-bg.png";
-import butlersLogo from "../assets/images/about/company showcase/butlers-logo.png";
-import butlersBg from '../assets/images/about/company showcase/butlers-bg.png';
-import tradingLogo from "../assets/images/about/company showcase/tradibg-logo.png";
-import tradingBg from "../assets/images/about/company showcase/trading-bg.png";
-import thiLogo from "../assets/images/about/company showcase/THi-logo.png";
-import thiBg from "../assets/images/about/company showcase/THi-bg.png";
-import entertainmentLogo from "../assets/images/about/company showcase/entertainment-logo.png";
-import entertainmentBg from "../assets/images/about/company showcase/hospitality-bg.png";
-import filmsLogo from "../assets/images/about/company showcase/sumathifilms-logo.png";
-import filmsBg from "../assets/images/about/company showcase/sumathifilms-bg.png";
-import awardsLogo from "../assets/images/about/company showcase/awards-logo.png";
-import awardsBg from "../assets/images/about/company showcase/awards-bg.png";
-import venturesLogo from "../assets/images/about/company showcase/vetures-logo.png";
-import venturesBg from "../assets/images/about/company showcase/ventures-bg.png";
+import rabbitLogo  from "../assets/images/about/company showcase/rabbit-logo.webp";
+import rabbitBg from "../assets/images/about/company showcase/rabbit-bg.webp";
+import printersLogo from "../assets/images/about/company showcase/printers-logo.webp";
+import printersBg from "../assets/images/about/company showcase/printers-bg.webp";
+import napcoLogo from "../assets/images/about/company showcase/napco-logo.webp";
+import napcoBg from "../assets/images/about/company showcase/napco-bg.webp";
+import octagonforceLogo from "../assets/images/about/company showcase/octagon-logo.webp";
+import octagonforceBg from "../assets/images/about/company showcase/octagon-bg.webp";
+import engineeringLogo from "../assets/images/about/company showcase/egineering-logo.webp";
+import engineeringBg from "../assets/images/about/company showcase/engineering-bg.webp";
+import sumishakthiLogo from "../assets/images/about/company showcase/sumishakthi-logo.webp";
+import sumishakthiBg from "../assets/images/about/company showcase/sumishakthi-bg.webp";
+import sujalaLogo from "../assets/images/about/company showcase/sujalashakthi-logo.webp";
+import sujalaBg from "../assets/images/about/company showcase/sujalashakthi-bg.webp";
+import sukoLogo from "../assets/images/about/company showcase/suko-logo.webp";
+import sukoBg from "../assets/images/about/company showcase/suko-bg.webp";
+import hospitalityLogo from "../assets/images/about/company showcase/hospitality-logo.webp";
+import hospitalityBg from "../assets/images/about/company showcase/hospitality-bg.webp";
+import butlersLogo from "../assets/images/about/company showcase/butlers-logo.webp";
+import butlersBg from '../assets/images/about/company showcase/butlers-bg.webp';
+import tradingLogo from "../assets/images/about/company showcase/tradibg-logo.webp";
+import tradingBg from "../assets/images/about/company showcase/trading-bg.webp";
+import thiLogo from "../assets/images/about/company showcase/THi-logo.webp";
+import thiBg from "../assets/images/about/company showcase/THi-bg.webp";
+import entertainmentLogo from "../assets/images/about/company showcase/entertainment-logo.webp";
+import entertainmentBg from "../assets/images/about/company showcase/hospitality-bg.webp";
+import filmsLogo from "../assets/images/about/company showcase/sumathifilms-logo.webp";
+import filmsBg from "../assets/images/about/company showcase/sumathifilms-bg.webp";
+import awardsLogo from "../assets/images/about/company showcase/awards-logo.webp";
+import awardsBg from "../assets/images/about/company showcase/awards-bg.webp";
+import venturesLogo from "../assets/images/about/company showcase/vetures-logo.webp";
+import venturesBg from "../assets/images/about/company showcase/ventures-bg.webp";
 
 
 //management
-import managemetHero from "../assets/images/management/management-hero.png";
-import familyLegacyImage  from "../assets/images/management/family-legacy.png";
+import managemetHero from "../assets/images/management/management-hero.webp";
+import familyLegacyImage  from "../assets/images/management/family-legacy.webp";
 
-import thilangaProfile from "../assets/images/management/thilanga-sumathipala.png";
-import udhanthaProfile from "../assets/images/management/udhantha-sumathipala.png";
-import samadaraProfile from "../assets/images/management/samadara-sumathipala.png";
-import sajanthaProfile from "../assets/images/management/sajantha-sumathipala.jpeg";
-import dulanthaProfile from "../assets/images/management/dulantha-sumathipala.png";
+import thilangaProfile from "../assets/images/management/thilanga-sumathipala.webp";
+import udhanthaProfile from "../assets/images/management/udhantha-sumathipala.webp";
+import samadaraProfile from "../assets/images/management/samadara-sumathipala.webp";
+import sajanthaProfile from "../assets/images/management/sajantha-sumathipala.webp";
+import dulanthaProfile from "../assets/images/management/dulantha-sumathipala.webp";
 
-import managementContactBanner from "../assets/images/management/contact-banner.png";
+import managementContactBanner from "../assets/images/management/contact-banner.webp";
 
 //CSR
-import csrHeroThumbnail from "../assets/images/csr/csr-hero-thumbnail.png";
-import csrDescriptionEducation from "../assets/images/csr/csr-description-education.png";
+import csrHeroThumbnail from "../assets/images/csr/csr-hero-thumbnail.webp";
+import csrDescriptionEducation from "../assets/images/csr/csr-description-education.webp";
 
 //milina-matha
-import csrMilinaOuterBg from "../assets/images/csr/milina-matha/outer-bg.png.png";
-import csrMilinaLeftBg from "../assets/images/csr/milina-matha/left-bg.png";
-import csrMilinaGalleryBg from "../assets/images/csr/milina-matha/gallery-bg.png";
-import csrMilinaLogo from "../assets/images/csr/milina-matha/milina-logo.jpg";
-import csrMilinaGallery1 from "../assets/images/csr/milina-matha/milina-gallery-1.jpg";
-import csrMilinaGallery2  from "../assets/images/csr/milina-matha/milina-gallery-2.jpg";
+import csrMilinaOuterBg from "../assets/images/csr/milina-matha/outer-bg.webp";
+import csrMilinaLeftBg from "../assets/images/csr/milina-matha/left-bg.webp";
+import csrMilinaGalleryBg from "../assets/images/csr/milina-matha/gallery-bg.webp";
+import csrMilinaLogo from "../assets/images/csr/milina-matha/milina-logo.webp";
+import csrMilinaGallery1 from "../assets/images/csr/milina-matha/milina-gallery-1.webp";
+import csrMilinaGallery2  from "../assets/images/csr/milina-matha/milina-gallery-2.webp";
 
 //thilanga-foundaion
-import csrThilangaOuterBg from "../assets/images/csr/thilanga-foundation/outer-bg.png";
-import csrThilangaLeftBg from "../assets/images/csr/thilanga-foundation/left-bg.png";
-import csrThilangaGalleryBg from "../assets/images/csr/thilanga-foundation/gallery-bg.png";
-import csrThilangaLogo from "../assets/images/csr/thilanga-foundation/logo.png";
+import csrThilangaOuterBg from "../assets/images/csr/thilanga-foundation/outer-bg.webp";
+import csrThilangaLeftBg from "../assets/images/csr/thilanga-foundation/left-bg.webp";
+import csrThilangaGalleryBg from "../assets/images/csr/thilanga-foundation/gallery-bg.webp";
+import csrThilangaLogo from "../assets/images/csr/thilanga-foundation/logo.webp";
 
-import csrThilangaGallery1 from "../assets/images/csr/thilanga-foundation/gallery-1.jpg";
-import csrThilangaGallery2 from "../assets/images/csr/thilanga-foundation/gallery-2.jpg";
-import csrThilangaGallery3 from "../assets/images/csr/thilanga-foundation/gallery-3.jpg";
-import csrThilangaGallery4 from "../assets/images/csr/thilanga-foundation/gallery-4.jpg";
-import csrThilangaGallery5 from "../assets/images/csr/thilanga-foundation/gallery-5.jpg";
-import csrThilangaGallery6 from "../assets/images/csr/thilanga-foundation/gallery-6.jpg";
+import csrThilangaGallery1 from "../assets/images/csr/thilanga-foundation/gallery-1.webp";
+import csrThilangaGallery2 from "../assets/images/csr/thilanga-foundation/gallery-2.webp";
+import csrThilangaGallery3 from "../assets/images/csr/thilanga-foundation/gallery-3.webp";
+import csrThilangaGallery4 from "../assets/images/csr/thilanga-foundation/gallery-4.webp";
+import csrThilangaGallery5 from "../assets/images/csr/thilanga-foundation/gallery-5.webp";
+import csrThilangaGallery6 from "../assets/images/csr/thilanga-foundation/gallery-6.webp";
 
 //sumathi-awards
-import csrSumathiAwardsLogo from '../assets/images/csr/sumathi-awards/logo.png';
+import csrSumathiAwardsLogo from '../assets/images/csr/sumathi-awards/logo.webp';
 
-import  csrSumathiAwardsOuterBg from '../assets/images/csr/sumathi-awards/outer-bg.png';
-import csrSumathiAwardsLeftBg from '../assets/images/csr/sumathi-awards/left-bg.png';
-import csrSumathiAwardsGalleryBg from '../assets/images/csr/sumathi-awards/gallery-bg.png';
+import  csrSumathiAwardsOuterBg from '../assets/images/csr/sumathi-awards/outer-bg.webp';
+import csrSumathiAwardsLeftBg from '../assets/images/csr/sumathi-awards/left-bg.webp';
+import csrSumathiAwardsGalleryBg from '../assets/images/csr/sumathi-awards/gallery-bg.webp';
 
-import csrSumathiAwardsGallery1 from '../assets/images/csr/sumathi-awards/gallery-1.jpg';
-import csrSumathiAwardsGallery2 from '../assets/images/csr/sumathi-awards/gallery-2.jpg';
-import csrSumathiAwardsGallery3 from '../assets/images/csr/sumathi-awards/gallery-3.jpg';
-import csrSumathiAwardsGallery4 from '../assets/images/csr/sumathi-awards/gallery-4.jpg';
-import csrSumathiAwardsGallery5 from '../assets/images/csr/sumathi-awards/gallery-5.jpg';
-import csrSumathiAwardsGallery6 from '../assets/images/csr/sumathi-awards/gallery-6.jpg';
-import csrSumathiAwardsGallery7 from '../assets/images/csr/sumathi-awards/gallery-7.png';
+import csrSumathiAwardsGallery1 from '../assets/images/csr/sumathi-awards/gallery-1.webp';
+import csrSumathiAwardsGallery2 from '../assets/images/csr/sumathi-awards/gallery-2.webp';
+import csrSumathiAwardsGallery3 from '../assets/images/csr/sumathi-awards/gallery-3.webp';
+import csrSumathiAwardsGallery4 from '../assets/images/csr/sumathi-awards/gallery-4.webp';
+import csrSumathiAwardsGallery5 from '../assets/images/csr/sumathi-awards/gallery-5.webp';
+import csrSumathiAwardsGallery6 from '../assets/images/csr/sumathi-awards/gallery-6.webp';
+import csrSumathiAwardsGallery7 from '../assets/images/csr/sumathi-awards/gallery-7.webp';
 
-import csrContactCtaBg from '../assets/images/csr/csr-contact-cta-bg.png';
+import csrContactCtaBg from '../assets/images/csr/csr-contact-cta-bg.webp';
 
 //contact
-import contactHeroImage from "../assets/images/contact/contact-hero.png";
-import contactSubsidiaryPrintingBg from "../assets/images/contact/printing-packaging-bg.png";
-import contactSubsidiaryEngineeringBg from "../assets/images/contact/engineering-security-bg.png";
-import contactSubsidiaryTechnologyBg from "../assets/images/contact/technology-trading-bg.png";
+import contactHeroImage from "../assets/images/contact/contact-hero.webp";
+import contactSubsidiaryPrintingBg from "../assets/images/contact/printing-packaging-bg.webp";
+import contactSubsidiaryEngineeringBg from "../assets/images/contact/engineering-security-bg.webp";
+import contactSubsidiaryTechnologyBg from "../assets/images/contact/technology-trading-bg.webp";
 
 
 export const imageAssets = {
@@ -160,17 +148,6 @@ export const imageAssets = {
   },
   home: {
     contactCtaBg,
-
-    
-    heroProducts,
-    aboutCollage,
-    serviceFace,
-    serviceHoodie,
-    testimonialCard,
-    categoryGrid,
-    blogCards,
-    ctaPerson,
-    footerReference
   },
 
   services: {

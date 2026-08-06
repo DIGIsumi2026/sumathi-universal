@@ -15,6 +15,7 @@ export type CSRSectionItem = {
   accentColor: string;
   paragraphs: string[];
   gallery: CSRGalleryImage[];
+  websiteUrl?: string;
 };
 
 export const csrSectionsData: CSRSectionItem[] = [
@@ -49,6 +50,7 @@ export const csrSectionsData: CSRSectionItem[] = [
   leftBg: imageAssets.csr.sumathiAwards.leftBg,
   galleryBg: imageAssets.csr.sumathiAwards.galleryBg,
   accentColor: '#D4A64A',
+  websiteUrl: 'https://sumathiawards.lk/',
   paragraphs: [
     'In 1995, Mr. Thilanga Sumathipala, together with the National Youth Council, founded the Sumathi Awards to fill the void left by television awards. A total of 32 awards were presented, categorized into four sections: Best Awards, Popular Awards, Commercial Awards, and Merit Awards.',
 

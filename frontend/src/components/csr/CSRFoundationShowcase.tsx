@@ -7,7 +7,7 @@ import {
   type CSSProperties,
   type TouchEvent,
 } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, X } from 'lucide-react';
 import { csrSectionsData, type CSRSectionItem } from '../../data/csrSectionsData';
 
 function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
@@ -278,6 +278,20 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
             </button>
           )}
         </div>
+
+        {section.websiteUrl && (
+          <div className="csr-foundation-visit-wrap">
+            <a
+              href={section.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="csr-foundation-visit-btn"
+            >
+              Visit Website
+              <ExternalLink size={16} />
+            </a>
+          </div>
+        )}
       </div>
 
       {isDesktop && isZoomOpen && (
