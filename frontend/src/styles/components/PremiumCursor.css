@@ -1,0 +1,234 @@
+/* =========================================================================
+   PREMIUM CUSTOM CURSOR SYSTEM
+========================================================================= */
+
+body.premium-cursor-active,
+body.premium-cursor-active * {
+  /* Only hide cursor on elements that don't explicitly require pointer for a11y, 
+     but generally hide it to show our custom cursor instead. */
+  cursor: none !important;
+}
+
+.premium-cursor-core,
+.premium-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999999;
+  /* Centering adjustment will be done via margins or negative translation in CSS */
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, width, height;
+}
+
+/* ── 1. Cursor Core (The Dot) ── */
+.premium-cursor-core {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background-color: #030a8c;
+  border-radius: 50%;
+  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.1s ease;
+  
+  /* Initial load animation */
+  animation: cursorIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── 2. Cursor Ring (The Trail) ── */
+.premium-cursor-ring {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 1px solid rgba(3, 10, 140, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 
+    width 0.4s cubic-bezier(0.22, 1, 0.36, 1), 
+    height 0.4s cubic-bezier(0.22, 1, 0.36, 1), 
+    margin 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 0.4s ease;
+    
+  animation: cursorIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.premium-cursor-text {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+}
+
+@keyframes cursorIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    /* Transform scaling is handled by JS translate3d, so we just use opacity and scale for the element itself natively if needed, but transform is overwritten. 
+       Actually, since JS overwrites transform instantly, we'll animate a wrapper or use opacity. 
+       JS immediately applies translate3d, so scale(0) in keyframes will be overwritten. 
+       Let's use a scale custom property approach if we wanted to mix, but since JS sets transform, let's just animate opacity. */
+  }
+}
+
+/* Redefining cursorIn properly since JS overwrites transform */
+.premium-cursor-core, .premium-cursor-ring {
+  animation: cursorFadeIn 0.5s ease forwards;
+}
+@keyframes cursorFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =========================================================================
+   INTERACTION STATES
+========================================================================= */
+
+/* ── TEXT ── */
+.premium-cursor-core.state-text {
+  opacity: 0.3;
+}
+.premium-cursor-ring.state-text {
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  border-color: rgba(3, 10, 140, 0.15);
+  background-color: rgba(3, 10, 140, 0.05);
+}
+
+/* ── PRECISE (Nav Items) ── */
+.premium-cursor-core.state-precise {
+  background-color: #030a8c;
+}
+.premium-cursor-ring.state-precise {
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border-color: #030a8c;
+}
+
+/* ── BUTTON ── */
+.premium-cursor-core.state-button {
+  opacity: 0; /* Hide core */
+}
+.premium-cursor-ring.state-button {
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  background-color: rgba(3, 10, 140, 0.85); /* Blue blur color */
+  border-color: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.premium-cursor-ring.state-button .premium-cursor-text {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── IMAGE ── */
+.premium-cursor-core.state-image {
+  opacity: 0;
+}
+.premium-cursor-ring.state-image {
+  width: 90px;
+  height: 90px;
+  margin: -45px 0 0 -45px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.premium-cursor-ring.state-image .premium-cursor-text {
+  color: #030a8c;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── ACCORDION & CARD (Similar to Button but maybe larger) ── */
+.premium-cursor-core.state-accordion,
+.premium-cursor-core.state-card {
+  opacity: 0;
+}
+.premium-cursor-ring.state-accordion,
+.premium-cursor-ring.state-card {
+  width: 86px;
+  height: 86px;
+  margin: -43px 0 0 -43px;
+  background-color: rgba(3, 10, 140, 0.9);
+  border-color: transparent;
+  backdrop-filter: blur(4px);
+}
+.premium-cursor-ring.state-accordion .premium-cursor-text,
+.premium-cursor-ring.state-card .premium-cursor-text {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── 3D MODEL ── */
+.premium-cursor-core.state-3d {
+  opacity: 0;
+}
+.premium-cursor-ring.state-3d {
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  background-color: rgba(3, 10, 140, 0.8);
+  border-color: rgba(255, 255, 255, 0.5);
+  border-width: 2px;
+  border-style: dashed;
+  animation: cursorPulse 2s infinite linear;
+}
+.premium-cursor-ring.state-3d .premium-cursor-text {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes cursorPulse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Note: Since transform translate3d is set by JS inline, doing a rotate animation on the same element might clash. 
+   Instead, let's use a subtle box-shadow pulse for the 3D state so it doesn't conflict with JS transform. */
+.premium-cursor-ring.state-3d {
+  animation: shadowPulse 2s infinite alternate;
+}
+@keyframes shadowPulse {
+  0% { box-shadow: 0 0 0 0 rgba(3, 10, 140, 0.4); }
+  100% { box-shadow: 0 0 0 20px rgba(3, 10, 140, 0); }
+}
+
+/* Global hover effects applied to elements based on cursor presence */
+body.premium-cursor-active [data-cursor-type="image"] {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+body.premium-cursor-active [data-cursor-type="image"]:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
+body.premium-cursor-active [data-cursor-type="precise"].nav-link {
+  position: relative;
+}
+body.premium-cursor-active [data-cursor-type="precise"].nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #030a8c;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+body.premium-cursor-active [data-cursor-type="precise"].nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}

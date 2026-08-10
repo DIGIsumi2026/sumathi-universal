@@ -6,6 +6,7 @@ import CustomScrollbar from './components/common/CustomScrollbar';
 import ScrollController from './components/common/ScrollController';
 import Footer from './components/common/Footer';
 import Preloader from './components/common/Preloader';
+import PremiumCursor from './components/common/PremiumCursor';
 import Home from './pages/Home';
 import About from './pages/About';
 import Management from './pages/Management';
@@ -40,6 +41,7 @@ function AppContent() {
         }}
       >
         <ScrollController />
+        <PremiumCursor />
         <NavigationBar />
         <ScrollToTop />
         <CustomScrollbar />

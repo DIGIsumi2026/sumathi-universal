@@ -88,6 +88,8 @@ export default function VisionMissionSection() {
             animate={{ opacity: 1, scale: 1.02 }}
             exit={{ opacity: 0, scale: 1.08 }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            data-cursor-type="accordion"
+            data-cursor-text="Explore"
           >
             <img
               src={currentPanel.image}

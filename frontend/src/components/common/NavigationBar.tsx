@@ -135,7 +135,7 @@ const NavigationBar = () => {
         >
           <div className="navbar-shell">
             <div className="navbar-inner">
-              <NavLink to="/" className="navbar-logo">
+              <NavLink to="/" className="navbar-logo" data-cursor-type="precise">
                 <img src={imageAssets.brand.companyLogo} alt="Company Logo" />
               </NavLink>
 
@@ -146,6 +146,8 @@ const NavigationBar = () => {
                       key={link.label}
                       to={link.path}
                       className="nav-contact-btn"
+                      data-cursor-type="button"
+                      data-cursor-text="Contact"
                     >
                       {link.label}
                     </NavLink>
@@ -156,6 +158,7 @@ const NavigationBar = () => {
                       className={({ isActive }) =>
                         isActive ? 'nav-link active' : 'nav-link'
                       }
+                      data-cursor-type="precise"
                     >
                       <span>{link.label}</span>
                     </NavLink>
@@ -168,6 +171,7 @@ const NavigationBar = () => {
                   className="navbar-menu-btn"
                   onClick={() => setSidebarOpen(true)}
                   aria-label="Open sidebar"
+                  data-cursor-type="precise"
                 >
                   <Menu size={24} />
                 </button>
@@ -181,6 +185,8 @@ const NavigationBar = () => {
                   className="header-social-link"
                   href={href}
                   aria-label={label}
+                  data-cursor-type="button"
+                  data-cursor-text={label}
                 >
                   <Icon size={18} />
                 </a>

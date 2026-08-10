@@ -176,6 +176,8 @@ export default function ManagementProfilesSection() {
               key={profile.id}
               id={profile.id === 'thilanga-sumathipala' ? 'chairman-profile' : profile.id}
               className={`management-profile-card ${isExpanded ? 'profile-expanded' : ''}`}
+              data-cursor-type="card"
+              data-cursor-text="Profile"
               initial={
                 shouldReduceMotion
                   ? false

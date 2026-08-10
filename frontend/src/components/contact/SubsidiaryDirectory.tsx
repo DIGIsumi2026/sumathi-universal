@@ -47,6 +47,8 @@ export default function SubsidiaryDirectory() {
                 className="subsidiary-accordion-trigger"
                 onClick={() => handleItemClick(index)}
                 aria-expanded={isActive}
+                data-cursor-type="accordion"
+                data-cursor-text="Explore"
               >
                 <img
                   src={group.image}

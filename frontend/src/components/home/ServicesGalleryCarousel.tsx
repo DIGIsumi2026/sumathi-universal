@@ -61,6 +61,8 @@ export default function ServicesGalleryCarousel() {
             exit={{ scale: 1.05, x: -42 }}
             transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
             draggable={false}
+            data-cursor-type="image"
+            data-cursor-text="View"
           />
         </motion.div>
       </AnimatePresence>
@@ -109,6 +111,8 @@ export default function ServicesGalleryCarousel() {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.68 }}
+            data-cursor-type="button"
+            data-cursor-text="Explore"
           >
             See More
           </motion.button>
@@ -126,6 +130,7 @@ export default function ServicesGalleryCarousel() {
               className={`sgp-pill${isActive ? ' sgp-pill--active' : ''}`}
               onClick={() => setActiveIndex(index)}
               aria-label={`View ${service.title}`}
+              data-cursor-type="precise"
             >
               {isActive && (
                 /*
