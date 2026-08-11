@@ -1598,8 +1598,8 @@
   left: 0;
   background: linear-gradient(
     90deg,
-    #ffffff 0%,
-    rgba(255, 255, 255, 0.86) 34%,
+    #ffffff00 0%,
+    rgba(255, 255, 255, 0) 34%,
     transparent 100%
   );
 }
@@ -1608,8 +1608,8 @@
   right: 0;
   background: linear-gradient(
     270deg,
-    #ffffff 0%,
-    rgba(255, 255, 255, 0.86) 34%,
+    #ffffff00 0%,
+    rgba(255, 255, 255, 0) 34%,
     transparent 100%
   );
 }
