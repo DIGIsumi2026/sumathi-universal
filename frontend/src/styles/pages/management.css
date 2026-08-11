@@ -720,7 +720,7 @@ body.premium-cursor-active .management-profile-card:hover .management-profile-im
   width: 100%;
 
   /* small CTA height, not full hero height */
-  min-height: clamp(380px, 34vw, 500px);
+  min-height: clamp(500px, 34vw, 100px);
 
   margin: 0;
   overflow: hidden;
