@@ -30,13 +30,31 @@ const Footer: React.FC = () => {
               Sumathi Universal delivers specialized services across diverse sectors with a commitment to excellence, innovation and unwavering reliability.
             </p>
             <div className="site-footer-socials">
-              <a href="https://www.facebook.com/share/1KtpK2xGdT/?mibextid=wwXIfr" className="site-footer-social-icon">
+              <a
+                href="https://www.facebook.com/share/1KtpK2xGdT/?mibextid=wwXIfr"
+                className="site-footer-social-icon"
+                data-cursor-type="social"
+                data-cursor-text="Facebook"
+                data-cursor-color="facebook"
+              >
                 <Facebook size={18} />
               </a>
-              <a href="https://www.instagram.com/sumathi_universal?igsh=NnB6OWJjZmlwcnA3" className="site-footer-social-icon">
+              <a
+                href="https://www.instagram.com/sumathi_universal?igsh=NnB6OWJjZmlwcnA3"
+                className="site-footer-social-icon"
+                data-cursor-type="social"
+                data-cursor-text="Instagram"
+                data-cursor-color="instagram"
+              >
                 <Instagram size={18} />
               </a>
-              <a href="https://www.linkedin.com/company/sumathi-universal/" className="site-footer-social-icon">
+              <a
+                href="https://www.linkedin.com/company/sumathi-universal/"
+                className="site-footer-social-icon"
+                data-cursor-type="social"
+                data-cursor-text="LinkedIn"
+                data-cursor-color="linkedin"
+              >
                 <Linkedin size={18} />
               </a>
             </div>
@@ -67,11 +85,21 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Phone size={20} className="site-footer-contact-icon" />
-                <a href="tel:+94112697106">+94 11 269 7106</a>
+                <a
+                  href="tel:+94112697106"
+                  data-cursor-type="button"
+                  data-cursor-text="Call"
+                  data-cursor-color="blue"
+                >+94 11 269 7106</a>
               </li>
               <li>
                 <Mail size={20} className="site-footer-contact-icon" />
-                <a href="mailto:info@sumathiuniversal.com">info@sumathiuniversal.com</a>
+                <a
+                  href="mailto:info@sumathiuniversal.com"
+                  data-cursor-type="button"
+                  data-cursor-text="Email"
+                  data-cursor-color="blue"
+                >info@sumathiuniversal.com</a>
               </li>
             </ul>
           </div>

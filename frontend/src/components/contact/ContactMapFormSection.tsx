@@ -120,12 +120,21 @@ ${message}`
               <a
                 href="mailto:info@sumathiuniversal.com"
                 className="contact-form-email-link"
+                data-cursor-type="button"
+                data-cursor-text="Email"
+                data-cursor-color="blue"
               >
                 <Mail size={17} />
                 info@sumathiuniversal.com
               </a>
 
-              <button type="submit" className="contact-form-submit">
+              <button
+                type="submit"
+                className="contact-form-submit"
+                data-cursor-type="button"
+                data-cursor-text="Send"
+                data-cursor-color="blue"
+              >
                 Send Message
                 <Send size={18} />
               </button>

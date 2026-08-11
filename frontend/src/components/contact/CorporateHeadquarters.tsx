@@ -35,6 +35,9 @@ export default function CorporateHeadquarters() {
           rel="noreferrer"
           className="contact-headquarters-card contact-headquarters-link"
           aria-label="Open Sumathi Universal Corporate Headquarters on Google Maps"
+          data-cursor-type="button"
+          data-cursor-text="Map"
+          data-cursor-color="blue"
         >
           <div className="contact-headquarters-icon">
             <MapPin size={38} />
@@ -55,6 +58,9 @@ export default function CorporateHeadquarters() {
           href="mailto:info@sumathiuniversal.com"
           className="contact-headquarters-card contact-headquarters-link"
           aria-label="Email Sumathi Universal"
+          data-cursor-type="button"
+          data-cursor-text="Email"
+          data-cursor-color="blue"
         >
           <div className="contact-headquarters-icon">
             <Mail size={38} />
@@ -69,6 +75,9 @@ export default function CorporateHeadquarters() {
           href="tel:+94112697106"
           className="contact-headquarters-card contact-headquarters-link"
           aria-label="Call Sumathi Universal"
+          data-cursor-type="button"
+          data-cursor-text="Call"
+          data-cursor-color="blue"
         >
           <div className="contact-headquarters-icon">
             <PhoneCall size={38} />

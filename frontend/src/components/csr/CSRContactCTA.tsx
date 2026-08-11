@@ -29,7 +29,13 @@ export default function CSRContactCTA() {
           </p>
 
           <div className="csr-contact-cta-actions">
-            <Link to="/contact" className="csr-contact-cta-btn primary">
+            <Link
+              to="/contact"
+              className="csr-contact-cta-btn primary"
+              data-cursor-type="button"
+              data-cursor-text="Contact"
+              data-cursor-color="blue"
+            >
               Contact Us
               <ArrowRight size={18} />
             </Link>
@@ -39,6 +45,9 @@ export default function CSRContactCTA() {
               target="_blank"
               rel="noreferrer"
               className="csr-contact-cta-btn whatsapp"
+              data-cursor-type="social"
+              data-cursor-text="Chat"
+              data-cursor-color="whatsapp"
             >
               <MessageCircle size={19} />
               Start a Partnership

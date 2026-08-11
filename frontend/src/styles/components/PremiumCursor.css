@@ -4,8 +4,6 @@
 
 body.premium-cursor-active,
 body.premium-cursor-active * {
-  /* Only hide cursor on elements that don't explicitly require pointer for a11y, 
-     but generally hide it to show our custom cursor instead. */
   cursor: none !important;
 }
 
@@ -16,10 +14,9 @@ body.premium-cursor-active * {
   left: 0;
   pointer-events: none;
   z-index: 999999;
-  /* Centering adjustment will be done via margins or negative translation in CSS */
   transform-origin: center center;
   backface-visibility: hidden;
-  will-change: transform, width, height;
+  will-change: transform;
 }
 
 /* ── 1. Cursor Core (The Dot) ── */
@@ -29,10 +26,13 @@ body.premium-cursor-active * {
   margin: -4px 0 0 -4px;
   background-color: #030a8c;
   border-radius: 50%;
-  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.1s ease;
-  
-  /* Initial load animation */
-  animation: cursorIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition:
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    width 0.25s ease,
+    height 0.25s ease,
+    margin 0.25s ease;
+  animation: cursorFadeIn 0.5s ease forwards;
 }
 
 /* ── 2. Cursor Ring (The Trail) ── */
@@ -40,112 +40,197 @@ body.premium-cursor-active * {
   width: 40px;
   height: 40px;
   margin: -20px 0 0 -20px;
-  border: 1px solid rgba(3, 10, 140, 0.4);
+  border: 1.5px solid rgba(3, 10, 140, 0.4);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 
-    width 0.4s cubic-bezier(0.22, 1, 0.36, 1), 
-    height 0.4s cubic-bezier(0.22, 1, 0.36, 1), 
-    margin 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    backdrop-filter 0.4s ease;
-    
-  animation: cursorIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  overflow: hidden;
+  transition:
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    margin 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    border-width 0.35s ease,
+    backdrop-filter 0.35s ease;
+  animation: cursorFadeIn 0.5s ease forwards;
+}
+
+@keyframes cursorFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .premium-cursor-text {
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(0.7);
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s ease;
   white-space: nowrap;
-}
-
-@keyframes cursorIn {
-  from {
-    opacity: 0;
-    transform: scale(0);
-  }
-  to {
-    opacity: 1;
-    /* Transform scaling is handled by JS translate3d, so we just use opacity and scale for the element itself natively if needed, but transform is overwritten. 
-       Actually, since JS overwrites transform instantly, we'll animate a wrapper or use opacity. 
-       JS immediately applies translate3d, so scale(0) in keyframes will be overwritten. 
-       Let's use a scale custom property approach if we wanted to mix, but since JS sets transform, let's just animate opacity. */
-  }
-}
-
-/* Redefining cursorIn properly since JS overwrites transform */
-.premium-cursor-core, .premium-cursor-ring {
-  animation: cursorFadeIn 0.5s ease forwards;
-}
-@keyframes cursorFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  user-select: none;
+  pointer-events: none;
 }
 
 /* =========================================================================
-   INTERACTION STATES
+   DEFAULT STATE
 ========================================================================= */
 
-/* ── TEXT ── */
-.premium-cursor-core.state-text {
-  opacity: 0.3;
+.premium-cursor-core.state-default {
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background-color: #030a8c;
 }
-.premium-cursor-ring.state-text {
-  width: 60px;
-  height: 60px;
-  margin: -30px 0 0 -30px;
-  border-color: rgba(3, 10, 140, 0.15);
-  background-color: rgba(3, 10, 140, 0.05);
+.premium-cursor-ring.state-default {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border-color: rgba(3, 10, 140, 0.35);
+  background-color: transparent;
 }
 
-/* ── PRECISE (Nav Items) ── */
+/* =========================================================================
+   TEXT STATE
+========================================================================= */
+
+.premium-cursor-core.state-text {
+  opacity: 0.4;
+}
+.premium-cursor-ring.state-text {
+  width: 52px;
+  height: 52px;
+  margin: -26px 0 0 -26px;
+  border-color: rgba(3, 10, 140, 0.12);
+  background-color: rgba(3, 10, 140, 0.04);
+}
+
+/* =========================================================================
+   PRECISE STATE (Nav links — shrink, no text)
+========================================================================= */
+
 .premium-cursor-core.state-precise {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
   background-color: #030a8c;
 }
 .premium-cursor-ring.state-precise {
-  width: 24px;
-  height: 24px;
-  margin: -12px 0 0 -12px;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
   border-color: #030a8c;
+  background-color: transparent;
 }
 
-/* ── BUTTON ── */
+/* =========================================================================
+   BUTTON STATE
+   — smaller blurred circle, color driven by data-cursor-color attr
+   — text always shows
+========================================================================= */
+
 .premium-cursor-core.state-button {
-  opacity: 0; /* Hide core */
+  opacity: 0;
 }
 .premium-cursor-ring.state-button {
-  width: 80px;
-  height: 80px;
-  margin: -40px 0 0 -40px;
-  background-color: rgba(3, 10, 140, 0.85); /* Blue blur color */
-  border-color: transparent;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* default blue button */
+  width: 72px;
+  height: 72px;
+  margin: -36px 0 0 -36px;
+  background-color: rgba(3, 10, 140, 0.55);
+  border-color: rgba(3, 10, 140, 0.2);
+  border-width: 1px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .premium-cursor-ring.state-button .premium-cursor-text {
+  color: #ffffff;
   opacity: 1;
   transform: scale(1);
 }
 
-/* ── IMAGE ── */
+/* color variants via data-cursor-color */
+.premium-cursor-ring.state-button[data-cursor-color="green"] {
+  background-color: rgba(37, 211, 102, 0.55);
+  border-color: rgba(37, 211, 102, 0.25);
+}
+.premium-cursor-ring.state-button[data-cursor-color="white"] {
+  background-color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.premium-cursor-ring.state-button[data-cursor-color="white"] .premium-cursor-text {
+  color: #030a8c;
+}
+.premium-cursor-ring.state-button[data-cursor-color="red"] {
+  background-color: rgba(220, 38, 38, 0.55);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+/* =========================================================================
+   SOCIAL STATE
+   — same as button but platform-colored
+========================================================================= */
+
+.premium-cursor-core.state-social {
+  opacity: 0;
+}
+.premium-cursor-ring.state-social {
+  width: 72px;
+  height: 72px;
+  margin: -36px 0 0 -36px;
+  background-color: rgba(3, 10, 140, 0.55);
+  border-color: rgba(3, 10, 140, 0.2);
+  border-width: 1px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.premium-cursor-ring.state-social .premium-cursor-text {
+  color: #ffffff;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* platform colours */
+.premium-cursor-ring.state-social[data-cursor-color="facebook"] {
+  background-color: rgba(24, 119, 242, 0.55);
+  border-color: rgba(24, 119, 242, 0.3);
+}
+.premium-cursor-ring.state-social[data-cursor-color="instagram"] {
+  background-color: rgba(193, 53, 132, 0.55);
+  border-color: rgba(193, 53, 132, 0.3);
+}
+.premium-cursor-ring.state-social[data-cursor-color="linkedin"] {
+  background-color: rgba(0, 119, 181, 0.55);
+  border-color: rgba(0, 119, 181, 0.3);
+}
+.premium-cursor-ring.state-social[data-cursor-color="whatsapp"] {
+  background-color: rgba(37, 211, 102, 0.55);
+  border-color: rgba(37, 211, 102, 0.3);
+}
+
+/* =========================================================================
+   IMAGE STATE
+========================================================================= */
+
 .premium-cursor-core.state-image {
   opacity: 0;
 }
 .premium-cursor-ring.state-image {
-  width: 90px;
-  height: 90px;
-  margin: -45px 0 0 -45px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-color: transparent;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .premium-cursor-ring.state-image .premium-cursor-text {
   color: #030a8c;
@@ -153,60 +238,65 @@ body.premium-cursor-active * {
   transform: scale(1);
 }
 
-/* ── ACCORDION & CARD (Similar to Button but maybe larger) ── */
+/* =========================================================================
+   ACCORDION & CARD STATES
+========================================================================= */
+
 .premium-cursor-core.state-accordion,
 .premium-cursor-core.state-card {
   opacity: 0;
 }
 .premium-cursor-ring.state-accordion,
 .premium-cursor-ring.state-card {
-  width: 86px;
-  height: 86px;
-  margin: -43px 0 0 -43px;
-  background-color: rgba(3, 10, 140, 0.9);
-  border-color: transparent;
-  backdrop-filter: blur(4px);
+  width: 78px;
+  height: 78px;
+  margin: -39px 0 0 -39px;
+  background-color: rgba(3, 10, 140, 0.5);
+  border-color: rgba(3, 10, 140, 0.2);
+  border-width: 1px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .premium-cursor-ring.state-accordion .premium-cursor-text,
 .premium-cursor-ring.state-card .premium-cursor-text {
+  color: #ffffff;
   opacity: 1;
   transform: scale(1);
 }
 
-/* ── 3D MODEL ── */
+/* =========================================================================
+   3D MODEL STATE
+========================================================================= */
+
 .premium-cursor-core.state-3d {
   opacity: 0;
 }
 .premium-cursor-ring.state-3d {
-  width: 100px;
-  height: 100px;
-  margin: -50px 0 0 -50px;
-  background-color: rgba(3, 10, 140, 0.8);
-  border-color: rgba(255, 255, 255, 0.5);
-  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  margin: -45px 0 0 -45px;
+  background-color: rgba(3, 10, 140, 0.5);
+  border-color: rgba(255, 255, 255, 0.4);
+  border-width: 1.5px;
   border-style: dashed;
-  animation: cursorPulse 2s infinite linear;
+  backdrop-filter: blur(10px);
+  animation: shadowPulse 2s infinite alternate;
 }
 .premium-cursor-ring.state-3d .premium-cursor-text {
+  color: #ffffff;
   opacity: 1;
   transform: scale(1);
 }
-
-@keyframes cursorPulse {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-/* Note: Since transform translate3d is set by JS inline, doing a rotate animation on the same element might clash. 
-   Instead, let's use a subtle box-shadow pulse for the 3D state so it doesn't conflict with JS transform. */
-.premium-cursor-ring.state-3d {
-  animation: shadowPulse 2s infinite alternate;
-}
 @keyframes shadowPulse {
-  0% { box-shadow: 0 0 0 0 rgba(3, 10, 140, 0.4); }
-  100% { box-shadow: 0 0 0 20px rgba(3, 10, 140, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(3, 10, 140, 0.35); }
+  100% { box-shadow: 0 0 0 14px rgba(3, 10, 140, 0); }
 }
 
-/* Global hover effects applied to elements based on cursor presence */
+/* =========================================================================
+   GLOBAL HOVER EFFECTS
+========================================================================= */
+
+/* Image elements — slight scale on hover */
 body.premium-cursor-active [data-cursor-type="image"] {
   transition: transform 0.4s ease, filter 0.4s ease;
 }
@@ -215,6 +305,7 @@ body.premium-cursor-active [data-cursor-type="image"]:hover {
   filter: brightness(1.05);
 }
 
+/* Nav links — underline slide on hover */
 body.premium-cursor-active [data-cursor-type="precise"].nav-link {
   position: relative;
 }

@@ -20,9 +20,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { label: 'Facebook', href: 'https://www.facebook.com/share/1KtpK2xGdT/?mibextid=wwXIfr', Icon: Facebook },
-  { label: 'Instagram', href: 'https://www.instagram.com/sumathi_universal?igsh=NnB6OWJjZmlwcnA3', Icon: Instagram },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/sumathi-universal/', Icon: Linkedin },
+  { label: 'Facebook', href: 'https://www.facebook.com/share/1KtpK2xGdT/?mibextid=wwXIfr', Icon: Facebook, cursorColor: 'facebook' },
+  { label: 'Instagram', href: 'https://www.instagram.com/sumathi_universal?igsh=NnB6OWJjZmlwcnA3', Icon: Instagram, cursorColor: 'instagram' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/sumathi-universal/', Icon: Linkedin, cursorColor: 'linkedin' },
 ];
 
 const NavigationBar = () => {
@@ -179,14 +179,15 @@ const NavigationBar = () => {
             </div>
 
             <div className="header-social-links" aria-label="Social media links">
-              {socialLinks.map(({ label, href, Icon }) => (
+              {socialLinks.map(({ label, href, Icon, cursorColor }) => (
                 <a
                   key={label}
                   className="header-social-link"
                   href={href}
                   aria-label={label}
-                  data-cursor-type="button"
+                  data-cursor-type="social"
                   data-cursor-text={label}
+                  data-cursor-color={cursorColor}
                 >
                   <Icon size={18} />
                 </a>
@@ -253,12 +254,25 @@ const NavigationBar = () => {
               </div>
 
               <div className="sidebar-socials">
-                {socialLinks.map(({ label, href, Icon }) => (
-                  <a key={label} href={href} aria-label={label}>
+                {socialLinks.map(({ label, href, Icon, cursorColor }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    data-cursor-type="social"
+                    data-cursor-text={label}
+                    data-cursor-color={cursorColor}
+                  >
                     <Icon size={20} />
                   </a>
                 ))}
-                <a href="https://wa.me/94716824520" aria-label="WhatsApp">
+                <a
+                  href="https://wa.me/94716824520"
+                  aria-label="WhatsApp"
+                  data-cursor-type="social"
+                  data-cursor-text="WhatsApp"
+                  data-cursor-color="whatsapp"
+                >
                   <WhatsappIcon size={20} />
                 </a>
               </div>

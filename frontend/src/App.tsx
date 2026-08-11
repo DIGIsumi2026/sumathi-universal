@@ -10,7 +10,7 @@ import PremiumCursor from './components/common/PremiumCursor';
 import Home from './pages/Home';
 import About from './pages/About';
 import Management from './pages/Management';
-import CSR from './pages/CSR';
+import CSR from './pages/Csr';
 import Contact from './pages/Contact';
 
 function AppContent() {
