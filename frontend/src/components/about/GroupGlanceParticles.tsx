@@ -37,11 +37,39 @@ export default function GroupGlanceParticles() {
     const container = mountRef.current;
     if (!container) return;
 
-    let frameId = 0;
-    let isVisible = true;
+    // Responsive State Checks
+    const mqlMobile = window.matchMedia('(max-width: 480px)');
+    const mqlTablet = window.matchMedia('(min-width: 481px) and (max-width: 1024px)');
+    const mqlReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mqlFinePointer = window.matchMedia('(pointer: fine)');
 
-    const isMobile = window.innerWidth <= 576;
-    const isTablet = window.innerWidth <= 1024;
+    const getDeviceConfig = () => {
+      const isMobile = mqlMobile.matches;
+      const isTablet = mqlTablet.matches;
+      const prefersReducedMotion = mqlReducedMotion.matches;
+      const hasFinePointer = mqlFinePointer.matches;
+
+      return {
+        isMobile,
+        isTablet,
+        isDesktop: !isMobile && !isTablet,
+        prefersReducedMotion,
+        hasFinePointer,
+        particleCount: isMobile ? 20 : isTablet ? 35 : 55,
+        connectionDistance: isMobile ? 2.1 : isTablet ? 2.3 : 2.45,
+        blobCount: isMobile ? 2 : isTablet ? 3 : 5,
+        ringCount: isMobile ? 2 : isTablet ? 3 : 4,
+        boundsX: isMobile ? 8.5 : 10.5,
+        pixelRatio: isMobile ? 1 : Math.min(window.devicePixelRatio, 1.45),
+        connectionSkipFrames: isMobile ? 3 : isTablet ? 2 : 1,
+      };
+    };
+
+    let config = getDeviceConfig();
+
+    let frameId = 0;
+    let isVisible = false;
+    let frameCount = 0;
 
     const scene = new THREE.Scene();
 
@@ -50,13 +78,11 @@ export default function GroupGlanceParticles() {
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: !config.isMobile,
       powerPreference: 'low-power',
     });
 
-    renderer.setPixelRatio(
-      isMobile ? 1 : Math.min(window.devicePixelRatio, 1.45)
-    );
+    renderer.setPixelRatio(config.pixelRatio);
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
@@ -71,20 +97,13 @@ export default function GroupGlanceParticles() {
     rootGroup.add(ringGroup);
     rootGroup.add(particleGroup);
 
-    const particleCount = isMobile ? 26 : isTablet ? 42 : 62;
-
-    const bounds = {
-      x: isMobile ? 8.5 : 10.5,
-      y: 5.4,
-    };
-
     const nodes: ParticleNode[] = [];
 
-    for (let i = 0; i < particleCount; i += 1) {
+    for (let i = 0; i < config.particleCount; i += 1) {
       nodes.push({
         position: new THREE.Vector3(
-          THREE.MathUtils.randFloatSpread(bounds.x * 2),
-          THREE.MathUtils.randFloatSpread(bounds.y * 2),
+          THREE.MathUtils.randFloatSpread(config.boundsX * 2),
+          THREE.MathUtils.randFloatSpread(5.4 * 2),
           THREE.MathUtils.randFloat(-0.35, 0.35)
         ),
         velocity: new THREE.Vector3(
@@ -99,9 +118,9 @@ export default function GroupGlanceParticles() {
        PARTICLE POINTS
     ================================ */
 
-    const pointPositions = new Float32Array(particleCount * 3);
+    const pointPositions = new Float32Array(config.particleCount * 3);
 
-    for (let i = 0; i < particleCount; i += 1) {
+    for (let i = 0; i < config.particleCount; i += 1) {
       pointPositions[i * 3] = nodes[i].position.x;
       pointPositions[i * 3 + 1] = nodes[i].position.y;
       pointPositions[i * 3 + 2] = nodes[i].position.z;
@@ -115,7 +134,7 @@ export default function GroupGlanceParticles() {
 
     const pointMaterial = new THREE.PointsMaterial({
       color: LIGHT_BLUE,
-      size: isMobile ? 0.11 : 0.09,
+      size: config.isMobile ? 0.11 : 0.09,
       transparent: true,
       opacity: 0.92,
       sizeAttenuation: true,
@@ -127,7 +146,7 @@ export default function GroupGlanceParticles() {
 
     const glowMaterial = new THREE.PointsMaterial({
       color: BRIGHT_BLUE,
-      size: isMobile ? 0.25 : 0.22,
+      size: config.isMobile ? 0.25 : 0.22,
       transparent: true,
       opacity: 0.22,
       sizeAttenuation: true,
@@ -141,7 +160,7 @@ export default function GroupGlanceParticles() {
        CONNECTING LINES
     ================================ */
 
-    const maxConnections = particleCount * particleCount;
+    const maxConnections = config.particleCount * config.particleCount;
     const linePositions = new Float32Array(maxConnections * 3 * 2);
 
     const lineGeometry = new THREE.BufferGeometry();
@@ -154,7 +173,7 @@ export default function GroupGlanceParticles() {
     const lineMaterial = new THREE.LineBasicMaterial({
       color: 0x87cfff,
       transparent: true,
-      opacity: isMobile ? 0.2 : 0.28,
+      opacity: config.isMobile ? 0.2 : 0.28,
       depthWrite: false,
     });
 
@@ -175,9 +194,7 @@ export default function GroupGlanceParticles() {
       depthWrite: false,
     });
 
-    const blobCount = isMobile ? 3 : 5;
-
-    for (let i = 0; i < blobCount; i += 1) {
+    for (let i = 0; i < config.blobCount; i += 1) {
       const blob = new THREE.Sprite(blobMaterial.clone());
 
       const scale = THREE.MathUtils.randFloat(2.6, 4.8);
@@ -202,13 +219,11 @@ export default function GroupGlanceParticles() {
     const ringMaterial = new THREE.LineBasicMaterial({
       color: 0x77c7ff,
       transparent: true,
-      opacity: isMobile ? 0.16 : 0.22,
+      opacity: config.isMobile ? 0.16 : 0.22,
       depthWrite: false,
     });
 
-    const ringCount = isMobile ? 2 : 4;
-
-    for (let i = 0; i < ringCount; i += 1) {
+    for (let i = 0; i < config.ringCount; i += 1) {
       const curve = new THREE.EllipseCurve(
         0,
         0,
@@ -251,8 +266,8 @@ export default function GroupGlanceParticles() {
     const currentMouse = new THREE.Vector2(0, 0);
 
     const handlePointerMove = (event: PointerEvent) => {
+      if (!config.hasFinePointer) return;
       const rect = container.getBoundingClientRect();
-
       targetMouse.x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
       targetMouse.y = -((event.clientY - rect.top) / rect.height - 0.5) * 2;
     };
@@ -264,16 +279,19 @@ export default function GroupGlanceParticles() {
     ================================ */
 
     const updateParticles = () => {
+      if (config.prefersReducedMotion) return;
+
       for (let i = 0; i < nodes.length; i += 1) {
         const node = nodes[i];
 
         node.position.add(node.velocity);
 
-        if (node.position.x > bounds.x || node.position.x < -bounds.x) {
+        if (node.position.x > config.boundsX || node.position.x < -config.boundsX) {
           node.velocity.x *= -1;
         }
 
-        if (node.position.y > bounds.y || node.position.y < -bounds.y) {
+        const boundsY = 5.4;
+        if (node.position.y > boundsY || node.position.y < -boundsY) {
           node.velocity.y *= -1;
         }
 
@@ -285,73 +303,82 @@ export default function GroupGlanceParticles() {
       const pointAttribute = pointGeometry.getAttribute(
         'position'
       ) as THREE.BufferAttribute;
-
       pointAttribute.needsUpdate = true;
 
-      let lineIndex = 0;
-      const connectionDistance = isMobile ? 2.1 : 2.45;
+      if (frameCount % config.connectionSkipFrames === 0) {
+        let lineIndex = 0;
+        const connectionDistanceSq = config.connectionDistance * config.connectionDistance;
 
-      for (let i = 0; i < nodes.length; i += 1) {
-        for (let j = i + 1; j < nodes.length; j += 1) {
-          const a = nodes[i].position;
-          const b = nodes[j].position;
-          const distance = a.distanceTo(b);
+        for (let i = 0; i < nodes.length; i += 1) {
+          for (let j = i + 1; j < nodes.length; j += 1) {
+            const a = nodes[i].position;
+            const b = nodes[j].position;
+            
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dz = a.z - b.z;
+            const distSq = dx * dx + dy * dy + dz * dz;
 
-          if (distance < connectionDistance) {
-            linePositions[lineIndex] = a.x;
-            linePositions[lineIndex + 1] = a.y;
-            linePositions[lineIndex + 2] = a.z;
+            if (distSq < connectionDistanceSq) {
+              linePositions[lineIndex] = a.x;
+              linePositions[lineIndex + 1] = a.y;
+              linePositions[lineIndex + 2] = a.z;
 
-            linePositions[lineIndex + 3] = b.x;
-            linePositions[lineIndex + 4] = b.y;
-            linePositions[lineIndex + 5] = b.z;
+              linePositions[lineIndex + 3] = b.x;
+              linePositions[lineIndex + 4] = b.y;
+              linePositions[lineIndex + 5] = b.z;
 
-            lineIndex += 6;
+              lineIndex += 6;
+            }
           }
         }
+
+        lineGeometry.setDrawRange(0, lineIndex / 3);
+
+        const lineAttribute = lineGeometry.getAttribute(
+          'position'
+        ) as THREE.BufferAttribute;
+        lineAttribute.needsUpdate = true;
       }
-
-      lineGeometry.setDrawRange(0, lineIndex / 3);
-
-      const lineAttribute = lineGeometry.getAttribute(
-        'position'
-      ) as THREE.BufferAttribute;
-
-      lineAttribute.needsUpdate = true;
     };
 
     const clock = new THREE.Clock();
 
     const animate = () => {
-      if (!isVisible) return;
+      if (!isVisible) {
+        frameId = 0;
+        return;
+      }
 
       const elapsed = clock.getElapsedTime();
+      frameCount++;
 
-      currentMouse.lerp(targetMouse, 0.045);
+      if (config.hasFinePointer) {
+        currentMouse.lerp(targetMouse, 0.045);
+        rootGroup.position.x = currentMouse.x * 0.22;
+        rootGroup.position.y = currentMouse.y * 0.16;
+      }
 
-      rootGroup.position.x = currentMouse.x * 0.22;
-      rootGroup.position.y = currentMouse.y * 0.16;
+      if (!config.prefersReducedMotion) {
+        particleGroup.rotation.z = Math.sin(elapsed * 0.16) * 0.035;
+        particleGroup.rotation.y = Math.sin(elapsed * 0.12) * 0.08;
 
-      particleGroup.rotation.z = Math.sin(elapsed * 0.16) * 0.035;
-      particleGroup.rotation.y = Math.sin(elapsed * 0.12) * 0.08;
+        blobGroup.children.forEach((blob, index) => {
+          const object = blob as THREE.Sprite;
+          object.position.y +=
+            Math.sin(elapsed * object.userData.speed + object.userData.offset) *
+            0.0009;
+          object.position.x +=
+            Math.cos(elapsed * object.userData.speed + index) * 0.0007;
+        });
 
-      blobGroup.children.forEach((blob, index) => {
-        const object = blob as THREE.Sprite;
-
-        object.position.y +=
-          Math.sin(elapsed * object.userData.speed + object.userData.offset) *
-          0.0009;
-
-        object.position.x +=
-          Math.cos(elapsed * object.userData.speed + index) * 0.0007;
-      });
-
-      ringGroup.children.forEach((ring, index) => {
-        ring.rotation.z += 0.0008 + index * 0.00008;
-        ring.position.y +=
-          Math.sin(elapsed * ring.userData.speed + ring.userData.offset) *
-          0.0008;
-      });
+        ringGroup.children.forEach((ring, index) => {
+          ring.rotation.z += 0.0008 + index * 0.00008;
+          ring.position.y +=
+            Math.sin(elapsed * ring.userData.speed + ring.userData.offset) *
+            0.0008;
+        });
+      }
 
       updateParticles();
 
@@ -359,9 +386,13 @@ export default function GroupGlanceParticles() {
       frameId = window.requestAnimationFrame(animate);
     };
 
-    const handleResize = () => {
-      const width = container.clientWidth;
-      const height = container.clientHeight;
+    /* ================================
+       RESIZE HANDLING
+    ================================ */
+
+    const handleResize = (width: number, height: number) => {
+      if (width === 0 || height === 0) return;
+      
       const aspect = width / height || 1;
 
       camera.left = -10 * aspect;
@@ -370,20 +401,32 @@ export default function GroupGlanceParticles() {
       camera.bottom = -6;
       camera.updateProjectionMatrix();
 
-      renderer.setPixelRatio(
-        window.innerWidth <= 576
-          ? 1
-          : Math.min(window.devicePixelRatio, 1.45)
-      );
-
+      config = getDeviceConfig();
+      renderer.setPixelRatio(config.pixelRatio);
       renderer.setSize(width, height);
     };
 
-    const observer = new IntersectionObserver(
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === container) {
+          handleResize(entry.contentRect.width, entry.contentRect.height);
+        }
+      }
+    });
+
+    resizeObserver.observe(container);
+    handleResize(container.clientWidth, container.clientHeight);
+
+    /* ================================
+       INTERSECTION & CLEANUP
+    ================================ */
+
+    const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
 
         if (isVisible && !frameId) {
+          clock.start();
           animate();
         }
 
@@ -393,25 +436,23 @@ export default function GroupGlanceParticles() {
         }
       },
       {
-        threshold: 0.05,
+        threshold: 0,
+        rootMargin: '100px 0px 100px 0px',
       }
     );
 
-    observer.observe(container);
-    handleResize();
-    animate();
-
-    window.addEventListener('resize', handleResize, { passive: true });
+    intersectionObserver.observe(container);
 
     return () => {
-      observer.disconnect();
+      intersectionObserver.disconnect();
+      resizeObserver.disconnect();
       isVisible = false;
 
       if (frameId) {
         window.cancelAnimationFrame(frameId);
+        frameId = 0;
       }
 
-      window.removeEventListener('resize', handleResize);
       container.removeEventListener('pointermove', handlePointerMove);
 
       scene.traverse((object) => {

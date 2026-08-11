@@ -77,20 +77,13 @@ export default function AboutHeroVideo() {
       <div className="about-hero-video__overlay" />
 
       <div className="about-hero-video__content">
-        <motion.span
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65 }}
-        >
-          About Sumathi Universal
-        </motion.span>
 
         <motion.h1
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.1 }}
         >
-          One Group. Multiple Industries. One Vision.
+          One Group <br/> Multiple Industries <br/> One Vision 
         </motion.h1>
 
         <motion.p
@@ -100,7 +93,7 @@ export default function AboutHeroVideo() {
         >
           Explore the connected journey of Sumathi Universal through printing,
           engineering, security, architecture, trading, technology,
-          entertainment, ventures, and community-focused initiatives.
+          entertainment, ventures and community focused initiatives.
         </motion.p>
       </div>
     </section>

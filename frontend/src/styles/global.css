@@ -107,11 +107,11 @@ main { min-height: 60vh; }
 .trust-copy h2,
 .cta-copy h2,
 .brands-head h2 {
-  font-size: clamp(2.1rem, 4.8vw, 4.55rem);
-  line-height: .95;
-  letter-spacing: -0.055em;
+  font-size: clamp(48px, 4vw, 92px);
+  line-height: 1.012;
+  letter-spacing: -0.00065em;
   margin: 20px 0 0;
-  font-weight: 850;
+  font-weight: 400;
 }
 u {
   text-decoration: underline;
