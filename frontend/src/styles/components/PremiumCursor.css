@@ -319,7 +319,8 @@ body.premium-cursor-active [data-cursor-type="precise"].nav-link::after {
   background-color: #030a8c;
   transition: width 0.3s ease, left 0.3s ease;
 }
-body.premium-cursor-active [data-cursor-type="precise"].nav-link:hover::after {
+body.premium-cursor-active [data-cursor-type="precise"].nav-link:hover::after,
+body.premium-cursor-active [data-cursor-type="precise"].nav-link.active::after {
   width: 100%;
   left: 0;
 }
