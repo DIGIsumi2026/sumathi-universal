@@ -23,7 +23,7 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     shortTitle: 'Printing',
     image: imageAssets.contact.subsidiaries.printingPackaging,
     description:
-      'Professional printing, packaging, publication, and commercial production services.',
+      'Professional printing, packaging, publication and commercial production services.',
     companies: [
       {
         name: 'Sumathi Printers',
@@ -45,7 +45,7 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     shortTitle: 'Engineering',
     image: imageAssets.contact.subsidiaries.engineeringSecurity,
     description:
-      'Engineering, facility, technical maintenance, and security service operations.',
+      'Engineering, facility, technical maintenance and security service operations.',
     companies: [
       {
         name: 'Octagon Engineering',
@@ -67,7 +67,7 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     shortTitle: 'Technology',
     image: imageAssets.contact.subsidiaries.technologyTrading,
     description:
-      'Technology solutions, software services, digital transformation, trading, and commerce.',
+      'Technology solutions, software services, digital transformation, trading and commerce.',
     companies: [
       {
         name: 'Rabbit Solutions',
