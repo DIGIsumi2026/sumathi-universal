@@ -259,16 +259,36 @@ export default function WhatWeDoOrbit() {
 
     animate();
 
-    const handleResize = () => {
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+    const handleResize = (width: number, height: number) => {
+      if (width <= 0 || height <= 0) return;
+
+      const aspect = width / height;
+
+      camera.left = -5 * aspect;
+      camera.right = 5 * aspect;
+      camera.top = 5;
+      camera.bottom = -5;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(width, height);
     };
 
-    window.addEventListener('resize', handleResize);
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === container) {
+          handleResize(entry.contentRect.width, entry.contentRect.height);
+        }
+      }
+    });
+
+    resizeObserver.observe(container);
+
+    // Apply correct camera projection for the initial container dimensions
+    handleResize(container.clientWidth, container.clientHeight);
 
     return () => {
       cancelAnimationFrame(frameId);
-      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
       window.removeEventListener('scroll', handleScroll);
 
       if (resetTimer) {
