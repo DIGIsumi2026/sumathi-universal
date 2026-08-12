@@ -54,8 +54,8 @@ export default function IntroLogoVideo() {
         <span className="intro-logo-small-heading">Who We Are</span>
 
         <h2>
-          Driven by Purpose. <br />
-          Built on Excellence.
+          Driven by Purpose <br />
+          Built on Excellence
         </h2>
 
         <p>

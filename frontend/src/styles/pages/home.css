@@ -952,10 +952,10 @@
 .intro-logo-small-heading {
   margin-bottom: 18px;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.932);
 }
 
 .intro-logo-video-content h2 {
