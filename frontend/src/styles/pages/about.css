@@ -355,12 +355,12 @@
 }
 
 .about-intro-caption-card p {
-  max-width: 1120px;
+  max-width: 1100px;
   margin: 0;
   color: #10151f;
-  font-size: clamp(18px, 1.5vw, 26px);
+  font-size: clamp(18px, 1.8vw, 26px);
   line-height: 1.38;
-  font-weight: 300;
+  font-weight: 350;
   letter-spacing: -0.01em;
 }
 
@@ -1982,7 +1982,7 @@
   box-shadow: 0 12px 28px rgba(var(--category-rgb), 0.26);
 }
 
-/* DARK FLOATING PILLS */
+/* DARK FLOATING PILLS — shared base */
 
 .company-timeline-mobile-pills {
   display: none;
@@ -1994,20 +1994,28 @@
   gap: 10px;
 }
 
+/* --- Pill buttons shared styles --- */
 .company-timeline-mobile-pills button {
   flex: 0 0 auto;
   min-height: 44px;
   padding: 0 18px;
-  border: 1px solid rgba(155, 216, 255, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  color: rgba(235, 248, 255, 0.86);
+  background: rgba(255, 255, 255, 0.09);
+  color: rgba(235, 248, 255, 0.82);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+}
+
+.company-timeline-mobile-pills button:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.38);
+  transform: translateY(-1px);
 }
 
 .company-timeline-mobile-pills button.active {
@@ -2015,31 +2023,67 @@
   background: var(--pill-color);
   border-color: rgba(255, 255, 255, 0.52);
   box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.34),
-    0 0 24px rgba(255, 255, 255, 0.12);
+    0 8px 22px rgba(0, 0, 0, 0.28),
+    0 0 16px rgba(255, 255, 255, 0.1);
 }
 
-.timeline-expanded-mode .company-timeline-mobile-pills {
-  display: block;
-  width: min(820px, calc(100vw - 34px));
+/* ── MARQUEE MODE (default desktop — auto-scrolling) ── */
+.pills-marquee-mode {
   overflow: hidden;
   padding: 8px;
   border-radius: 999px;
-  background: rgba(2, 11, 24, 0.88);
-  border: 1px solid rgba(155, 216, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.42),
-    inset 0 1px 1px rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+    0 8px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.timeline-expanded-mode .company-timeline-pill-track {
-  animation: companyTimelinePillMarquee 28s linear infinite;
+.pills-marquee-mode .company-timeline-pill-track {
+  animation: companyTimelinePillMarquee 30s linear infinite;
 }
 
-.timeline-expanded-mode .company-timeline-mobile-pills:hover .company-timeline-pill-track {
+.pills-marquee-mode:hover .company-timeline-pill-track {
   animation-play-state: paused;
+}
+
+/* ── SCROLL MODE (expanded desktop + all tablets/mobile — manual swipe) ── */
+.pills-scroll-mode {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.16),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.pills-scroll-mode:active {
+  cursor: grabbing;
+}
+
+.pills-scroll-mode::-webkit-scrollbar {
+  display: none;
+}
+
+.pills-scroll-mode .company-timeline-pill-track {
+  width: max-content;
+  animation: none;
+}
+
+/* EXPANDED desktop mode — make the container full-width capable */
+.timeline-expanded-mode .company-timeline-mobile-pills {
+  display: block;
+  width: min(820px, calc(100vw - 34px));
 }
 
 @keyframes companyTimelinePillMarquee {
@@ -2102,16 +2146,16 @@
 
   .company-timeline-mobile-pills {
     display: block;
+  }
+
+  .pills-marquee-mode {
     overflow: hidden;
-    padding: 4px;
   }
 
-  .company-timeline-pill-track {
-    animation: companyTimelinePillMarquee 26s linear infinite;
-  }
-
-  .company-timeline-mobile-pills:hover .company-timeline-pill-track {
-    animation-play-state: paused;
+  .pills-scroll-mode {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
   }
 
   .company-timeline-corner-btn {

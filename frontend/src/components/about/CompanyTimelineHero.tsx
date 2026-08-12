@@ -68,13 +68,21 @@ export default function CompanyTimelineHero() {
     );
   };
 
-  const CategoryPills = ({ duplicated = false }: { duplicated?: boolean }) => {
-    const items = duplicated
-      ? [...companyTimelineCategories, ...companyTimelineCategories]
-      : companyTimelineCategories;
+  const CategoryPills = ({ mode = 'marquee' }: { mode?: 'marquee' | 'scroll' }) => {
+    // Marquee duplicates items for seamless loop; scroll just uses the real list
+    const items =
+      mode === 'marquee'
+        ? [...companyTimelineCategories, ...companyTimelineCategories]
+        : companyTimelineCategories;
 
     return (
-      <div className="company-timeline-mobile-pills">
+      <div
+        className={`company-timeline-mobile-pills ${
+          mode === 'scroll'
+            ? 'pills-scroll-mode'
+            : 'pills-marquee-mode'
+        }`}
+      >
         <div className="company-timeline-pill-track">
           {items.map((item, index) => {
             const realIndex = index % companyTimelineCategories.length;
@@ -328,7 +336,7 @@ export default function CompanyTimelineHero() {
         }`}
       >
         {isExpanded ? (
-          <CategoryPills duplicated />
+          <CategoryPills mode="scroll" />
         ) : (
           <>
             <div className="company-timeline-track-scroll">
@@ -365,7 +373,7 @@ export default function CompanyTimelineHero() {
               </div>
             </div>
 
-            <CategoryPills duplicated />
+            <CategoryPills mode="marquee" />
           </>
         )}
       </div>
