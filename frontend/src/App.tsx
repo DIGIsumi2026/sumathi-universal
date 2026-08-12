@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import NavigationBar from './components/common/NavigationBar';
 import ScrollToTop from './components/common/ScrollToTop';
@@ -8,10 +8,13 @@ import Footer from './components/common/Footer';
 import Preloader from './components/common/Preloader';
 import PremiumCursor from './components/common/PremiumCursor';
 import Home from './pages/Home';
-import About from './pages/About';
-import Management from './pages/Management';
-import CSR from './pages/Csr';
-import Contact from './pages/Contact';
+
+// Secondary pages — lazy-loaded so they are split into separate chunks
+// and their JS (including Three.js components) is not part of the initial bundle.
+const About = lazy(() => import('./pages/About'));
+const Management = lazy(() => import('./pages/Management'));
+const CSR = lazy(() => import('./pages/Csr'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 function AppContent() {
   const location = useLocation();
@@ -46,13 +49,15 @@ function AppContent() {
         <ScrollToTop />
         <CustomScrollbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/management" element={<Management />} />
-          <Route path="/csr" element={<CSR />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/management" element={<Management />} />
+            <Route path="/csr" element={<CSR />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
         <Footer />
       </div>
     </>
@@ -67,4 +72,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;

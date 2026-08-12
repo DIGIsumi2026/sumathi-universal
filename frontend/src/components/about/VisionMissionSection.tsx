@@ -62,9 +62,62 @@ const panels = {
   },
 };
 
+// Matches the existing tablet breakpoint in about.css (max-width: 1024px)
+const MOBILE_TABLET_QUERY = '(max-width: 1024px)';
+
+function useIsMobileOrTablet() {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(
+    () => window.matchMedia(MOBILE_TABLET_QUERY).matches
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_TABLET_QUERY);
+
+    const handler = (e: MediaQueryListEvent) => setIsMobileOrTablet(e.matches);
+
+    mql.addEventListener('change', handler);
+
+    return () => {
+      mql.removeEventListener('change', handler);
+    };
+  }, []);
+
+  return isMobileOrTablet;
+}
+
+// A single panel rendered as a normal-flow block — no sticky, no scroll-driven swapping.
+// Uses the exact same existing CSS classes so styling is unchanged.
+function StaticPanel({ panelKey }: { panelKey: PanelType }) {
+  const panel = panels[panelKey];
+
+  return (
+    <div className="vision-mission-sticky">
+      <div
+        className="vision-mission-bg-layer"
+        data-cursor-type="accordion"
+        data-cursor-text="Explore"
+      >
+        <img
+          src={panel.image}
+          alt={`Sumathi Universal ${panel.title}`}
+          draggable={false}
+        />
+      </div>
+
+      <div className={`vision-mission-blue-overlay ${panel.overlayClass}`} />
+
+      <div className={`vision-mission-copy ${panel.className}`}>
+        <TypewriterTitle text={panel.title} />
+        <p>{panel.description}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function VisionMissionSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activePanel, setActivePanel] = useState<PanelType>('vision');
+  const isMobileOrTablet = useIsMobileOrTablet();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -72,11 +125,33 @@ export default function VisionMissionSection() {
   });
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    setActivePanel(latest >= 0.5 ? 'mission' : 'vision');
+    // Only drive the panel switch on desktop; on mobile/tablet this value is unused
+    if (!isMobileOrTablet) {
+      setActivePanel(latest >= 0.5 ? 'mission' : 'vision');
+    }
   });
 
   const currentPanel = panels[activePanel];
 
+  // ── MOBILE / TABLET ──────────────────────────────────────────────────────
+  // Render Vision and Mission as two consecutive normal-flow sections.
+  // The sticky/scroll-pinning interaction is bypassed entirely.
+  // Existing CSS classes are reused — no styling changes.
+  if (isMobileOrTablet) {
+    return (
+      <>
+        <section className="vision-mission-combined-section">
+          <StaticPanel panelKey="vision" />
+        </section>
+        <section className="vision-mission-combined-section">
+          <StaticPanel panelKey="mission" />
+        </section>
+      </>
+    );
+  }
+
+  // ── DESKTOP ───────────────────────────────────────────────────────────────
+  // Exact original implementation — unchanged.
   return (
     <section ref={sectionRef} className="vision-mission-combined-section">
       <div className="vision-mission-sticky">
