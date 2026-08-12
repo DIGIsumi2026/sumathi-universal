@@ -33,27 +33,18 @@ const Footer: React.FC = () => {
               <a
                 href="https://www.facebook.com/share/1KtpK2xGdT/?mibextid=wwXIfr"
                 className="site-footer-social-icon"
-                data-cursor-type="social"
-                data-cursor-text="Facebook"
-                data-cursor-color="facebook"
               >
                 <Facebook size={18} />
               </a>
               <a
                 href="https://www.instagram.com/sumathi_universal?igsh=NnB6OWJjZmlwcnA3"
                 className="site-footer-social-icon"
-                data-cursor-type="social"
-                data-cursor-text="Instagram"
-                data-cursor-color="instagram"
               >
                 <Instagram size={18} />
               </a>
               <a
                 href="https://www.linkedin.com/company/sumathi-universal/"
                 className="site-footer-social-icon"
-                data-cursor-type="social"
-                data-cursor-text="LinkedIn"
-                data-cursor-color="linkedin"
               >
                 <Linkedin size={18} />
               </a>
