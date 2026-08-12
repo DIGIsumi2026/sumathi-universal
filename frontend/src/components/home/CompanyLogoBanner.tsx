@@ -288,7 +288,7 @@ export default function CompanyLogos() {
 
         <p>
           A diversified group of companies operating across printing,
-          technology, engineering, trading, services, entertainment, hospitality,
+          technology, engineering, trading, services, entertainment, hospitality
           and strategic investments.
         </p>
       </div>

@@ -93,10 +93,10 @@
 .csr-hero-content p {
   margin: 0;
   color: rgba(246, 244, 244, 0.96);
-  font-size: clamp(24px, 1.6vw, 44px);
-  line-height: 1.18;
-  font-weight: 500;
-  letter-spacing: -0.04em;
+  font-size: clamp(24px, 1vw, 44px);
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.0045em;
   text-shadow: 0 16px 42px rgba(2, 11, 24, 0.42);
 }
 
@@ -350,13 +350,13 @@
   position: relative;
 }
 
-.csr-description-content span {
+.csr-description-content h3 {
   display: inline-block;
   margin-bottom: 22px;
   color: #073673;
-  font-size: 25px;
+  font-size: 40px;
   font-weight: 600;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -1217,7 +1217,7 @@ body.csr-zoom-active .scroll-progress-button {
   margin: 0;
   color: #ffffff;
   font-size: clamp(42px, 1vw, 78px);
-  line-height: 0.98;
+  line-height: 1.25;
   font-weight: 600;
   letter-spacing: -0.0075em;
   text-shadow: 0 20px 54px rgba(0, 0, 0, 0.28);

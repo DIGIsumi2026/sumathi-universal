@@ -689,7 +689,7 @@
   max-width: 680px;
   margin: 0;
   font-size: clamp(46px, 3vw, 86px);
-  line-height: 0.98;
+  line-height: 1.11;
   font-weight: 600;
   letter-spacing: -0.055em;
   color: #ffffff;
@@ -953,7 +953,7 @@
   margin-bottom: 18px;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.028em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.932);
 }
@@ -962,7 +962,7 @@
   max-width: 700px;
   margin: 0;
   font-size: clamp(46px, 3vw, 86px);
-  line-height: 0.99;
+  line-height: 1.15;
   font-weight: 600;
   letter-spacing: -0.0055em;
   color: #ffffff;
@@ -1678,7 +1678,7 @@
   margin: 0;
   color: #073673;
   font-size: clamp(20px, 1.5vw, 34px);
-  line-height: 1.25;
+  line-height: 1.5;
   font-weight: 300;
   letter-spacing: -0.0045em;
 }

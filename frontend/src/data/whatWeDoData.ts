@@ -8,7 +8,7 @@ export const whatWeDoData = [
     icon: BarChart3,
     image: imageAssets.services.whatWeDo.printingCard,
     description:
-      'State-of-the-art machinery, technology and accessories combined with qualified personnel, geared towards meeting the most demanding requirements of international markets. We are strengthened with one of the largest printing capacities in Sri Lanka for web printing, sheet-fed printing and finishing.',
+      'State of the art machinery, technology and accessories combined with qualified personnel, geared towards meeting the most demanding requirements of international markets. We are strengthened with one of the largest printing capacities in Sri Lanka for web printing, sheet-fed printing and finishing.',
   },
   {
     id: '02',

@@ -121,7 +121,7 @@ export default function ManagementProfilesSection() {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <span>Board of Directors</span>
+        <h2>Board of Directors</h2>
       </motion.div>
 
       <div className="management-profiles-list">

@@ -29,7 +29,7 @@ export default function CSRDescriptionSection() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.75, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span>CSR</span>
+          <h3>CSR</h3>
 
           <p>
             Through Thilanga Sumathipala Foundation, a movement of people

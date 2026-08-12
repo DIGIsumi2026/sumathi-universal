@@ -107,11 +107,12 @@ main { min-height: 60vh; }
 .trust-copy h2,
 .cta-copy h2,
 .brands-head h2 {
-  font-size: clamp(48px, 4vw, 92px);
-  line-height: 1.012;
-  letter-spacing: -0.00065em;
+  color: #061730;
+  font-size: clamp(40px, 4.1vw, 72px);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.0065em;
   margin: 20px 0 0;
-  font-weight: 400;
 }
 u {
   text-decoration: underline;
@@ -872,4 +873,49 @@ u {
 /* --- Hover: make the gradient spin --- */
 .nav-contact-btn:hover::before {
   animation-play-state: running;
-}
+}
+/* ============================================================ */
+/* Global Section Span (Eyebrow) Overrides                      */
+/* ============================================================ */
+.about-hero-video__content span,
+.group-glance-header span,
+.family-legacy-content span,
+.what-we-do-header span,
+.company-logos__header span,
+.management-hero-content span,
+.management-profiles-header span,
+.chairman-profile-inner span,
+.csr-content-inner span,
+.csr-description-content span,
+.csr-contact-cta-content span,
+.contact-hero-content span,
+.subsidiary-directory-header span,
+.intro-logo-small-heading,
+.section-head span {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.028em !important;
+  text-transform: uppercase !important;
+}
+
+/* Dark section specific colors */
+.about-hero-video__content span,
+.family-legacy-content span,
+.management-hero-content span,
+.csr-content-inner span,
+.csr-contact-cta-content span,
+.contact-hero-content span,
+.intro-logo-small-heading {
+  color: rgba(255, 255, 255, 0.932) !important;
+}
+
+/* Light section specific colors */
+.group-glance-header span,
+.what-we-do-header span,
+.company-logos__header span,
+.management-profiles-header span,
+.chairman-profile-inner span,
+.csr-description-content span,
+.subsidiary-directory-header span {
+  color: #073673 !important; /* Preserving the dark blue for readability */
+}
