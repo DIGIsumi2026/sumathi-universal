@@ -366,7 +366,7 @@
   color: rgba(6, 23, 48, 0.76);
   font-size: clamp(15.5px, 1.08vw, 18px);
   line-height: 1.78;
-  font-weight: 450;
+  font-weight: 455;
 }
 
 .csr-description-content p + p {
