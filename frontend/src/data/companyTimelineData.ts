@@ -278,8 +278,8 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.butlersparkstreet.lk',
           email: 'info@butlersparkstreet.lk',
-          phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          phone: '+94 74 256 2191',
+          address: '33B, Park Street, Colombo 02.',
         },
         shortDescription:
           'Butlers Park Street operates within the hospitality and food service space with a focus on premium experiences.',
@@ -381,7 +381,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sumathieventainment.lk',
           email: 'info@sumathifilms.lk',
-          phone: '+94 XX XXX XXXX',
+          phone: '+94 112 697 106',
           address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10.',
         },
         shortDescription:
@@ -403,7 +403,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sumathiawards.lk',
           email: 'info@sumathiawards.lk',
-          phone: '+94 XX XXX XXXX',
+          phone: '+94 112 697 106',
           address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10.',
         },
         shortDescription:

@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from 'react';
+import { useMemo, useState, useRef, type CSSProperties } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowDown,
@@ -75,13 +75,60 @@ export default function CompanyTimelineHero() {
         ? [...companyTimelineCategories, ...companyTimelineCategories]
         : companyTimelineCategories;
 
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const isDown = useRef(false);
+    const startX = useRef(0);
+    const scrollLeft = useRef(0);
+    const hasDragged = useRef(false);
+
+    const onMouseDown = (e: React.MouseEvent) => {
+      if (mode !== 'scroll' || !scrollRef.current) return;
+      isDown.current = true;
+      hasDragged.current = false;
+      startX.current = e.pageX - scrollRef.current.offsetLeft;
+      scrollLeft.current = scrollRef.current.scrollLeft;
+    };
+
+    const onMouseLeave = () => {
+      isDown.current = false;
+    };
+
+    const onMouseUp = () => {
+      isDown.current = false;
+    };
+
+    const onMouseMove = (e: React.MouseEvent) => {
+      if (!isDown.current || !scrollRef.current) return;
+      e.preventDefault();
+      const x = e.pageX - scrollRef.current.offsetLeft;
+      const walk = (x - startX.current) * 1.5;
+      if (Math.abs(walk) > 5) {
+        hasDragged.current = true;
+      }
+      scrollRef.current.scrollLeft = scrollLeft.current - walk;
+    };
+
+    const handleItemClick = (e: React.MouseEvent, index: number) => {
+      if (hasDragged.current) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      handleCategorySelect(index);
+    };
+
     return (
       <div
+        ref={scrollRef}
         className={`company-timeline-mobile-pills ${
           mode === 'scroll'
             ? 'pills-scroll-mode'
             : 'pills-marquee-mode'
         }`}
+        onMouseDown={onMouseDown}
+        onMouseLeave={onMouseLeave}
+        onMouseUp={onMouseUp}
+        onMouseMove={onMouseMove}
       >
         <div className="company-timeline-pill-track">
           {items.map((item, index) => {
@@ -97,7 +144,7 @@ export default function CompanyTimelineHero() {
                     '--pill-color': item.color,
                   } as CSSProperties
                 }
-                onClick={() => handleCategorySelect(realIndex)}
+                onClick={(e) => handleItemClick(e, realIndex)}
               >
                 {item.category}
               </button>
