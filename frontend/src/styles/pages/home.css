@@ -1259,17 +1259,17 @@
     min-height: 380px;
   }
 
-  /* Make hover state default for tablet/mobile */
-  .what-we-do-card-image {
+  /* Active state for tablet/mobile on scroll */
+  .what-we-do-card--mobile-active .what-we-do-card-image {
     opacity: 1;
     animation: statCardSlowZoomOut 12s ease-in-out infinite alternate;
   }
 
-  .what-we-do-card-overlay {
+  .what-we-do-card--mobile-active .what-we-do-card-overlay {
     opacity: 1;
   }
 
-  .what-we-do-icon {
+  .what-we-do-card--mobile-active .what-we-do-icon {
     transform: scale(1.06) rotate(-4deg);
     background: rgba(255, 255, 255, 0.16);
     backdrop-filter: blur(16px);
@@ -1277,8 +1277,8 @@
     color: #ffffff;
   }
 
-  .what-we-do-card h3,
-  .what-we-do-card p {
+  .what-we-do-card--mobile-active h3,
+  .what-we-do-card--mobile-active p {
     color: #ffffff;
   }
 }

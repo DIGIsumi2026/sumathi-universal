@@ -38,7 +38,7 @@ export default function WhatWeDoSection() {
       });
     };
 
-    // Watch for the section entering the viewport
+    // Watch for the section entering the viewport for desktop intro
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -59,6 +59,34 @@ export default function WhatWeDoSection() {
       timersRef.current.forEach(clearTimeout);
       timersRef.current = [];
     };
+  }, []);
+
+  // Mobile scroll-spy for active cards
+  useEffect(() => {
+    if (window.innerWidth > 1180) return;
+    const cards = document.querySelectorAll('.what-we-do-card');
+    if (!cards.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('what-we-do-card--mobile-active');
+          } else {
+            entry.target.classList.remove('what-we-do-card--mobile-active');
+          }
+        });
+      },
+      {
+        
+        rootMargin: '-25% 0px -25% 0px',
+        threshold: 0,
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
