@@ -73,7 +73,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.sumathiprinters.lk',
           email: 'info@sumathiprinters.lk',
           phone: '+94 77 42 6900 ',
-          address: 'Sri Lanka.',
+          address: '445 Sirimavo Bandaranaike Mawatha, Colombo 14.',
         },
         shortDescription:
           'Sumathi Printers delivers professional printing solutions for commercial, publication, packaging, and corporate requirements.',
@@ -96,7 +96,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.napco.lk',
           email: 'info@napco.lk',
           phone: '+94 112 910 015',
-          address: 'Sri Lanka.',
+          address: 'No. 17, Fathima Mawatha, Off Makola Road, Kiribathgoda.',
         },
         shortDescription:
           'NAPCO supports the printing and publishing ecosystem with specialised printing and production services.',
@@ -125,7 +125,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.octagonforce.com',
           email: 'info@octagonforce.lk',
           phone: '+94 11 242 1294',
-          address: '445/1 Sirimavo Bandaranayaka Mawatha, Colombo 14.',
+          address: '445 Sirimavo Bandaranaike Mawatha, Colombo 14.',
         },
         shortDescription:
           'Octagon Force provides security and operational support services for businesses and institutions.',
@@ -147,7 +147,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.octagon.lk',
           email: 'sales@octagon.lk',
           phone: '+94 11 234 4444',
-          address: '445/1 Sirimavo Bandaranayaka Mawatha, Colombo 14.',
+          address: '445 Sirimavo Bandaranaike Mawatha, Colombo 14.',
         },
         shortDescription:
           'Octagon Engineering delivers engineering and technical solutions for modern infrastructure and business needs.',
@@ -227,7 +227,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.suko.lk',
           email: 'info@suko.lk',
           phone: '+94 112 697 106',
-          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
+          address: '445 Sirimavo Bandaranaike Mawatha, Colombo 14.',
         },
         shortDescription:
           'SUKO provides architectural and design solutions with a focus on functional, modern, and sustainable spaces.',
@@ -257,7 +257,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.sumathihospitality.lk',
           email: 'info@sumathihospitality.lk',
           phone: '+94 112 697 106',
-          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10, Sri Lanka.',
+          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10.',
         },
         shortDescription:
           'Sumathi Hospitality manages hospitality-focused ventures that create quality service experiences.',
@@ -308,7 +308,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.sumathiuniversaltrading.lk',
           email: 'info@sumathiuniversaltrading.lk',
           phone: '+94 112 421 294',
-          address: '445, Sirimavo Bandaranaike Mawatha, Colombo 14. Sri Lanka.',
+          address: '445, Sirimavo Bandaranaike Mawatha, Colombo 14.',
         },
         shortDescription:
           'Sumathi Universal Trading focuses on imports, distribution, procurement, and commerce-related business operations.',
@@ -331,7 +331,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.thi.lk',
           email: 'info@thi.lk',
           phone: '+94 11 291 0015',
-          address: '445/1, Sirimavo Bandaranaike Mawatha, Colombo 14. Sri Lanka.',
+          address: '445, Sirimavo Bandaranaike Mawatha, Colombo 14.',
         },
         shortDescription:
           'THi.lk supports the trading and commerce category through digital commerce and online business solutions.',
@@ -359,8 +359,8 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sumathieventainment.lk',
           email: 'info@sumathientertainment.lk',
-          phone: '+(94) 112 697 106',
-          address: 'Sri Lanka.',
+          phone: '+94 112 697 106',
+          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10.',
         },
         shortDescription:
           'Sumathi Entertainment supports entertainment, media, and event-related business activities within the group.',
@@ -382,7 +382,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.sumathieventainment.lk',
           email: 'info@sumathifilms.lk',
           phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10.',
         },
         shortDescription:
           'Sumathi Films contributes to the entertainment category through film and media-related productions.',
@@ -404,7 +404,7 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
           website: 'www.sumathiawards.lk',
           email: 'info@sumathiawards.lk',
           phone: '+94 XX XXX XXXX',
-          address: 'Sri Lanka.',
+          address: 'No.02, Dr.Milina Sumathipala Mawatha, Colombo 10.',
         },
         shortDescription:
           'Sumathi Awards celebrates excellence in entertainment, media, and creative performance.',
@@ -432,8 +432,8 @@ export const companyTimelineCategories: CompanyTimelineCategory[] = [
         contact: {
           website: 'www.sumathiventures.com',
           email: 'info@sumathiventures.com',
-          phone: '+(94) 11 269 7106',
-          address: 'No.758, Baseline Road, Colombo 09, Sri Lanka.',
+          phone: '+94 11 269 7106',
+          address: 'No.758, Baseline Road, Colombo 09.',
         },
         shortDescription:
           'Sumathi Ventures focuses on strategic investments, partnerships, and new business opportunities.',
