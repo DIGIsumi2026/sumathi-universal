@@ -25,7 +25,9 @@ const Footer: React.FC = () => {
           
           {/* Section 1: Company Info */}
           <div className="site-footer-col">
-            <img src={imageAssets.brand.companyLogo} alt="Sumathi Universal Logo" className="site-footer-logo" />
+            <Link to="/" onClick={scrollToTop}>
+              <img src={imageAssets.brand.companyLogo} alt="Sumathi Universal Logo" className="site-footer-logo" />
+            </Link>
             <p className="site-footer-description">
               Sumathi Universal delivers specialized services across diverse sectors with a commitment to excellence, innovation and unwavering reliability.
             </p>
