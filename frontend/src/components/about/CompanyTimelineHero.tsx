@@ -383,10 +383,11 @@ export default function CompanyTimelineHero() {
         }`}
       >
         {isExpanded ? (
-          <CategoryPills mode="scroll" />
+          <CategoryPills mode="marquee" />
         ) : (
           <>
             <div className="company-timeline-track-scroll">
+
               <div className="company-timeline-track">
                 <div className="company-timeline-line" />
 
