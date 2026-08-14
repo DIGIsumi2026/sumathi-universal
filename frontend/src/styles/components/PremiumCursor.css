@@ -19,12 +19,22 @@ body.premium-cursor-active * {
   will-change: transform;
 }
 
+/* Apply mix-blend-mode ONLY to the default, text, and precise states */
+.premium-cursor-core.state-default,
+.premium-cursor-ring.state-default,
+.premium-cursor-core.state-text,
+.premium-cursor-ring.state-text,
+.premium-cursor-core.state-precise,
+.premium-cursor-ring.state-precise {
+  mix-blend-mode: difference;
+}
+
 /* ── 1. Cursor Core (The Dot) ── */
 .premium-cursor-core {
   width: 8px;
   height: 8px;
   margin: -4px 0 0 -4px;
-  background-color: #030a8c;
+  background-color: #ffffff;
   border-radius: 50%;
   transition:
     opacity 0.25s ease,
@@ -40,7 +50,7 @@ body.premium-cursor-active * {
   width: 40px;
   height: 40px;
   margin: -20px 0 0 -20px;
-  border: 1.5px solid rgba(3, 10, 140, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 1);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -87,13 +97,13 @@ body.premium-cursor-active * {
   width: 8px;
   height: 8px;
   margin: -4px 0 0 -4px;
-  background-color: #030a8c;
+  background-color: #ffffff;
 }
 .premium-cursor-ring.state-default {
   width: 40px;
   height: 40px;
   margin: -20px 0 0 -20px;
-  border-color: rgba(3, 10, 140, 0.35);
+  border-color: rgba(255, 255, 255, 0.5);
   background-color: transparent;
 }
 
@@ -108,8 +118,8 @@ body.premium-cursor-active * {
   width: 52px;
   height: 52px;
   margin: -26px 0 0 -26px;
-  border-color: rgba(3, 10, 140, 0.12);
-  background-color: rgba(3, 10, 140, 0.04);
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 /* =========================================================================
@@ -120,13 +130,13 @@ body.premium-cursor-active * {
   width: 6px;
   height: 6px;
   margin: -3px 0 0 -3px;
-  background-color: #030a8c;
+  background-color: #ffffff;
 }
 .premium-cursor-ring.state-precise {
   width: 22px;
   height: 22px;
   margin: -11px 0 0 -11px;
-  border-color: #030a8c;
+  border-color: #ffffff;
   background-color: transparent;
 }
 

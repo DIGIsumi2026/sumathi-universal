@@ -1,4 +1,5 @@
 import { imageAssets } from '../../data/imageAssets';
+import '../../styles/pages/about.css';
 
 export default function FamilyLegacySection() {
   return (
