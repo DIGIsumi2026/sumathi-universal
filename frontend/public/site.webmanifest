@@ -1,0 +1,26 @@
+{
+  "name": "Sumathi Universal",
+  "short_name": "Sumathi",
+  "description": "Diversified business group in Sri Lanka delivering specialized services across technology, engineering, printing, security, trading, and hospitality.",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#030a8c",
+  "background_color": "#020b18",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
