@@ -66,7 +66,7 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
     return () => {
       window.clearInterval(autoplay);
     };
-  }, [isMobile, section.gallery.length, isZoomOpen, goNext]);
+  }, [isMobile, section.gallery.length, isZoomOpen, goNext, activeIndex]);
 
   /* desktop zoom mode: disable body scroll, nav, scroll-up button through body class */
   useEffect(() => {
@@ -133,21 +133,15 @@ function CSRFoundationCard({ section }: { section: CSRSectionItem }) {
   };
 
   const handleTouchStart = (event: TouchEvent<HTMLButtonElement>) => {
-    if (!isMobile) return;
-
     touchStartX.current = event.touches[0].clientX;
     touchEndX.current = null;
   };
 
   const handleTouchMove = (event: TouchEvent<HTMLButtonElement>) => {
-    if (!isMobile) return;
-
     touchEndX.current = event.touches[0].clientX;
   };
 
   const handleTouchEnd = () => {
-    if (!isMobile) return;
-
     const startX = touchStartX.current;
     const endX = touchEndX.current;
 

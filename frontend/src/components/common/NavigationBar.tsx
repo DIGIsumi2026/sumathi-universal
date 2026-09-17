@@ -61,6 +61,8 @@ const NavigationBar = () => {
     };
   }, [sidebarOpen]);
 
+  const isHoveredRef = useRef(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
@@ -82,15 +84,21 @@ const NavigationBar = () => {
           if (hideScrollNavTimer.current) {
             clearTimeout(hideScrollNavTimer.current);
           }
-          hideScrollNavTimer.current = setTimeout(() => {
-            setShowScrollNav(false);
-            hideScrollNavTimer.current = null;
-          }, 2800);
+          if (!isHoveredRef.current) {
+            hideScrollNavTimer.current = setTimeout(() => {
+              if (!isHoveredRef.current) {
+                setShowScrollNav(false);
+              }
+              hideScrollNavTimer.current = null;
+            }, 2800);
+          }
         } else {
-          setShowScrollNav(false);
-          if (hideScrollNavTimer.current) {
-            clearTimeout(hideScrollNavTimer.current);
-            hideScrollNavTimer.current = null;
+          if (!isHoveredRef.current) {
+            setShowScrollNav(false);
+            if (hideScrollNavTimer.current) {
+              clearTimeout(hideScrollNavTimer.current);
+              hideScrollNavTimer.current = null;
+            }
           }
         }
       }
@@ -110,13 +118,36 @@ const NavigationBar = () => {
     };
   }, []);
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    isHoveredRef.current = true;
+    setIsHovered(true);
+    if (hideScrollNavTimer.current) {
+      clearTimeout(hideScrollNavTimer.current);
+      hideScrollNavTimer.current = null;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    isHoveredRef.current = false;
+    setIsHovered(false);
+    
+    // Hide immediately on hover out if we are scrolled down
+    if (isScrolled) {
+      setShowScrollNav(false);
+    }
+  };
+
   return (
     <>
       <AnimatePresence mode="wait">
-        {(!isScrolled || showScrollNav) && (
+        {(!isScrolled || showScrollNav || isHovered) && (
         <motion.header
           key={isScrolled ? 'scroll-navbar' : 'default-navbar'}
           className={`navbar ${isScrolled ? 'navbar-scrolled navbar-scroll-visible' : 'navbar-default'}`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           initial={
             isScrolled
               ? { y: -20, opacity: 0, scale: 0.98, borderRadius: '999px' }

@@ -50,11 +50,11 @@ import missionImage from "../assets/images/about/mission.webp";
 import rabbitLogo  from "../assets/images/about/company showcase/rabbit-logo.webp";
 import rabbitBg from "../assets/images/about/company showcase/rabbit-bg.webp";
 import printersLogo from "../assets/images/about/company showcase/printers-logo.webp";
-import printersBg from "../assets/images/about/company showcase/printers-bg.webp";
+import printersBg from "../assets/images/about/company showcase/printers-bg.avif";
 import napcoLogo from "../assets/images/about/company showcase/napco-logo.webp";
 import napcoBg from "../assets/images/about/company showcase/napco-bg.webp";
 import octagonforceLogo from "../assets/images/about/company showcase/octagon-logo.webp";
-import octagonforceBg from "../assets/images/about/company showcase/octagon-bg.webp";
+import octagonforceBg from "../assets/images/about/company showcase/octagon-bg.avif";
 import engineeringLogo from "../assets/images/about/company showcase/egineering-logo.webp";
 import engineeringBg from "../assets/images/about/company showcase/engineering-bg.webp";
 import sumishakthiLogo from "../assets/images/about/company showcase/sumishakthi-logo.webp";
@@ -68,15 +68,15 @@ import hospitalityBg from "../assets/images/about/company showcase/hospitality-b
 import butlersLogo from "../assets/images/about/company showcase/butlers-logo.webp";
 import butlersBg from '../assets/images/about/company showcase/butlers-bg.webp';
 import tradingLogo from "../assets/images/about/company showcase/tradibg-logo.webp";
-import tradingBg from "../assets/images/about/company showcase/trading-bg.webp";
+import tradingBg from "../assets/images/about/company showcase/tradibg-logo.webp";
 import thiLogo from "../assets/images/about/company showcase/THi-logo.webp";
-import thiBg from "../assets/images/about/company showcase/THi-bg.webp";
+import thiBg from "../assets/images/about/company showcase/THi-bg.avif";
 import entertainmentLogo from "../assets/images/about/company showcase/entertainment-logo.webp";
-import entertainmentBg from "../assets/images/about/company showcase/hospitality-bg.webp";
+import entertainmentBg from "../assets/images/about/company showcase/entertainment-bg.webp";
 import filmsLogo from "../assets/images/about/company showcase/sumathifilms-logo.webp";
 import filmsBg from "../assets/images/about/company showcase/sumathifilms-bg.webp";
 import awardsLogo from "../assets/images/about/company showcase/awards-logo.webp";
-import awardsBg from "../assets/images/about/company showcase/awards-bg.webp";
+import awardsBg from "../assets/images/about/company showcase/awards-bg.avif";
 import venturesLogo from "../assets/images/about/company showcase/vetures-logo.webp";
 import venturesBg from "../assets/images/about/company showcase/ventures-bg.webp";
 
@@ -126,7 +126,7 @@ import csrSumathiAwardsLeftBg from '../assets/images/csr/sumathi-awards/left-bg.
 import csrSumathiAwardsGalleryBg from '../assets/images/csr/sumathi-awards/gallery-bg.webp';
 
 import csrSumathiAwardsGallery1 from '../assets/images/csr/sumathi-awards/gallery-1.webp';
-import csrSumathiAwardsGallery2 from '../assets/images/csr/sumathi-awards/gallery-2.webp';
+import csrSumathiAwardsGallery2 from '../assets/images/csr/sumathi-awards/gallery-2.avif';
 import csrSumathiAwardsGallery3 from '../assets/images/csr/sumathi-awards/gallery-3.webp';
 import csrSumathiAwardsGallery4 from '../assets/images/csr/sumathi-awards/gallery-4.webp';
 import csrSumathiAwardsGallery5 from '../assets/images/csr/sumathi-awards/gallery-5.webp';
