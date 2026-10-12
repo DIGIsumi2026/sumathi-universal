@@ -1,5 +1,5 @@
 import { ArrowDown, Mail, PhoneCall } from 'lucide-react';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 
 export default function ContactHero() {
   const scrollToContact = () => {

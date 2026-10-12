@@ -1,4 +1,5 @@
-import { imageAssets } from './imageAssets';
+import { imageAssets } from '../assets/imageAssets';
+import { getCorporateContact } from './corporateCompanies';
 
 export type ContactSubsidiaryCompany = {
   name: string;
@@ -25,18 +26,8 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     description:
       'Professional printing, packaging, publication and commercial production services.',
     companies: [
-      {
-        name: 'Sumathi Printers',
-        phone: '+94 77 642 6900',
-        phoneHref: '+94776426900',
-        email: 'info@sumathiuniversal.com',
-      },
-      {
-        name: 'Napco',
-        phone: '+94 71 653 2112',
-        phoneHref: '+94112910015',
-        email: 'info@napco.lk',
-      },
+      getCorporateContact('sumathi-printers'),
+      getCorporateContact('napco'),
     ],
   },
   {
@@ -47,18 +38,8 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     description:
       'Engineering, facility, technical maintenance and security service operations.',
     companies: [
-      {
-        name: 'Octagon Engineering',
-        phone: '+94 112 344 444',
-        phoneHref: '+94112344444',
-        email: 'sales@octagon.lk',
-      },
-      {
-        name: 'Octagon Force',
-        phone: '+94 112 344 444',
-        phoneHref: '+94112344444',
-        email: 'info@octagonforce.com',
-      },
+      getCorporateContact('octagon-engineering'),
+      getCorporateContact('octagon-force'),
     ],
   },
   {
@@ -69,18 +50,8 @@ export const contactSubsidiariesData: ContactSubsidiaryGroup[] = [
     description:
       'Technology solutions, software services, digital transformation, trading and commerce.',
     companies: [
-      {
-        name: 'Rabbit Solutions',
-        phone: '+94 11 211 8130',
-        phoneHref: '+94112118130',
-        email: 'info@rabbit.lk',
-      },
-      {
-        name: 'Sumathi Universal Trading',
-        phone: '+94 112 421 294',
-        phoneHref: '+94112421294',
-        email: 'info@sut.lk',
-      },
+      getCorporateContact('rabbit-solutions'),
+      getCorporateContact('sumathi-universal-trading'),
     ],
   },
 ];

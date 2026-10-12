@@ -1,5 +1,5 @@
 import { type FormEvent } from 'react';
-import { Building2, Mail, MapPin, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 
 export default function ContactMapFormSection() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {

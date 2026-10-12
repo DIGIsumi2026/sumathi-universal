@@ -1,4 +1,4 @@
-import { imageAssets } from './imageAssets';
+import { imageAssets } from '../assets/imageAssets';
 
 export type ManagementProfile = {
   id: string;

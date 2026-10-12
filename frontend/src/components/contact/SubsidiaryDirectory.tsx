@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ChevronRight, Mail, PhoneCall } from 'lucide-react';
+import { Mail, PhoneCall } from 'lucide-react';
 import { contactSubsidiariesData } from '../../data/contactSubsidiariesData';
 
 export default function SubsidiaryDirectory() {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 
 export default function HomeContactCTA() {
   const whatsappNumber = '94716824520';

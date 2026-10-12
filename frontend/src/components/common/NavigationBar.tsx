@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Instagram, Linkedin, Menu, X } from 'lucide-react';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 import '../../styles/components/navigationBar.css';
 
 const WhatsappIcon = ({ size = 20 }) => (

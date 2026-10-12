@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 
 export default function AboutIntroSection() {
   const sectionRef = useRef<HTMLElement | null>(null);

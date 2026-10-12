@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown } from 'lucide-react';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 import { videoAssets } from '../../data/videoAssets';
 
 export default function CSRHero() {

@@ -1,4 +1,4 @@
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 import '../../styles/pages/about.css';
 
 export default function FamilyLegacySection() {

@@ -6,7 +6,6 @@ type ParticleNode = {
   velocity: THREE.Vector3;
 };
 
-const BRAND_BLUE = '#073673';
 const BRIGHT_BLUE = '#2f8dff';
 const LIGHT_BLUE = '#9fdcff';
 

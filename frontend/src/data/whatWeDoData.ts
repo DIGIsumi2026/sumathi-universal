@@ -1,5 +1,5 @@
 import { BarChart3, BriefcaseBusiness, HandHeart, Layers3 } from 'lucide-react';
-import { imageAssets } from './imageAssets';
+import { imageAssets } from '../assets/imageAssets';
 
 export const whatWeDoData = [
   {

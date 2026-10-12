@@ -508,24 +508,6 @@ u {
   .cta-copy h2,
   .brands-head h2 { font-size: clamp(2.2rem, 11vw, 3.6rem); }
 }
-.side-tools {
-  position: fixed;
-  right: 0;
-  top: 57vh;
-  z-index: 70;
-}
-.side-tools button {
-  width: 44px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  background: var(--gradient);
-  border-radius: 14px 0 0 14px;
-  box-shadow: 0 14px 35px rgba(124,77,255,.24);
-}
-.side-tools svg { animation: spinSlow 4s linear infinite; }
-@keyframes spinSlow { to { transform: rotate(360deg); } }
 .footer-brand img {
   width: 160px;
   height: auto;

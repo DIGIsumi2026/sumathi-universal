@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { imageAssets } from '../../data/imageAssets';
 import { videoAssets } from '../../data/videoAssets';
 
 export default function IntroLogoVideo() {

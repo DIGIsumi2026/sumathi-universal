@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 
 const companyLogos = [
   {

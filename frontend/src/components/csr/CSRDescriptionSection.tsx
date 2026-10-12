@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 
 export default function CSRDescriptionSection() {
   const shouldReduceMotion = useReducedMotion();

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/global.css'
 import { Link } from 'react-router-dom';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 
   const scrollToTop = () => {

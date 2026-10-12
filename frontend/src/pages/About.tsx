@@ -3,11 +3,10 @@ import '../styles/pages/about.css';
 import AboutHeroVideo from '../components/about/AboutHeroVideo';
 import AboutIntroSection from '../components/about/AboutIntroSection';
 import VisionMissionSection from '../components/about/VisionMissionSection';
-import CompanyLogoGridSection from '../components/about/CompanyLogoGridSection';
 
 // GroupAtGlanceSection pulls in GroupGlanceParticles (Three.js) — lazy-load
 const GroupAtGlanceSection = lazy(() => import('../components/about/GroupAtGlanceSection'));
-// CompanyTimelineHero is a large interactive component — lazy-load
+// Load the interactive company showcase when the About page is displayed.
 const CompanyTimelineHero = lazy(() => import('../components/about/CompanyTimelineHero'));
 
 
@@ -23,7 +22,6 @@ export default function About() {
       <Suspense fallback={null}>
         <CompanyTimelineHero/>
       </Suspense>
-      <CompanyLogoGridSection/>
     </>
   );
 }

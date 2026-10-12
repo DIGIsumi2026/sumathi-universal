@@ -5,7 +5,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from 'framer-motion';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 
 type PanelType = 'vision' | 'mission';
 

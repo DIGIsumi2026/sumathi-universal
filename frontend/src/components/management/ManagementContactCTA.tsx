@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle } from 'lucide-react';
-import { imageAssets } from '../../data/imageAssets';
+import { imageAssets } from '../../assets/imageAssets';
 
 export default function ManagementContactCTA() {
   const whatsappNumber = '94716824520';
