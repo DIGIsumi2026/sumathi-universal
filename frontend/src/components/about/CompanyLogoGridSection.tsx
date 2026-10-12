@@ -1,5 +1,5 @@
 import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
-import { ArrowUpRight, Plus, X } from 'lucide-react';
+import { ArrowUpRight, Plus } from 'lucide-react';
 import { animate, stagger, type JSAnimation } from 'animejs';
 import { gsap } from 'gsap';
 import { corporateCompanies, getCorporateCompanyPreview, type CorporateCompany } from '../../data/corporateCompanies';
@@ -53,14 +53,16 @@ export default function CompanyLogoGridSection() {
     if (!grid || !tile) return null;
     const cellWidth = grid.clientWidth / 5;
     const column = index % 5;
-    const left = clamp((column <= 2 ? column + 1 : column - 2) * cellWidth, 0, grid.clientWidth - cellWidth * 2);
+    const width = cellWidth * 1.8;
+    const height = grid.clientHeight * 0.88;
+    const left = clamp(column <= 2 ? (column + 1) * cellWidth : column * cellWidth - width, 0, grid.clientWidth - width);
     // Layout offsets remain stable while the initial scroll reveal transforms tiles.
     return {
       left,
-      width: cellWidth * 2,
-      height: grid.clientHeight,
-      x: clamp(tile.offsetLeft + tile.offsetWidth - 19 - left, 0, cellWidth * 2),
-      y: clamp(tile.offsetTop + 19, 0, grid.clientHeight),
+      width,
+      height,
+      x: clamp(tile.offsetLeft + tile.offsetWidth - 19 - left, 0, width),
+      y: clamp(tile.offsetTop + 19, 0, height),
     };
   }, []);
 
@@ -259,7 +261,6 @@ export default function CompanyLogoGridSection() {
             </a>
           )}
         </div>
-        <button type="button" className="corporate-company-close" onClick={dismiss} aria-label={`Close ${item.name} details`}><X size={18} aria-hidden="true" /></button>
       </div>
     );
   };

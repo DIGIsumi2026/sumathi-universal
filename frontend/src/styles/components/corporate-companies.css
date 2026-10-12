@@ -85,7 +85,6 @@
   object-fit: contain;
 }
 .corporate-company-tile-action:focus-visible,
-.corporate-company-close:focus-visible,
 .corporate-company-website:focus-visible {
   outline: 3px solid var(--purple);
   outline-offset: -4px;
@@ -148,6 +147,14 @@
   bottom: 25px;
   left: 26px;
 }
+.corporate-company-preview.is-floating .corporate-company-preview-content {
+  right: 22px;
+  bottom: 22px;
+  left: 22px;
+}
+.corporate-company-preview.is-floating .corporate-company-preview-content h3 {
+  font-size: clamp(21px, 2.2vw, 30px);
+}
 .corporate-company-preview-metric {
   display: block;
   margin-bottom: 8px;
@@ -184,22 +191,8 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-.corporate-company-website:focus-visible,
-.corporate-company-close:focus-visible {
+.corporate-company-website:focus-visible {
   outline-color: #fff;
-}
-.corporate-company-close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgb(255 255 255 / 40%);
-  border-radius: 50%;
-  background: rgb(21 20 32 / 60%);
-  color: #fff;
 }
 .corporate-company-inline-shell {
   grid-column: 1 / -1;
