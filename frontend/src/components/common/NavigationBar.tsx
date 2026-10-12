@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Menu, X } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { imageAssets } from '../../assets/imageAssets';
 import '../../styles/components/navigationBar.css';
+import MobileSidebar from './MobileSidebar';
+import { siteContact } from '../../data/siteContact';
 
 const WhatsappIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -32,34 +34,38 @@ const NavigationBar = () => {
   const lastScrollY = useRef(0);
   const hideScrollNavTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 1024px)').matches);
+  const [menuPresent, setMenuPresent] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuOpenRef = useRef(sidebarOpen);
+  menuOpenRef.current = sidebarOpen;
+  const location = useLocation();
+  const reduceMotion = useReducedMotion();
+  const closeMobileMenu = useCallback(() => setSidebarOpen(false), []);
+  const finishMobileExit = useCallback(() => {
+    if (!menuOpenRef.current) setMenuPresent(false);
+  }, []);
+
+  useEffect(() => { closeMobileMenu(); }, [location.key, closeMobileMenu]);
+
   useEffect(() => {
-    if (sidebarOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.classList.add('sidebar-active');
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.classList.remove('sidebar-active');
-      if (scrollY) {
-        window.scrollTo(0, -parseInt(scrollY || '0', 10));
-      }
-    }
-    return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.classList.remove('sidebar-active');
-      if (scrollY) {
-        window.scrollTo(0, -parseInt(scrollY || '0', 10));
+    const breakpoint = window.matchMedia('(max-width: 1024px)');
+    const updateLayout = () => {
+      setIsMobile(breakpoint.matches);
+      isHoveredRef.current = false;
+      setIsHovered(false);
+      lastScrollY.current = window.scrollY;
+      if (hideScrollNavTimer.current) clearTimeout(hideScrollNavTimer.current);
+      if (!breakpoint.matches) {
+        setShowScrollNav(window.scrollY > 80);
+        setSidebarOpen(false);
+        setMenuPresent(false);
       }
     };
-  }, [sidebarOpen]);
+    breakpoint.addEventListener('change', updateLayout);
+    return () => breakpoint.removeEventListener('change', updateLayout);
+  }, []);
 
   const isHoveredRef = useRef(false);
 
@@ -86,7 +92,7 @@ const NavigationBar = () => {
           }
           if (!isHoveredRef.current) {
             hideScrollNavTimer.current = setTimeout(() => {
-              if (!isHoveredRef.current) {
+              if (!isHoveredRef.current && !menuOpenRef.current) {
                 setShowScrollNav(false);
               }
               hideScrollNavTimer.current = null;
@@ -134,22 +140,27 @@ const NavigationBar = () => {
     setIsHovered(false);
     
     // Hide immediately on hover out if we are scrolled down
-    if (isScrolled) {
+    if (isScrolled && !menuOpenRef.current) {
       setShowScrollNav(false);
     }
   };
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        {(!isScrolled || showScrollNav || isHovered) && (
+      <AnimatePresence mode={isMobile ? 'sync' : 'wait'}>
+        {(!isScrolled || showScrollNav || isHovered || (isMobile && menuPresent)) && (
         <motion.header
           key={isScrolled ? 'scroll-navbar' : 'default-navbar'}
-          className={`navbar ${isScrolled ? 'navbar-scrolled navbar-scroll-visible' : 'navbar-default'}`}
+          ref={headerRef}
+          role={isMobile && menuPresent ? 'dialog' : undefined}
+          aria-modal={isMobile && menuPresent ? true : undefined}
+          aria-label={isMobile && menuPresent ? 'Main navigation' : undefined}
+          data-lenis-prevent={isMobile && menuPresent ? true : undefined}
+          className={`navbar ${isScrolled ? 'navbar-scrolled navbar-scroll-visible' : 'navbar-default'}${isMobile ? ' mobile-navigation-enabled' : ''}`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           initial={
-            isScrolled
+            isMobile && reduceMotion ? false : isScrolled
               ? { y: -20, opacity: 0, scale: 0.98, borderRadius: '999px' }
               : { y: -30, opacity: 0 }
           }
@@ -158,16 +169,16 @@ const NavigationBar = () => {
               ? { y: 0, opacity: 1, scale: 1, borderRadius: '999px' }
               : { y: 0, opacity: 1 }
           }
-          exit={{ y: -20, opacity: 0 }}
+          exit={{ y: isMobile && reduceMotion ? 0 : -20, opacity: 0 }}
           transition={{
-            duration: 0.65,
+            duration: isMobile && reduceMotion ? 0 : 0.65,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
           <div className="navbar-shell">
             <div className="navbar-inner">
               <NavLink to="/" className="navbar-logo" data-cursor-type="precise">
-                <img src={imageAssets.brand.companyLogo} alt="Company Logo" />
+                <img src={imageAssets.brand.companyLogo} alt="Sumathi Universal" />
               </NavLink>
 
               <nav className="navbar-links">
@@ -199,12 +210,22 @@ const NavigationBar = () => {
 
               <div className="navbar-actions">
                 <button
+                  ref={menuButtonRef}
+                  type="button"
                   className="navbar-menu-btn"
-                  onClick={() => setSidebarOpen(true)}
-                  aria-label="Open sidebar"
+                  onClick={() => {
+                    if (!sidebarOpen) {
+                      setMenuPresent(true);
+                      if (hideScrollNavTimer.current) clearTimeout(hideScrollNavTimer.current);
+                    }
+                    setSidebarOpen(!sidebarOpen);
+                  }}
+                  aria-label={sidebarOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                  aria-expanded={sidebarOpen}
+                  aria-controls="mobile-navigation"
                   data-cursor-type="precise"
                 >
-                  <Menu size={24} />
+                  <span className={`navbar-menu-icon${sidebarOpen ? ' is-open' : ''}`} aria-hidden="true"><span /><span /><span /></span>
                 </button>
               </div>
             </div>
@@ -224,93 +245,23 @@ const NavigationBar = () => {
                 </a>
               ))}
             </div>
+            <MobileSidebar
+              open={isMobile && sidebarOpen}
+              active={isMobile && menuPresent}
+              onClose={closeMobileMenu}
+              onExitComplete={finishMobileExit}
+              headerRef={headerRef}
+              toggleRef={menuButtonRef}
+              links={navLinks}
+              contact={siteContact}
+              socials={[...socialLinks, { label: 'WhatsApp', href: 'https://wa.me/94716824520', Icon: WhatsappIcon }]}
+            />
           </div>
         </motion.header>
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
-        {sidebarOpen && (
-          <motion.aside
-            className="sidebar-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSidebarOpen(false)}
-          >
-            <motion.div
-              className="sidebar-panel"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className="sidebar-close"
-                onClick={() => setSidebarOpen(false)}
-                aria-label="Close sidebar"
-              >
-                <X size={26} />
-              </button>
 
-              <img
-                src={imageAssets.brand.companyLogo}
-                alt="Company Logo"
-                className="sidebar-logo"
-              />
-
-              <div className="sidebar-links">
-                {navLinks.map((link) =>
-                  link.label === 'Contact' ? (
-                    <NavLink
-                      key={link.label}
-                      to={link.path}
-                      onClick={() => setSidebarOpen(false)}
-                      className="nav-contact-btn"
-                      style={{ marginTop: '20px', alignSelf: 'center' }}
-                    >
-                      {link.label}
-                    </NavLink>
-                  ) : (
-                    <NavLink
-                      key={link.label}
-                      to={link.path}
-                      onClick={() => setSidebarOpen(false)}
-                    >
-                      {link.label}
-                    </NavLink>
-                  )
-                )}
-              </div>
-
-              <div className="sidebar-socials">
-                {socialLinks.map(({ label, href, Icon, cursorColor }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    data-cursor-type="social"
-                    data-cursor-text={label}
-                    data-cursor-color={cursorColor}
-                  >
-                    <Icon size={20} />
-                  </a>
-                ))}
-                <a
-                  href="https://wa.me/94716824520"
-                  aria-label="WhatsApp"
-                  data-cursor-type="social"
-                  data-cursor-text="WhatsApp"
-                  data-cursor-color="whatsapp"
-                >
-                  <WhatsappIcon size={20} />
-                </a>
-              </div>
-            </motion.div>
-          </motion.aside>
-        )}
-      </AnimatePresence>
     </>
   );
 };

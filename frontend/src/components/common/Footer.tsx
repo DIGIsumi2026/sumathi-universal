@@ -1,4 +1,5 @@
 import React from 'react';
+import { siteContact } from '../../data/siteContact';
 import '../../styles/global.css'
 import { Link } from 'react-router-dom';
 import { imageAssets } from '../../assets/imageAssets';
@@ -79,20 +80,20 @@ const Footer: React.FC = () => {
               <li>
                 <Phone size={20} className="site-footer-contact-icon" />
                 <a
-                  href="tel:+94112697106"
+                  href={siteContact.phoneHref}
                   data-cursor-type="button"
                   data-cursor-text="Call"
                   data-cursor-color="blue"
-                >+94 11 269 7106</a>
+                >{siteContact.phone}</a>
               </li>
               <li>
                 <Mail size={20} className="site-footer-contact-icon" />
                 <a
-                  href="mailto:info@sumathiuniversal.com"
+                  href={`mailto:${siteContact.email}`}
                   data-cursor-type="button"
                   data-cursor-text="Email"
                   data-cursor-color="blue"
-                >info@sumathiuniversal.com</a>
+                >{siteContact.email}</a>
               </li>
             </ul>
           </div>

@@ -238,106 +238,6 @@
   height: 40px;
 }
 
-/* SIDEBAR */
-.sidebar-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1500;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(6px);
-}
-
-.sidebar-panel {
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  width: 380px;
-  max-width: 86%;
-  height: 100%;
-
-  background: var(--white);
-  padding: 38px 34px;
-  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.16);
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
-}
-
-.sidebar-close {
-  position: absolute;
-  top: 26px;
-  right: 26px;
-
-  border: none;
-  background: transparent;
-  color: var(--primary-blue);
-  cursor: pointer;
-}
-
-.sidebar-logo {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 60px;
-}
-
-.sidebar-links {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
-
-.sidebar-links a {
-  color: var(--text-dark);
-  font-size: 24px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.sidebar-links a:hover {
-  color: var(--primary-blue);
-  transform: translateX(8px);
-}
-
-.sidebar-links .nav-contact-btn {
-  background-color: transparent;
-  color: var(--primary-blue);
-  border: 0.5px solid var(--primary-blue);
-  padding: 10px 26px;
-  border-radius: 999px;
-  font-size: 18px;
-  font-weight: 600;
-  transform: none !important;
-  display: inline-block;
-  align-self: flex-start;
-  transition: all 0.3s ease;
-}
-
-.sidebar-links .nav-contact-btn:hover {
-  background-color: var(--primary-blue);
-  color: var(--primary-blue);
-}
-
-.sidebar-socials {
-  position: absolute;
-  bottom: 38px;
-  left: 34px;
-
-  display: flex;
-  gap: 20px;
-}
-
-.sidebar-socials a {
-  color: var(--text-dark);
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.sidebar-socials a:hover {
-  color: var(--primary-blue);
-  transform: translateY(-3px);
-}
-
 /* RESPONSIVE */
 @media (max-width: 1100px) {
   .navbar-shell {
@@ -413,11 +313,6 @@
     width: 40px;
     height: 40px;
   }
-
-  .sidebar-panel {
-    width: 320px;
-    padding: 34px 28px;
-  }
 }
 
 
@@ -468,12 +363,4 @@
   .navbar-default .navbar-logo img {
     height: 36px;
   }
-}
-
-body.sidebar-active {
-  overflow: hidden;
-}
-
-body.sidebar-active .floating-actions-container {
-  display: none !important;
 }
