@@ -252,7 +252,7 @@
 .management-profiles-header h2 {
   margin: 0;
   color: #061730;
-  font-size: clamp(42px, 4vw, 78px);
+  font-size: clamp(34px, 3.2vw, 62px);
   line-height: 0.99;
   font-weight: 600;
   letter-spacing: -0.007em;
@@ -364,10 +364,10 @@ body.premium-cursor-active .management-profile-card:hover .management-profile-im
 .management-profile-content h3 {
   margin: 0;
   color: #061730;
-  font-size: clamp(36px, 3.6vw, 66px);
+  font-size: clamp(28px, 2.8vw, 52px);
   line-height: 0.98;
   font-weight: 600;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.005em;
 }
 
 .management-profile-qualification {
@@ -520,7 +520,7 @@ body.premium-cursor-active .management-profile-card:hover .management-profile-im
   }
 
   .management-profile-content h3 {
-    font-size: 46px;
+    font-size: 36px;
   }
 
   .management-profile-expanded-body-inner {
@@ -572,7 +572,7 @@ body.premium-cursor-active .management-profile-card:hover .management-profile-im
   }
 
   .management-profile-content h3 {
-    font-size: 42px;
+    font-size: 34px;
     line-height: 1;
   }
 
@@ -620,7 +620,7 @@ body.premium-cursor-active .management-profile-card:hover .management-profile-im
   }
 
   .management-profiles-header h2 {
-    font-size: 34px;
+    font-size: 28px;
   }
 
   .management-profile-image-wrap {
@@ -638,7 +638,7 @@ body.premium-cursor-active .management-profile-card:hover .management-profile-im
   }
 
   .management-profile-content h3 {
-    font-size: 32px;
+    font-size: 26px;
     line-height: 1.04;
   }
 
@@ -691,7 +691,7 @@ body.premium-cursor-active .management-profile-card:hover .management-profile-im
   }
 
   .management-profile-content h3 {
-    font-size: 29px;
+    font-size: 24px;
   }
 
   .management-profile-text p,
