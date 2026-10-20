@@ -8,6 +8,7 @@ export const servicesGalleryData = [
     description:
       'ERP systems, custom software, AI solutions, mobile apps, cloud services, CRM platforms, and digital transformation solutions.',
     image: imageAssets.services.gallery.technologyIt,
+    mobileObjectPosition: '96% center',
   },
   {
     id: '02',
@@ -16,6 +17,7 @@ export const servicesGalleryData = [
     description:
       'Commercial printing, publication printing, packaging, directory printing, and premium corporate printing solutions.',
     image: imageAssets.services.gallery.printing,
+    mobileObjectPosition: '34% center',
   },
   {
     id: '03',
@@ -24,6 +26,7 @@ export const servicesGalleryData = [
     description:
       'Security, transportation, housekeeping, cleaning, waste management, and facility support services for organizations.',
     image: imageAssets.services.gallery.securityFacility,
+    mobileObjectPosition: '10% center',
   },
   {
     id: '04',

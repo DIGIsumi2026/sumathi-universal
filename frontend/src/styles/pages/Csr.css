@@ -214,7 +214,8 @@
   }
 
   .csr-hero-thumbnail {
-    object-position: 63% center;
+    /* Keep the schoolbag handover and the planting activity in frame. */
+    object-position: 78% center;
   }
 
   .csr-hero-section::after {
@@ -257,7 +258,7 @@
   }
 
   .csr-hero-thumbnail {
-    object-position: 66% center;
+    object-position: 78% center;
   }
 
   .csr-hero-content {

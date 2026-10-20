@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { servicesGalleryData } from '../../data/servicesGalleryData';
@@ -58,6 +58,7 @@ export default function ServicesGalleryCarousel() {
             src={activeService.image}
             alt={activeService.title}
             className="services-gallery-image"
+            style={{ '--hero-mobile-position': activeService.mobileObjectPosition } as CSSProperties}
             initial={{ scale: 1.12, x: 42 }}
             animate={{ scale: 1, x: 0 }}
             exit={{ scale: 1.05, x: -42 }}

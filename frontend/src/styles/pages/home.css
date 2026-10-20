@@ -840,6 +840,13 @@
   }
 }
 
+/* Only slides with off-centre subjects override the existing mobile crop. */
+@media (max-width: 768px) {
+  .services-gallery-image {
+    object-position: var(--hero-mobile-position, center);
+  }
+}
+
 @media (max-width: 576px) {
   .services-gallery-hero {
     min-height: 600px;
