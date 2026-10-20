@@ -1,0 +1,36 @@
+.page-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  touch-action: none;
+  overscroll-behavior: contain;
+  cursor: wait;
+}
+
+.page-preloader--leaving { opacity: 0; }
+
+.page-preloader__logo {
+  width: clamp(96px, 16vw, 176px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+  filter: drop-shadow(0 16px 28px rgba(7, 54, 115, 0.18));
+  animation: page-preloader-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes page-preloader-pulse {
+  50% { opacity: 0.55; transform: scale(0.96); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-preloader { transition: none; }
+  .page-preloader__logo { animation: none; }
+}

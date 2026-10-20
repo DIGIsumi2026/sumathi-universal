@@ -14,16 +14,22 @@ export default function ServicesGalleryCarousel() {
 
   useEffect(() => {
     let loadedCount = 0;
-    servicesGalleryData.forEach((service) => {
+    const images = servicesGalleryData.map((service) => {
       const img = new Image();
-      img.src = service.image;
+      let finished = false;
       const handleImageDone = () => {
+        if (finished) return;
+        finished = true;
         loadedCount += 1;
         if (loadedCount === servicesGalleryData.length) setImagesReady(true);
       };
       img.onload = handleImageDone;
       img.onerror = handleImageDone;
+      img.src = service.image;
+      if (img.complete) handleImageDone();
+      return img;
     });
+    return () => { images.forEach((image) => { image.onload = null; image.onerror = null; }); };
   }, []);
 
   useEffect(() => {
@@ -35,10 +41,6 @@ export default function ServicesGalleryCarousel() {
     }, AUTO_PLAY_DELAY);
     return () => window.clearInterval(timer);
   }, [imagesReady]);
-
-  if (!imagesReady) {
-    return <section className="services-gallery-hero services-gallery-loading" />;
-  }
 
   return (
     <section className="services-gallery-hero">
