@@ -762,9 +762,19 @@
 }
 
 .contact-form textarea {
+  height: 142px;
   min-height: 142px;
-  resize: vertical;
+  max-height: 280px;
+  resize: none;
+  overflow-y: auto;
   padding: 16px 18px;
+}
+
+.contact-message-count {
+  justify-self: end;
+  color: rgba(6, 23, 48, 0.65);
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .contact-form input::placeholder,
@@ -940,6 +950,7 @@
   }
 
   .contact-form textarea {
+    height: 130px;
     min-height: 130px;
   }
 }

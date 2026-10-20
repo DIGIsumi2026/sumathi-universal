@@ -1,7 +1,38 @@
-import { type FormEvent } from 'react';
+import { useLayoutEffect, useRef, useState, type FormEvent } from 'react';
 import { Mail, Send } from 'lucide-react';
 
+const MESSAGE_LIMIT = 500;
+
+function resizeMessageField(textarea: HTMLTextAreaElement) {
+  textarea.style.height = 'auto';
+  const borderHeight = textarea.offsetHeight - textarea.clientHeight;
+  const maxHeight = parseFloat(getComputedStyle(textarea).maxHeight);
+  textarea.style.height = `${Math.min(textarea.scrollHeight + borderHeight, maxHeight)}px`;
+}
+
 export default function ContactMapFormSection() {
+  const [message, setMessage] = useState('');
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  useLayoutEffect(() => {
+    if (messageRef.current) resizeMessageField(messageRef.current);
+  }, [message]);
+
+  useLayoutEffect(() => {
+    const textarea = messageRef.current;
+    if (!textarea) return;
+
+    let previousWidth = textarea.clientWidth;
+    const observer = new ResizeObserver(() => {
+      if (textarea.clientWidth !== previousWidth) {
+        previousWidth = textarea.clientWidth;
+        resizeMessageField(textarea);
+      }
+    });
+    observer.observe(textarea);
+    return () => observer.disconnect();
+  }, []);
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -109,11 +140,20 @@ ${message}`
             <label>
               <span>Message</span>
               <textarea
+                ref={messageRef}
                 name="message"
-                rows={6}
+                rows={5}
+                maxLength={MESSAGE_LIMIT}
+                value={message}
+                onChange={(event) => setMessage(event.target.value.slice(0, MESSAGE_LIMIT))}
+                aria-describedby="contact-message-count"
+                data-lenis-prevent
                 placeholder="Write your message here..."
                 required
               />
+              <small id="contact-message-count" className="contact-message-count">
+                {message.length}/{MESSAGE_LIMIT} characters
+              </small>
             </label>
 
             <div className="contact-form-footer">
